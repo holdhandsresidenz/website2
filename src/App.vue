@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style>
+.inline{
+  display: inline;
+}
 .grey {
  background:  #b2b2b2
 }
@@ -55,6 +58,7 @@ html,body {
   font-family: Akzi;
   line-height: 200%;
   font-size: 0.9vw;
+
 }
 *::-webkit-scrollbar {
   width: 11px;
@@ -77,5 +81,14 @@ html,body {
   font-family: 'Narr';
   src: url("assets/fonts/Arial-Narrow.woff") format("woff");
 }
-
+@media all and (min-width: 1920px) {
+  html,body {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 1000px) {
+  html,body {
+    font-size: 11px;
+  }
+}
 </style>

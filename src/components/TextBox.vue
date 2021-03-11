@@ -3,28 +3,48 @@
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
       v-bind:id="this.id"
-      class="container transitionTime minValues"
-      v-bind:style="position">
-    <div class="leftBorder transitionTime " v-bind:style="{height: height}"></div>
+      class="container transitionTime minMaxValues"
+      v-bind:style="this.containerStyle"
+
+  >
 
     <div
-         v-bind:id="this.id + 'content'"
+        v-bind:id="this.id + '-borderL'"
+        class="leftBorder transitionTime minMaxValues"
+        v-bind:style="{
+          height: height,
+          minHeight: minHeightPx+ 'px',
+          }"></div>
+    <p class="inline title">{{title}}</p>
+    <div
+         v-bind:id="this.id + '-content'"
          v-bind:style="{
            height: height,
+           minHeight: minHeightPx + 'px',
+           maxWidth: maxWidthPx + 'px',
            width: !this.open ? '0' : widthOpen,
-           overflowY: !this.open ? 'hidden' : 'auto'
+           overflowY: !this.open ? 'hidden' : 'auto',
+          left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
+
          }"
          class="content transitionTime grey "
     >
-      <slot ></slot>
+
+      <slot></slot>
+
+
     </div>
 
-    <div class="rightBorder transitionTime "
+    <div
+        v-bind:id="this.id + '-borderR'"
+        class="rightBorder transitionTime minMaxValues"
          v-bind:style="{
       height: height,
       position: 'relative',
+      minHeight: minHeightPx + 'px',
     }"
     ></div>
+
   </div>
 </template>
 
@@ -32,10 +52,13 @@
 export default {
   name: "TextBox",
   props: {
+    title: String,
     id: String,
-    position: Object,
+    containerStyle: Object,
     height: String,
     widthOpen: String,
+    maxWidthPx: Number,
+    minHeightPx: Number,
     currentPositionVw: Number,
     openAtVw: Number,
     closeAtVw: Number
@@ -46,6 +69,15 @@ export default {
   computed: {
     open() {
       return !(this.currentPositionVw <= this.openAtVw || this.currentPositionVw >= this.closeAtVw);
+    },
+    screenW() {
+      return screen.width
+    },
+    screenH() {
+      return screen.height
+    },
+    offsetLeftAtMaxWidth() {
+      return this.maxWidthPx * 0.61
     }
   },
   methods: {
@@ -63,10 +95,15 @@ export default {
 </script>
 
 <style scoped>
-.minValues {
-  min-height: 250px;
-  max-width: 800px;
+.minMaxValues {
+
 }
+.title {
+  position: absolute;
+  left: 2vw;
+  z-index: 101;
+}
+
 
 *::-webkit-scrollbar {
   width: 0.8vw;
@@ -85,7 +122,6 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  left: -3.3vw;
   padding-left: 1.3vw;
 }
 
