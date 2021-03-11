@@ -108,9 +108,16 @@ export default {
 }
 @media all and (max-width: 1000px) {
   #background {
-    transform: rotate(90deg) translateY(25vw);
+    transform:rotate(90deg)  translateY(-100%);
+    transform-origin: top left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100vh;
     height: 100vw;
+
   }
 }
 </style>

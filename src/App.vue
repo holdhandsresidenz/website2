@@ -89,6 +89,8 @@ html,body {
 @media all and (max-width: 1000px) {
   html,body {
     font-size: 11px;
+
   }
+
 }
 </style>
