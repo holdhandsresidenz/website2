@@ -143,4 +143,19 @@ export default {
   z-index: 100;
 }
 
+@media all and (max-width: 1000px) {
+  .container {
+    flex-direction: row;
+
+  }
+  .content {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+  }
+  .rightBorder {
+
+  }
+}
+
 </style>

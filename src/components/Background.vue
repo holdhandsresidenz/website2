@@ -6,6 +6,7 @@
       @wheel="wheel"
       class="red"
   >
+    <img src="../assets/Logo.png" id="logo">
     <slot></slot>
   </div>
 </template>
@@ -56,6 +57,12 @@ export default {
 </script>
 
 <style scoped>
+#logo {
+  position: absolute;
+  top: 12vh;
+  left:10vw;
+
+}
 #background{
   position: absolute;
   top: 0;
@@ -63,5 +70,12 @@ export default {
   height: 100vh;
   overflow: auto;
   background: #3E2A33;
+}
+@media all and (max-width: 1000px) {
+  #background {
+    transform: rotate(90deg) ;
+    width: 100vh;
+    height: 100vw;
+  }
 }
 </style>
