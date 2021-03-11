@@ -11,7 +11,7 @@
 
 <script>
 import Background from "@/components/Background";
-import InfoSection from "@/sections/InfoSection";
+import InfoSection from "@/sections/InfoSection/InfoSection";
 export default {
   name: 'App',
   components: {

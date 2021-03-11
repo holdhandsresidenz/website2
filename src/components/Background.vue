@@ -59,9 +59,9 @@ export default {
 <style scoped>
 #logo {
   position: absolute;
-  top: 12vh;
+  top: 18vh;
   left:10vw;
-
+  width: 80vw;
 }
 #background{
   position: absolute;
@@ -73,7 +73,7 @@ export default {
 }
 @media all and (max-width: 1000px) {
   #background {
-    transform: rotate(90deg) ;
+    transform: rotate(90deg) translateY(25vw);
     width: 100vh;
     height: 100vw;
   }
