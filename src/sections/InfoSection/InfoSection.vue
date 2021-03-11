@@ -31,7 +31,7 @@
 
 import IntroTextBox from "@/sections/InfoSection/TextBoxen/IntroTextBox";
 import Mark from "@/components/Mark";
-import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/ImpressumTextBox";
+import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/sections/InfoSection/TextBoxen/DatenschutzTextBox";
 export default {
 name: "InfoSection",

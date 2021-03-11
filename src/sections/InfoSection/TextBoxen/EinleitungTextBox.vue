@@ -5,7 +5,7 @@
       id="IntroText"
       title="Zur Einleitung"
       v-bind:container-style="{position: 'absolute', top: '10vh', left: '72vw'}"
-      v-bind:height="'22vh'"
+      v-bind:height="'33vh'"
       v-bind:width-open="'65vw'"
       v-bind:maxWidthPx="600"
       v-bind:min-height-px="180"

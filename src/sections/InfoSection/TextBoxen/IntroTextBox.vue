@@ -5,7 +5,7 @@
       id="IntroText"
       title="Hold Hands"
       v-bind:container-style="{position: 'absolute', bottom: '10vh', left: '43vw'}"
-      v-bind:height="'29vh'"
+      v-bind:height="'33vh'"
       v-bind:width-open="'35vw'"
       v-bind:maxWidthPx="600"
       v-bind:min-height-px="180"

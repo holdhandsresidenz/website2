@@ -2,7 +2,7 @@
   <div
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
-      @click="open = true"
+      @click="open = !open"
       v-bind:id="this.id"
       class="container transitionTime minMaxValues"
       v-bind:style="this.containerStyle"
@@ -14,6 +14,7 @@
         v-bind:style="{
           height: height,
           minHeight: minHeightPx+ 'px',
+          zIndex: this.open ? '122' : '100',
           }"></div>
 
     <p class="inline title">{{title}}</p>
@@ -26,6 +27,7 @@
            width: !this.open ? '0' : widthOpen,
            overflowY: !this.open ? 'hidden' : 'auto',
            opacity: this.open ? '' : '0',
+
           left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
 
          }"
@@ -45,6 +47,7 @@
   opacity: this.open ? '' : '0',
       left: !this.open ? '-4.7vw' : '-4vw',
       minHeight: minHeightPx + 'px',
+      zIndex: this.open ? '121' : '100',
     }"
     ></div>
 
@@ -128,6 +131,7 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  z-index: 120;
   padding-left: 1.3vw;
 }
 
@@ -136,7 +140,7 @@ export default {
   background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
-  z-index: 100;
+
 }
 
 .rightBorder {
@@ -146,7 +150,7 @@ export default {
   background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
-  z-index: 100;
+
 }
 
 @media all and (max-width: 1000px) {
