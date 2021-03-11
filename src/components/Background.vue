@@ -82,6 +82,15 @@ export default {
   overflow: auto;
   background: #3E2A33;
 }
+#background::-webkit-scrollbar-track {
+  background: #3c2832;
+}
+#background::-webkit-scrollbar-thumb {
+  background: #0014ff;
+}
+#background::-webkit-scrollbar-thumb:hover {
+  background: #0014ff;
+}
 #line {
   background: blue;
   position: absolute;

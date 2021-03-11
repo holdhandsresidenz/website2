@@ -17,7 +17,6 @@ export default {
   components: {
     InfoSection,
     Background,
-
   },
   data: function () {
     return {
@@ -61,7 +60,8 @@ html,body {
 
 }
 *::-webkit-scrollbar {
-  width: 11px;
+  width: 2px;
+  height: 2px;
 }
 *::-webkit-scrollbar-track {
   background: #b2b2b2;

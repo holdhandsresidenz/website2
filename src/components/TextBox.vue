@@ -5,7 +5,6 @@
       v-bind:id="this.id"
       class="container transitionTime minMaxValues"
       v-bind:style="this.containerStyle"
-
   >
 
     <div
