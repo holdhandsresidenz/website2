@@ -40,7 +40,7 @@ export default {
     wheel(e) {
       if ( !this.scrollSuspended ) {
         let counter
-        if(this.isFirefox) {
+        if(this.$browserDetect.isFirefox) {
           counter = e.deltaY * 10
         } else {
           counter = e.deltaY * 1

@@ -15,6 +15,7 @@
           height: height,
           minHeight: minHeightPx+ 'px',
           }"></div>
+
     <p class="inline title">{{title}}</p>
     <div
          v-bind:id="this.id + '-content'"
@@ -24,6 +25,7 @@
            maxWidth: maxWidthPx + 'px',
            width: !this.open ? '0' : widthOpen,
            overflowY: !this.open ? 'hidden' : 'auto',
+           opacity: this.open ? '' : '0',
           left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
 
          }"
@@ -40,7 +42,8 @@
         class="rightBorder transitionTime minMaxValues"
          v-bind:style="{
       height: height,
-      position: 'relative',
+  opacity: this.open ? '' : '0',
+      left: !this.open ? '-4.7vw' : '-4vw',
       minHeight: minHeightPx + 'px',
     }"
     ></div>
@@ -135,8 +138,8 @@ export default {
 
 .rightBorder {
   position: relative;
-  left: -4vw;
   width: 4vw;
+
   background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
