@@ -1,20 +1,26 @@
 <template>
  <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
+  <NavigationLine></NavigationLine>
     <InfoSection
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
 
     v-bind:currentPositionVw="this.currentPositionVw"
     ></InfoSection>
+   <ResidenzSection></ResidenzSection>
  </Background>
 </template>
 
 <script>
 import Background from "@/components/Background";
 import InfoSection from "@/sections/InfoSection/InfoSection";
+import ResidenzSection from "@/sections/ResidenzSection/ResidenzSection";
+import NavigationLine from "@/components/NavigationLine";
 export default {
   name: 'App',
   components: {
+    NavigationLine,
+    ResidenzSection,
     InfoSection,
     Background,
   },
@@ -43,6 +49,11 @@ export default {
 </script>
 
 <style>
+.navPos {
+  position: absolute;
+  top: 10px;
+  height: 20px;
+}
 .inline{
   display: inline;
 }
@@ -57,6 +68,7 @@ html,body {
   font-family: Akzi;
   line-height: 200%;
   font-size: 0.9vw;
+  background:  #b2b2b2
 
 }
 *::-webkit-scrollbar {
@@ -71,6 +83,13 @@ html,body {
 }
 *::-webkit-scrollbar-thumb:hover {
   background: #3c2832;
+}
+
+
+.navLine {
+  position: absolute;
+  top: 16.5px;
+  height: 2px;
 }
 
 @font-face {

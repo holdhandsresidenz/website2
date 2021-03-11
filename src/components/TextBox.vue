@@ -2,6 +2,7 @@
   <div
       @mouseenter="mouseenter"
       @mouseleave="mouseleave"
+      @click="open = true"
       v-bind:id="this.id"
       class="container transitionTime minMaxValues"
       v-bind:style="this.containerStyle"
@@ -66,12 +67,11 @@ export default {
     closeAtVw: Number
   },
   data: function () {
-    return {}
+    return {
+      open: false
+    }
   },
   computed: {
-    open() {
-      return !(this.currentPositionVw <= this.openAtVw || this.currentPositionVw >= this.closeAtVw);
-    },
     screenW() {
       return screen.width
     },
@@ -80,6 +80,11 @@ export default {
     },
     offsetLeftAtMaxWidth() {
       return this.maxWidthPx * 0.61
+    }
+  },
+  watch: {
+    currentPositionVw: function () {
+      this.open = !(this.currentPositionVw <= this.openAtVw || this.currentPositionVw >= this.closeAtVw);
     }
   },
   methods: {
@@ -116,7 +121,6 @@ export default {
 
 .container {
   display: flex;
-
 }
 
 .content {
@@ -151,9 +155,12 @@ export default {
 
   }
   .content {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    position: relative;
+    transform: rotate(-90deg) translate(-100%);
+    transform-origin:left top;
 
+    overflow-y: hidden;
+    overflow-x: auto;
   }
   .rightBorder {
 

@@ -2,10 +2,10 @@
   <TextBox
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll"
-      id="Impressum"
+      id="IntroText"
       title="Hold Hands"
       v-bind:container-style="{position: 'absolute', bottom: '10vh', left: '43vw'}"
-      v-bind:height="'28vh'"
+      v-bind:height="'29vh'"
       v-bind:width-open="'35vw'"
       v-bind:maxWidthPx="600"
       v-bind:min-height-px="180"
@@ -64,6 +64,11 @@ name: "IntroTextBox",
     },
     continueScroll() {
       this.$emit('continue-scroll')
+    }
+  },
+  computed: {
+    smallScreen() {
+      return screen.width <= 1000
     }
   }
 }
