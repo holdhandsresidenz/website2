@@ -14,10 +14,14 @@
 </template>
 
 <script>
+
 import {PixelToViewport} from '@/mixins/PixelToViewport'
 export default {
   name: "Background",
   mixins: [PixelToViewport],
+  components: {
+
+  },
   data: function () {
     return {
       scrollPos: 0,
