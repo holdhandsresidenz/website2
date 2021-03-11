@@ -1,6 +1,6 @@
 <template>
   <div id="Info-Section">
-    <Mark v-bind:position="{position: 'absolute', bottom: 0, left: '43vw'}"></Mark>
+    <Mark v-bind:position="{position: 'absolute', top: 0, left: '43vw'}"></Mark>
   <IntroTextBox v-bind:current-position-vw="currentPositionVw"  @suspend-scroll="suspendScroll"
                 @continue-scroll="continueScroll"></IntroTextBox>
 

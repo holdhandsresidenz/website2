@@ -16,7 +16,7 @@ export default {
   width: 4vw;
   background: url("../assets/Verlauf2.png");
   background-size: 100%;
-  height: 4vh;
+  height: 16.5px;
   z-index: 100;
 }
 </style>

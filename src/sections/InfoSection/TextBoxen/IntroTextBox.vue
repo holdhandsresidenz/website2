@@ -4,7 +4,7 @@
       @continue-scroll="continueScroll"
       id="Impressum"
       title="Hold Hands"
-      v-bind:container-style="{position: 'absolute', top: '0', left: '43vw'}"
+      v-bind:container-style="{position: 'absolute', bottom: '10vh', left: '43vw'}"
       v-bind:height="'28vh'"
       v-bind:width-open="'35vw'"
       v-bind:maxWidthPx="600"
