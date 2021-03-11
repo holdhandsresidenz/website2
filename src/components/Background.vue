@@ -61,7 +61,7 @@ export default {
   position: absolute;
   top: 18vh;
   left:10vw;
-  width: 80vw;
+  width: 73vw;
 }
 #background{
   position: absolute;
