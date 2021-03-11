@@ -1,23 +1,29 @@
 <template>
-  <div v-bind:id="this.id" class="container transitionTime minValues" v-bind:style="position">
-    <div class="leftBorder transitionTime minValues" v-bind:style="{height: height}"></div>
+  <div
+      @mouseenter="$emit('suspend-scroll', id)"
+      @mouseleave="$emit('continue-scroll', id)"
+      v-bind:id="this.id"
+      class="container transitionTime minValues"
+      v-bind:style="position">
+    <div class="leftBorder transitionTime " v-bind:style="{height: height}"></div>
+
     <div
          v-bind:id="this.id + 'content'"
          v-bind:style="{
            height: height,
-           width: !this.open ? '0vw' : widthOpen
+           width: !this.open ? '0' : widthOpen,
+           overflowY: !this.open ? 'hidden' : 'auto'
          }"
-         class="content transitionTime grey minValues"
+         class="content transitionTime grey "
     >
-      <slot></slot>
+      <slot ></slot>
     </div>
 
-    <div class="rightBorder transitionTime minValues"
+    <div class="rightBorder transitionTime "
          v-bind:style="{
       height: height,
       position: 'relative',
     }"
-         v-bind:class="{rightBorderOpen: this.open, rightBorderClosed: !this.open}"
     ></div>
   </div>
 </template>
@@ -90,13 +96,4 @@ export default {
   z-index: 100;
 }
 
-.rightBorderClosed {
-
-  transition: 1.4s;
-}
-
-.rightBorderOpen {
-
-  transition: 1.4s;
-}
 </style>

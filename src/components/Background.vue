@@ -4,11 +4,11 @@
       ref="background"
       @scroll="scrolled"
       @wheel="wheel"
-      @deactivateScroll="deactivateScroll"
-      @activateScroll="activateScroll"
       class="red"
   >
-    <slot></slot>
+    <slot
+        @suspend-scroll="deactivateScroll"
+        @continue-scroll="activateScroll"></slot>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
     },
     wheel(e) {
       if ( !this.scrollSuspended ) {
-        let counter = e.deltaY * 10
+        let counter = e.deltaY * 1
         while (counter >= 0) {
           this.$refs.background.scrollLeft += 1
           counter--

@@ -2,6 +2,8 @@
   <div id="Info-Section">
 
     <TextBox
+        @suspend-scroll="$emit('suspend-scroll')"
+        @continue-scroll="$emit('continue-scroll')"
         id="Impressum"
         v-bind:position="{position: 'absolute', top: 0, left: '20vw'}"
         v-bind:height="'28vh'"
@@ -53,6 +55,11 @@ name: "InfoSection",
   components: {TextBox},
   props: {
     currentPositionVw: Number
+  },
+  methods: {
+  passUp(e) {
+    console.log(e)
+  }
   }
 }
 </script>
@@ -62,7 +69,5 @@ name: "InfoSection",
   box-sizing: border-box;
   height: 100%;
   width: 400vw;
-
-  border: mediumblue 3px solid;
 }
 </style>
