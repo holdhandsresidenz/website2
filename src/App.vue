@@ -1,25 +1,27 @@
 <template>
- <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
-  <NavigationLine></NavigationLine>
+
+  <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
+
     <InfoSection
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
 
-    v-bind:currentPositionVw="this.currentPositionVw"
+        v-bind:currentPositionVw="this.currentPositionVw"
     ></InfoSection>
-   <ResidenzSection></ResidenzSection>
- </Background>
+    <ResidenzSection></ResidenzSection>
+  </Background>
+
 </template>
 
 <script>
 import Background from "@/components/Background";
 import InfoSection from "@/sections/InfoSection/InfoSection";
 import ResidenzSection from "@/sections/ResidenzSection/ResidenzSection";
-import NavigationLine from "@/components/NavigationLine";
+
 export default {
   name: 'App',
   components: {
-    NavigationLine,
+
     ResidenzSection,
     InfoSection,
     Background,

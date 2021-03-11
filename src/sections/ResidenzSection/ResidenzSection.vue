@@ -19,7 +19,7 @@ name: "ResidenzSection"
   top: 0;
   box-sizing: border-box;
   height: 100%;
-  width: 30vw;
+  width: 50vw;
   background: #b2b2b2;
 }
 

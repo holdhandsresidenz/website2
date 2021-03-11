@@ -6,7 +6,7 @@
       @wheel="wheel"
       class="red"
   >
-
+<NavigationLine v-bind:scroll-pos="scrollPos"></NavigationLine>
     <slot></slot>
   </div>
 </template>
@@ -14,16 +14,17 @@
 <script>
 
 import {PixelToViewport} from '@/mixins/PixelToViewport'
+import NavigationLine from "@/components/NavigationLine";
 export default {
   name: "Background",
   mixins: [PixelToViewport],
   components: {
+    NavigationLine
 
   },
   data: function () {
     return {
       scrollPos: 0,
-
     }
   },
   props: {

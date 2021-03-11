@@ -3,14 +3,29 @@
   <img src="../assets/Seite_Info_kursiv.png" id="infoNav" class="navPos">
   <div id="blueLine" class="navLine"></div>
 
-  <img id="blue-arrow-left" src="../assets/Seite_Pfeil_blau_li.png" class="navPos">
-  <img id="blue-arrow-right" src="../assets/Seite_Pfeil_rechts.png" class="navPos">
+  <a href="#residenzNav">
+    <img
+        id="blue-arrow-right" src="../assets/Navigation_bl_re.png"
+        class="navPos"
+        v-bind:style="{
+      display: scrollPositionVW > 100 ? 'none' : '',
+      opacity: scrollPositionVW > 99 ? '0' : '100%'
+    }"
+    >
+  </a>
 
 
 
-
-  <img id="orange-arrow-left" src="../assets/Seite_Pfeil_orange_li.png" class="navPos">
-  <img id="orange-arrow-right" src="../assets/Seite_Pfeil_orange_re.png" class="navPos">
+<a href="#infoNav">
+  <img id="orange-arrow-left"
+       src="../assets/Seite_Pfeil_orange_li.png"
+       class="navPos"
+       v-bind:style="{
+      display: scrollPositionVW < 120 ? 'none' : '',
+      opacity: scrollPositionVW < 129 ? '0' : '100%'
+      }"
+  >
+</a>
 
   <div id="orangeLine" class="navLine"></div>
   <img src="../assets/Seite_Residenz_kursiv.png" id="residenzNav" class="navPos">
@@ -18,8 +33,19 @@
 </template>
 
 <script>
+import {PixelToViewport} from "@/mixins/PixelToViewport";
+
 export default {
-name: "NavigationLine"
+name: "NavigationLine",
+  mixins: [PixelToViewport],
+  props: {
+   scrollPos: Number
+  },
+  computed: {
+  scrollPositionVW() {
+    return this.pxToVw(this.scrollPos)
+  }
+  }
 }
 </script>
 
@@ -34,22 +60,32 @@ name: "NavigationLine"
   z-index: 80;
 
 }
-#blue-arrow-left {
-  position: sticky;
+#blue-arrow-right {
+  position: fixed;
+  right: 0;
+  z-index: 99;
+  transition: 0.8s;
+}
+#orange-arrow-left {
+  position: fixed;
+  right: 0;
+  transition: 0.3s;
+  z-index: 101;
+  transition: 0.8s;
 }
 
 #orangeLine{
-  left: 220vw;
-  background: red;
+  left: 200vw;
+  background: #aa3500;
   z-index: 100;
-  width: 30vw;
+  width: 50vw;
 }
 
 #residenzNav {
   position: absolute;
   left: 205vw;
   width:225px;
-
+  padding-right: 10vw;
   z-index: 100;
 }
 </style>
