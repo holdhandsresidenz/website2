@@ -1,7 +1,7 @@
 <template>
   <div
-      @mouseenter="$emit('suspend-scroll', id)"
-      @mouseleave="$emit('continue-scroll', id)"
+      @mouseenter="mouseenter"
+      @mouseleave="mouseleave"
       v-bind:id="this.id"
       class="container transitionTime minValues"
       v-bind:style="position">
@@ -46,6 +46,17 @@ export default {
   computed: {
     open() {
       return !(this.currentPositionVw <= this.openAtVw || this.currentPositionVw >= this.closeAtVw);
+    }
+  },
+  methods: {
+    mouseenter() {
+      if (this.open) {
+
+      this.$emit('suspend-scroll', this.id)
+      }
+    },
+    mouseleave() {
+      this.$emit('continue-scroll', this.id)
     }
   }
 }

@@ -6,9 +6,7 @@
       @wheel="wheel"
       class="red"
   >
-    <slot
-        @suspend-scroll="deactivateScroll"
-        @continue-scroll="activateScroll"></slot>
+    <slot></slot>
   </div>
 </template>
 
@@ -20,8 +18,11 @@ export default {
   data: function () {
     return {
       scrollPos: 0,
-      scrollSuspended: false
+
     }
+  },
+  props: {
+    scrollSuspended: Boolean
   },
   methods: {
     scrolled() {
