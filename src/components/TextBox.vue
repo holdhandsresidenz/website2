@@ -127,7 +127,7 @@ export default {
 
 .leftBorder {
   width: 4vw;
-  background: url("../assets/Verlauf.png");
+  background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
   z-index: 100;
@@ -137,7 +137,7 @@ export default {
   position: relative;
   left: -4vw;
   width: 4vw;
-  background: url("../assets/Verlauf.png");
+  background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
   z-index: 100;

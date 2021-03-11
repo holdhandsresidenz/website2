@@ -39,7 +39,12 @@ export default {
     },
     wheel(e) {
       if ( !this.scrollSuspended ) {
-        let counter = e.deltaY * 1
+        let counter
+        if(this.isFirefox) {
+          counter = e.deltaY * 10
+        } else {
+          counter = e.deltaY * 1
+        }
         while (counter >= 0) {
           this.$refs.background.scrollLeft += 1
           counter--
