@@ -1,6 +1,7 @@
 <template>
   <div id="Info-Section">
-  <IntroTextBox v-bind:current-position-vw="currentPositionVw"></IntroTextBox>
+  <IntroTextBox v-bind:current-position-vw="currentPositionVw"  @suspend-scroll="suspendScroll"
+                @continue-scroll="continueScroll"></IntroTextBox>
 
   </div>
 </template>
@@ -15,9 +16,12 @@ name: "InfoSection",
     currentPositionVw: Number
   },
   methods: {
-  passUp(e) {
-    console.log(e)
-  }
+    suspendScroll() {
+      this.$emit('suspend-scroll')
+    },
+    continueScroll() {
+      this.$emit('continue-scroll')
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <TextBox
-      @suspend-scroll="$emit('suspend-scroll')"
-      @continue-scroll="$emit('continue-scroll')"
+      @suspend-scroll="suspendScroll"
+      @continue-scroll="continueScroll"
       id="Impressum"
       title="Hold Hands"
       v-bind:container-style="{position: 'absolute', top: '0', left: '43vw'}"
@@ -57,6 +57,14 @@ name: "IntroTextBox",
   },
   props: {
     currentPositionVw: Number
+  },
+  methods: {
+    suspendScroll() {
+      this.$emit('suspend-scroll')
+    },
+    continueScroll() {
+      this.$emit('continue-scroll')
+    }
   }
 }
 </script>
