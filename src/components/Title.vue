@@ -25,7 +25,7 @@ name: "Title",
   top: -1.2vw;
   z-index: 100;
   white-space: nowrap;
-  transform: scaleX(0.85);
+
   transform-origin: top left;
   font-family: Narr,sans-serif;
   font-size: 1.4vw;
@@ -34,9 +34,9 @@ name: "Title",
 .title-black {
   display: inline-block;
   font-weight: normal;
-  color: black;
+  color: blue;
 
-  -webkit-text-stroke: 1.2vw black;
+  -webkit-text-stroke: 1.2vw blue;
 }
 .title-white {
   display: inline-block;
@@ -45,6 +45,6 @@ name: "Title",
   top: 0;
   left: 0;
   font-weight: lighter;
-  color: white;
+  color: #22515B;
 }
 </style>

@@ -68,8 +68,8 @@ export default {
 html,body {
   margin: 0;
   font-family: Akzi;
-  line-height: 2.3vw;
-  font-size: 0.9vw;
+  line-height: 2.33vw;
+  font-size: 1vw;
   background:  #b2b2b2
 
 }
@@ -91,7 +91,7 @@ html,body {
 .navLine {
   position: absolute;
   top: 16.5px;
-  height: 2px;
+  height: 0.25rem;
 }
 
 @font-face {

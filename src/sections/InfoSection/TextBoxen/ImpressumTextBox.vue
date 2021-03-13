@@ -47,6 +47,9 @@ export default {
   components: {
     TextBox
   },
+  props: {
+    currentPositionVw: Number
+  },
   methods: {
     suspendScroll() {
       this.$emit('suspend-scroll')

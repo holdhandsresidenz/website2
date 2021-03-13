@@ -140,7 +140,7 @@ export default {
 
 .leftBorder {
   width: 4vw;
-  background: url("../assets/Verlauf2.png");
+  background: url("../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 
@@ -149,7 +149,7 @@ export default {
 .rightBorder {
   position: relative;
   width: 4vw;
-  background: url("../assets/Verlauf2.png");
+  background: url("../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 

@@ -1,47 +1,88 @@
 <template>
-  <div class="pos">
-    <iframe
-        class="inner"
-        height="98%"
-        width="98%"
-        id="iframe-lara"
-        src="https://www.youtube.com/embed/lYUhY50DeR4"
-        frameborder="0"
-        allow="autoplay; fullscreen;"
-        allowfullscreen></iframe>
-  </div>
+  <div>
+    <VideoModal
+        v-if="modalVisible"
+        v-bind:id="id"
+    ></VideoModal>
+    <div
+        v-bind:id="id"
+        v-bind:style="{
+        left: containerLeft,
+        top: containerTop,
+        bottom: containerBottom,
+        height: containerHeight,
+        width: containerWidth,
+        }"
+        class="container"
 
-</template>
+    >
+      <div
+          id="inner"
+          @mouseenter="mouseEnter"
+          @mouseleave="mouseLeave"
+          @click="openVideo"
+
+      >
+        <img src="../assets/Form_Mickey_kontur.svg" v-bind:id="id + '-kontur'" class="kontur">
+      </div>
+    </div>
+
+  </div>
+  </template>
 
 <script>
+
+import VideoModal from "@/components/VideoModal";
 export default {
 name: "VideoCutOut",
+  components: {VideoModal},
   props: {
-  containerStyle: Object,
-    maskURL: String
-
+  id: String,
+    containerLeft: String,
+    containerTop: String,
+    containerBottom: String,
+    containerHeight: String,
+    containerWidth: String,
+    videoUrl: String,
+    maskPath: String
+  },
+  data: function () {
+  return {
+    mouseOver: false,
+    modalVisible: false
+  }
+  },
+  methods: {
+    mouseEnter() {
+      this.mouseOver = true
+      console.log('enter')
+    },
+    mouseLeave() {
+      this.mouseOver = false
+      console.log('leave')
+    },
+    openVideo() {
+      this.modalVisible = true
+      console.log('triggered modal', this.modalVisible)
+    }
   }
 }
 </script>
 
 <style scoped>
-.inner {
-
-  position: relative;
-  top:1%;
-  left:1%;
-  mask: url('../assets/Form_Mickey.svg') center;
-  
+#inner {
+ background: url("../assets/Mickey_Deckblatt.jpg");
+  background-size: contain;
 }
-.pos{
+.kontur {
+  width: 100%;
+  height: 100%;
+}
+
+.container{
   position: absolute;
-  left: 110vw;
-  top: 3vw;
-  height: 80vh;
-  width: 80vw;
-  background: blue;
+  mask: url('../assets/Form_Mickey.svg') no-repeat;
 
-  mask:  url("../assets/Form_Mickey.svg") ;
-  box-shadow: 21px 3px 12px 128px #0014ff ;
 }
+
 </style>

@@ -29,7 +29,13 @@
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll">
   </ImpressumTextBox>
-    <VideoCutOut></VideoCutOut>
+    <VideoCutOut
+    id="videoLara"
+    v-bind:container-top="'4vh'"
+    v-bind:container-left="'107vw'"
+    v-bind:container-width="'70vw'"
+
+    ></VideoCutOut>
   </div>
 </template>
 
@@ -46,6 +52,7 @@ name: "InfoSection",
   components: {VideoCutOut, ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},
   props: {
     currentPositionVw: Number
+
   },
   methods: {
     suspendScroll() {

@@ -9,7 +9,7 @@
         class="navPos"
         v-bind:style="{
       display: scrollPositionVW > 100 ? 'none' : '',
-      opacity: scrollPositionVW > 99 ? '0' : '100%'
+      opacity: scrollPositionVW > 92 ? '0' : '100%'
     }"
     >
   </a>
