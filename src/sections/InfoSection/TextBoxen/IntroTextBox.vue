@@ -4,13 +4,13 @@
       @continue-scroll="continueScroll"
       id="IntroText"
       title="HOLD HANDS"
-      v-bind:container-style="{position: 'absolute', bottom: '12vh', left: '66vw'}"
+      v-bind:container-style="{position: 'absolute', bottom: '20vh', left: '64vw'}"
       v-bind:height="'29vh'"
-      v-bind:width-open="'35vw'"
-      v-bind:maxWidthPx="600"
+      v-bind:width-open="'45vw'"
+      v-bind:maxWidthPx="800"
       v-bind:min-height-px="180"
       v-bind:open-at-vw="18"
-      v-bind:close-at-vw="40"
+      v-bind:close-at-vw="70"
       v-bind:currentPositionVw="this.currentPositionVw"
   >
     <p style="text-indent: 14vw" >

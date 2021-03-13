@@ -29,6 +29,7 @@
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll">
   </ImpressumTextBox>
+    <VideoCutOut></VideoCutOut>
   </div>
 </template>
 
@@ -39,9 +40,10 @@ import IntroTextBox from "@/sections/InfoSection/TextBoxen/IntroTextBox";
 import EinleitungTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/sections/InfoSection/TextBoxen/DatenschutzTextBox";
 import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/ImpressumTextBox";
+import VideoCutOut from "@/components/VideoCutOut";
 export default {
 name: "InfoSection",
-  components: {ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},
+  components: {VideoCutOut, ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},
   props: {
     currentPositionVw: Number
   },

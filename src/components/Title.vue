@@ -1,5 +1,5 @@
 <template>
-<span  v-bind:id="'title-' + title" class="title-wrapper">
+<span  v-bind:id="'title-' + title" class="title-wrapper" v-bind:style="{zIndex: zIndex}" >
   <h1  v-bind:id="title + '-black'" class="title-black">{{title}}</h1>
   <h1  v-bind:id="title + '-white'" class="title-white">{{title}}</h1>
 </span>
@@ -11,7 +11,8 @@
 export default {
 name: "Title",
   props: {
-  title: String
+  title: String,
+    zIndex: Number
   }
 }
 </script>
@@ -22,21 +23,24 @@ name: "Title",
   display: inline;
   left: 2vw;
   top: -1.2vw;
-  z-index: 121;
+  z-index: 100;
   white-space: nowrap;
   transform: scaleX(0.85);
   transform-origin: top left;
   font-family: Narr,sans-serif;
   font-size: 1.4vw;
+
 }
 .title-black {
   display: inline-block;
   font-weight: normal;
   color: black;
+
   -webkit-text-stroke: 1.2vw black;
 }
 .title-white {
   display: inline-block;
+
   position: absolute;
   top: 0;
   left: 0;

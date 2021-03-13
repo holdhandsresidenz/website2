@@ -21,7 +21,9 @@
           zIndex: this.open ? '111' : '101',
           }"></div>
 
-      <Title v-bind:title="title"></Title>
+      <Title v-bind:title="title"
+             v-bind:z-index="this.open ? 123 : 109"
+      ></Title>
 
       <div
           v-bind:id="this.id + '-content'"
