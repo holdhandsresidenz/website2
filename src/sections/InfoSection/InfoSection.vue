@@ -4,38 +4,44 @@
 
     <img src="../../assets/Logo.png" id="logo">
 
-    <Mark v-bind:position="{position: 'absolute', top: 0, left: '43vw'}"></Mark>
+
   <IntroTextBox v-bind:current-position-vw="currentPositionVw"
                 @suspend-scroll="suspendScroll"
                 @continue-scroll="continueScroll"
   ></IntroTextBox>
 
-    <Mark v-bind:position="{position: 'absolute', top: 0, left: '72vw'}"></Mark>
-    <ImpressumTextBox
+
+    <EinleitungTextBox
         v-bind:current-position-vw="currentPositionVw"
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
-    ></ImpressumTextBox>
+    ></EinleitungTextBox>
 
-    <Mark v-bind:position="{position: 'absolute', top: 0, left: '12vw'}"></Mark>
+
     <DatenschutzTextBox
         v-bind:current-position-vw="currentPositionVw"
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
     ></DatenschutzTextBox>
 
+  <ImpressumTextBox
+      v-bind:current-position-vw="currentPositionVw"
+      @suspend-scroll="suspendScroll"
+      @continue-scroll="continueScroll">
+  </ImpressumTextBox>
   </div>
 </template>
 
 <script>
 
 import IntroTextBox from "@/sections/InfoSection/TextBoxen/IntroTextBox";
-import Mark from "@/components/Mark";
-import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
+
+import EinleitungTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/sections/InfoSection/TextBoxen/DatenschutzTextBox";
+import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/ImpressumTextBox";
 export default {
 name: "InfoSection",
-  components: {DatenschutzTextBox, ImpressumTextBox, Mark, IntroTextBox},
+  components: {ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},
   props: {
     currentPositionVw: Number
   },

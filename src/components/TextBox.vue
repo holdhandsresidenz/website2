@@ -1,60 +1,68 @@
 <template>
   <div
-      @mouseenter="mouseenter"
-      @mouseleave="mouseleave"
-      @click="open = !open"
-      v-bind:id="this.id"
-      class="container transitionTime minMaxValues"
-      v-bind:style="this.containerStyle"
-  >
-
+      v-bind:id="this.id">
+    <Mark v-bind:position="{position: 'absolute', top: 0, left: this.containerStyle.left}"></Mark>
     <div
-        v-bind:id="this.id + '-borderL'"
-        class="leftBorder transitionTime minMaxValues"
-        v-bind:style="{
+        v-bind:id="this.id"
+        class="container transitionTime minMaxValues"
+        v-bind:style="this.containerStyle"
+        @click="open = !open"
+
+        @mouseover="mouseenter"
+        @mouseleave="mouseleave"
+    >
+
+      <div
+          v-bind:id="this.id + '-borderL'"
+          class="leftBorder transitionTime minMaxValues"
+          v-bind:style="{
           height: height,
           minHeight: minHeightPx+ 'px',
-          zIndex: this.open ? '122' : '100',
+          zIndex: this.open ? '111' : '101',
           }"></div>
 
-    <p class="inline title">{{title}}</p>
-    <div
-         v-bind:id="this.id + '-content'"
-         v-bind:style="{
+      <Title v-bind:title="title"></Title>
+
+      <div
+          v-bind:id="this.id + '-content'"
+          class="content transitionTime grey "
+          v-bind:style="{
            height: height,
            minHeight: minHeightPx + 'px',
            maxWidth: maxWidthPx + 'px',
            width: !this.open ? '0' : widthOpen,
            overflowY: !this.open ? 'hidden' : 'auto',
            opacity: this.open ? '' : '0',
-
+           zIndex: this.open ? '110' : '100',
           left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
 
          }"
-         class="content transitionTime grey "
-    >
+      >
 
-      <slot></slot>
+        <slot></slot>
+      </div>
 
+
+      <div
+          v-bind:id="this.id + '-borderR'"
+          class="rightBorder transitionTime minMaxValues"
+          v-bind:style="{
+        height: height,
+        opacity: this.open ? '' : '0',
+        left: !this.open ? '-4.7vw' : '-4vw',
+        minHeight: minHeightPx + 'px',
+        zIndex: this.open ? '111' : '101',
+    }"
+      ></div>
 
     </div>
 
-    <div
-        v-bind:id="this.id + '-borderR'"
-        class="rightBorder transitionTime minMaxValues"
-         v-bind:style="{
-      height: height,
-  opacity: this.open ? '' : '0',
-      left: !this.open ? '-4.7vw' : '-4vw',
-      minHeight: minHeightPx + 'px',
-      zIndex: this.open ? '121' : '100',
-    }"
-    ></div>
-
   </div>
-</template>
+  </template>
 
 <script>
+import Mark from "@/components/Mark";
+import Title from "@/components/Title";
 export default {
   name: "TextBox",
   props: {
@@ -68,6 +76,10 @@ export default {
     currentPositionVw: Number,
     openAtVw: Number,
     closeAtVw: Number
+  },
+  components: {
+    Title,
+    Mark
   },
   data: function () {
     return {
@@ -93,8 +105,7 @@ export default {
   methods: {
     mouseenter() {
       if (this.open) {
-
-      this.$emit('suspend-scroll', this.id)
+        this.$emit('suspend-scroll', this.id)
       }
     },
     mouseleave() {
@@ -105,19 +116,10 @@ export default {
 </script>
 
 <style scoped>
-.minMaxValues {
-
-}
-.title {
-  position: absolute;
-  left: 2vw;
-  z-index: 101;
-}
-
-
 *::-webkit-scrollbar {
   width: 0.8vw;
 }
+
 .transitionTime {
   transition: 1.4s;
 }
@@ -131,7 +133,6 @@ export default {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  z-index: 120;
   padding-left: 1.3vw;
 }
 
@@ -146,7 +147,6 @@ export default {
 .rightBorder {
   position: relative;
   width: 4vw;
-
   background: url("../assets/Verlauf2.png");
   background-size: 100%;
   transition: 1.4s;
@@ -156,19 +156,16 @@ export default {
 @media all and (max-width: 1000px) {
   .container {
     flex-direction: row;
-
   }
+
   .content {
     position: relative;
     transform: rotate(-90deg) translate(-100%);
-    transform-origin:left top;
-
+    transform-origin: left top;
     overflow-y: hidden;
     overflow-x: auto;
   }
-  .rightBorder {
 
-  }
 }
 
 </style>

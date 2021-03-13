@@ -68,7 +68,7 @@ export default {
 html,body {
   margin: 0;
   font-family: Akzi;
-  line-height: 200%;
+  line-height: 2.3vw;
   font-size: 0.9vw;
   background:  #b2b2b2
 

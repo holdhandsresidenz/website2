@@ -3,19 +3,18 @@
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll"
       id="Datenschutz"
-      title="Datenschutzerklärung"
+      title="DATENSCHUTZ"
       v-bind:container-style="{position: 'absolute', bottom: '0vh', left: '12vw'}"
       v-bind:height="'22vh'"
       v-bind:width-open="'65vw'"
       v-bind:maxWidthPx="600"
       v-bind:min-height-px="180"
-      v-bind:open-at-vw="38"
+      v-bind:open-at-vw="10000"
       v-bind:close-at-vw="80"
       v-bind:currentPositionVw="this.currentPositionVw"
   >
-    <p class=rvps2><span class=rvts6>Datenschutzerklärung</span></p>
-    <p class=rvps3><span class=rvts7>Datenschutz</span></p>
-    <p class=rvps4><span class=rvts8>Wir haben diese Datenschutzerklärung (Fassung 03.03.2021-311268188) verfasst, um Ihnen gemäß der Vorgaben der&nbsp;</span><a class=rvts9 href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex:32016R0679&amp;tid=311268188">Datenschutz-Grundverordnung (EU) 2016/679</a><span class=rvts8>&nbsp;zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</span></p>
+
+    <p class=rvps4><span class=rvts8 style="padding-top: 1vw"><br>Wir haben diese Datenschutzerklärung (Fassung 03.03.2021-311268188) verfasst, um Ihnen gemäß der Vorgaben der&nbsp;</span><a class=rvts9 href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex:32016R0679&amp;tid=311268188">Datenschutz-Grundverordnung (EU) 2016/679</a><span class=rvts8>&nbsp;zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</span></p>
     <p class=rvps4><span class=rvts8>Datenschutzerklärungen klingen für gewöhnlich sehr technisch. Diese Version soll Ihnen hingegen die wichtigsten Dinge so einfach und klar wie möglich beschreiben. Soweit es möglich ist, werden technische Begriffe leserfreundlich erklärt. Außerdem möchten wir vermitteln, dass wir mit dieser Website nur dann Informationen sammeln und verwenden, wenn eine entsprechende gesetzliche Grundlage gegeben ist. Das ist sicher nicht möglich, wenn man möglichst knappe, technische Erklärungen abgibt, so wie sie im Internet oft Standard sind, wenn es um Datenschutz geht. Ich hoffe Sie finden die folgenden Erläuterungen interessant und informativ und vielleicht ist die eine oder andere Information dabei, die Sie noch nicht kannten.</span><br><span class=rvts8>Wenn trotzdem Fragen bleiben, möchten wir Sie bitten den vorhandenen Links zu folgen und sich weitere Informationen auf Drittseiten anzusehen, oder uns einfach eine E-Mail zu schreiben. Unsere Kontaktdaten finden Sie im Impressum.</span></p>
     <p class=rvps3><span class=rvts7>Speicherung persönlicher Daten</span></p>
     <p class=rvps4><span class=rvts8>Persönliche Daten, die Sie uns auf dieser Website elektronisch übermitteln, wie zum Beispiel Name, E-Mail-Adresse, Adresse oder andere persönlichen Angaben im Rahmen der Übermittlung eines Formulars oder Kommentaren im Blog, werden von uns gemeinsam mit dem Zeitpunkt und der IP-Adresse nur zum jeweils angegebenen Zweck verwendet, sicher verwahrt und nicht an Dritte weitergegeben.</span></p>
