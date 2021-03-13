@@ -1,5 +1,11 @@
 <template>
-  <img src="../assets/Verlauf.png" class="pos">
+  <iframe
+      class="pos"
+      id="iframe-lara"
+      src="https://www.youtube.com/embed/lYUhY50DeR4"
+      frameborder="0"
+      allow="autoplay; fullscreen;"
+      allowfullscreen></iframe>
 </template>
 
 <script>
