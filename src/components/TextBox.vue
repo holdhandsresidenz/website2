@@ -103,10 +103,7 @@ export default {
   },
   watch: {
     currentPositionVw: function () {
-      console.log('watcher watched: ', this.currentPositionVw, '(this.currentPositionVw <= this.closeAtVw): ', (this.currentPositionVw <= this.closeAtVw),
-      '(this.currentPositionVw >= this.openAtVw)', (this.currentPositionVw >= this.openAtVw),
-      ' ((this.currentPositionVw >= this.openAtVw) && (this.currentPositionVw <= this.closeAtVw))',  ((this.currentPositionVw >= this.openAtVw) && (this.currentPositionVw <= this.closeAtVw)))
-      this.open = ((this.currentPositionVw >= this.openAtVw) && (this.currentPositionVw <= this.closeAtVw));
+     this.open = ((this.currentPositionVw >= this.openAtVw) && (this.currentPositionVw <= this.closeAtVw));
 
     }
   },

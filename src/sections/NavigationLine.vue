@@ -1,9 +1,9 @@
 <template>
 <div id="NavigationLine">
-  <img src="../assets/Navigation/Seite_Info_kursiv.png" id="infoNav" class="navPos">
+  <img src="../assets/Navigation/Seite_Info_kursiv.png" id="information" class="navPos">
   <div id="blueLine" class="navLine"></div>
   <div id="orangeLine" class="navLine"></div>
-  <a href="#residenzNav">
+  <a href="#residenz">
     <img
         id="blue-arrow-right" src="../assets/Navigation_bl_re.png"
         class="navPos"
@@ -16,7 +16,7 @@
 
 
 
-<a href="#infoNav">
+<a href="#information">
   <img id="orange-arrow-left"
        src="../assets/Navigation/Seite_Pfeil_orange_li.png"
        class="navPos"
@@ -26,7 +26,7 @@
       }"
   >
 </a>
-  <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenzNav" class="navPos">
+  <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenz" class="navPos">
   <div class="soon1">
     <TitleBW title="DIE RESIDENZ STARTET"></TitleBW>
     <div class="soon2">
@@ -67,7 +67,7 @@ name: "NavigationLine",
   background: blue;
   position: absolute;
   left: 115px;
-  width: 281vw;
+  width: 291vw;
   z-index: 80;
 }
 #blue-arrow-right {
@@ -92,7 +92,7 @@ name: "NavigationLine",
   width: 50vw;
 }
 
-#residenzNav {
+#residenz {
   position: absolute;
   left: 295vw;
   width:225px;

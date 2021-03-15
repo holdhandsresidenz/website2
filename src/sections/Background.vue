@@ -14,7 +14,7 @@
 <script>
 
 import {PixelToViewport} from '@/mixins/PixelToViewport'
-import NavigationLine from "@/components/NavigationLine";
+import NavigationLine from "@/sections/NavigationLine";
 export default {
   name: "Background",
   mixins: [PixelToViewport],
@@ -86,7 +86,7 @@ export default {
 #background::-webkit-scrollbar-thumb:hover {
   background: #0014ff;
 }
-
+/*
 @media all and (max-width: 1000px) {
   #background {
     transform:rotate(90deg)  translateY(-100%);
@@ -101,4 +101,6 @@ export default {
 
   }
 }
+
+ */
 </style>

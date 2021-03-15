@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Background from "@/components/Background";
+import Background from "@/sections/Background";
 import InfoSection from "@/sections/InfoSection/InfoSection";
 import ResidenzSection from "@/sections/ResidenzSection/ResidenzSection";
 
