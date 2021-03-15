@@ -1,9 +1,9 @@
 <template>
   <div
       v-bind:id="this.id">
-    <Mark v-bind:position="{position: 'absolute', top: 0, left: this.containerStyle.left}"></Mark>
+    <Mark v-if="mark" v-bind:position="{position: 'absolute', top: 0, left: this.containerStyle.left}"></Mark>
     <div
-        v-bind:id="this.id"
+
         class="container transitionTime minMaxValues"
         v-bind:style="this.containerStyle"
         @click="open = !open"
@@ -77,7 +77,8 @@ export default {
     minHeightPx: Number,
     currentPositionVw: Number,
     openAtVw: Number,
-    closeAtVw: Number
+    closeAtVw: Number,
+    mark: Boolean
   },
   components: {
     Title,

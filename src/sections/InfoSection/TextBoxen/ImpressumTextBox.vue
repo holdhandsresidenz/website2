@@ -12,11 +12,13 @@
       v-bind:open-at-vw="10000"
       v-bind:close-at-vw="0"
       v-bind:currentPositionVw="this.currentPositionVw"
+      v-bind:mark="true"
   >
-    <p style="text-indent: 12.4vw">
-    Das Projekt  Hold Hands Residenz wird umgesetzt von:
+    <p>
+      <br><br>
+    Das Projekt  Hold Hands Residenz wird umgesetzt von:<br>
 
-  <br>
+
     Hjördis Lyn Behncken (Social Media und Öffentlichkeitsarbeit)<br>
     Anne Dietzsch (gestalterisches Konzept und Typografie)<br>
     Jonathan Schneider (Programmierung)<br>
@@ -68,5 +70,7 @@ export default {
 </script>
 
 <style scoped>
-
+p, address {
+  text-align: right;
+}
 </style>

@@ -12,6 +12,7 @@
       v-bind:open-at-vw="10000"
       v-bind:close-at-vw="80"
       v-bind:currentPositionVw="this.currentPositionVw"
+      v-bind:mark="true"
   >
 
     <p class=rvps4><span class=rvts8 style="padding-top: 1vw"><br>Wir haben diese Datenschutzerklärung (Fassung 03.03.2021-311268188) verfasst, um Ihnen gemäß der Vorgaben der&nbsp;</span><a class=rvts9 href="https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex:32016R0679&amp;tid=311268188">Datenschutz-Grundverordnung (EU) 2016/679</a><span class=rvts8>&nbsp;zu erklären, welche Informationen wir sammeln, wie wir Daten verwenden und welche Entscheidungsmöglichkeiten Sie als Besucher dieser Webseite haben.</span></p>

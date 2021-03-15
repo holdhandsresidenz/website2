@@ -1,11 +1,15 @@
 <template>
-  <div>
+  <div v-bind:id="id">
     <VideoModal
+        @close="modalVisible = false"
         v-if="modalVisible"
         v-bind:id="id"
+        v-bind:videoUrl="videoUrl"
+        v-bind:biografie="biografie"
+        v-bind:title="title"
     ></VideoModal>
     <div
-        v-bind:id="id"
+        v-bind:id="id + '-cutout'"
         v-bind:style="{
         left: containerLeft,
         top: containerTop,
@@ -13,18 +17,15 @@
         height: containerHeight,
         width: containerWidth,
         }"
-        class="container"
-
+        @mouseenter="mouseEnter"
+        @mouseleave="mouseLeave"
+        @click="openVideo"
+        class="cutout"
     >
-      <div
-          id="inner"
-          @mouseenter="mouseEnter"
-          @mouseleave="mouseLeave"
-          @click="openVideo"
 
-      >
-        <img src="../assets/Form_Mickey_kontur.svg" v-bind:id="id + '-kontur'" class="kontur">
-      </div>
+    <img v-bind:src="titleImage">
+      <img v-bind:src="maskPath" class="maskBorder">
+
     </div>
 
   </div>
@@ -44,7 +45,10 @@ name: "VideoCutOut",
     containerHeight: String,
     containerWidth: String,
     videoUrl: String,
-    maskPath: String
+    maskPath: String,
+    titleImage: String,
+    biografie: String,
+    title: String
   },
   data: function () {
   return {
@@ -70,19 +74,18 @@ name: "VideoCutOut",
 </script>
 
 <style scoped>
-#inner {
- background: url("../assets/Mickey_Deckblatt.jpg");
-  background-size: contain;
+.maskBorder{
+padding: 12px;
 }
-.kontur {
-  width: 100%;
-  height: 100%;
-}
-
-.container{
+img {
   position: absolute;
-  mask: url('../assets/Form_Mickey.svg') no-repeat;
+  width: 100%;
+  height: auto;
+}
 
+.cutout{
+  position: absolute;
+  cursor: pointer;
 }
 
 </style>

@@ -5,7 +5,8 @@
 <style type="text/css">
 	.st0{}
 	.st2{  stroke-width: 0.75rem;
-  fill: none;
+fill:none;
+	paint-order: stroke;
   stroke: blue;
   stroke-linejoin: round;}
 </style>

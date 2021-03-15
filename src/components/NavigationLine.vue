@@ -1,6 +1,6 @@
 <template>
 <div id="NavigationLine">
-  <img src="../assets/Seite_Info_kursiv.png" id="infoNav" class="navPos">
+  <img src="../assets/Navigation/Seite_Info_kursiv.png" id="infoNav" class="navPos">
   <div id="blueLine" class="navLine"></div>
 
   <a href="#residenzNav">
@@ -18,7 +18,7 @@
 
 <a href="#infoNav">
   <img id="orange-arrow-left"
-       src="../assets/Seite_Pfeil_orange_li.png"
+       src="../assets/Navigation/Seite_Pfeil_orange_li.png"
        class="navPos"
        v-bind:style="{
       display: scrollPositionVW < 120 ? 'none' : '',
@@ -28,7 +28,7 @@
 </a>
 
   <div id="orangeLine" class="navLine"></div>
-  <img src="../assets/Seite_Residenz_kursiv.png" id="residenzNav" class="navPos">
+  <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenzNav" class="navPos">
 </div>
 </template>
 
