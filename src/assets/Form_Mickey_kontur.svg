@@ -4,10 +4,11 @@
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{}
-	.st2{  stroke-width: 0.75rem;
+	.st2{  stroke-width: 0.65rem;
 fill:none;
-	paint-order: stroke;
+
   stroke: blue;
+
   stroke-linejoin: round;}
 </style>
 		<path class="st2" d="M1122.39,1.12c22.75-1.04,27.17-2.7,41.62,6.94c35.89,23.36,151.33,98.28,173.03,112.59

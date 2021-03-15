@@ -23,8 +23,8 @@
         class="cutout"
     >
 
-    <img v-bind:src="titleImage">
-      <img v-bind:src="maskPath" class="maskBorder">
+    <img v-bind:src="titleImage" class="titleImage" v-show="mouseOver">
+      <img v-bind:src="maskPath" class="maskPath">
 
     </div>
 
@@ -74,8 +74,12 @@ name: "VideoCutOut",
 </script>
 
 <style scoped>
-.maskBorder{
-padding: 12px;
+.maskPath{
+
+
+}
+.titleImage {
+
 }
 img {
   position: absolute;
