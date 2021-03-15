@@ -25,8 +25,7 @@ v-bind:style="{top: top + 'px'}"
       v-bind:close-at-vw="3000"
       v-bind:current-position-vw="currentPos"
       v-bind:container-style="{
-        position: 'absolute', top: 0, left: '-4vw'}
-      "
+        position: 'absolute', top: 0, left: '-4vw'}"
       v-bind:width-open="'60vw'"
       v-bind:mark="false"
       v-bind:z-base="5000"
