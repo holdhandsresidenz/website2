@@ -18,16 +18,25 @@ name: "TextStrokeWidth",
 </script>
 
 <style scoped>
+svg{
+  padding: 0;
+  height:2.5rem;
+  position: absolute;
+  top:0rem;
+}
 .text-wrapper {
-  display: block;
-  height: 100%;
-  width: 100%;
-white-space: nowrap;
-transform: scaleX(0.85);
-transform-origin: top left;
-font-family: Narr,sans-serif;
-font-size: 3rem
-
+  padding-top: 0rem;
+  position: absolute;
+  left: 0vw;
+  top: -0.5rem;
+  cursor: pointer;
+  width: 0;
+  overflow: visible;
+  transition: z-index 0s;
+  transform: scaleX(0.85);
+  transform-origin: top left;
+  font-family: Narr,sans-serif;
+  font-size: 3rem
 }
 .back {  z-index: 10000;
   stroke-width:1.2rem;

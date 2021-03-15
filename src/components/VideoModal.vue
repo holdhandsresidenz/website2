@@ -1,38 +1,38 @@
 <template>
-<div
-v-bind:id="id + '-modal'"
-class="modal"
-ref="modal"
-v-bind:style="{top: top + 'px'}"
->
-  <div class="leftBorder"></div>
-  <div class="rightBorder"></div>
-  <iframe
-      v-bind:id="id + '-iframe'"
-      v-bind:src="videoUrl + '?&autoplay=1&start=2'"
-      frameborder="0"
-      allowfullscreen></iframe>
-  <div class="name">
-  <Title @title-clicked="currentPos = 2950;" v-bind:z-index="60000" v-bind:title="title"></Title>
-  </div>
-<CloseButton @close="$emit('close')"></CloseButton>
-  <TextBox
-      @content-clicked="currentPos=3333; currentPos=3320"
-      v-bind:id="id + '-Biografie'"
-      v-bind:height="'20.625vw'"
-      v-bind:title="'INFO'"
-      v-bind:open-at-vw="2900"
-      v-bind:close-at-vw="3000"
-      v-bind:current-position-vw="currentPos"
-      v-bind:container-style="{
-        position: 'absolute', top: 0, left: '-4vw'}"
-      v-bind:width-open="'60vw'"
-      v-bind:mark="false"
-      v-bind:z-base="5000"
+  <div
+      v-bind:id="id + '-modal'"
+      ref="modal"
+      class="modal"
+      v-bind:style="{top: top + 'px'}"
   >
-    <p v-html="biografie"></p>
-  </TextBox>
-</div>
+    <div class="leftBorder"></div>
+    <div class="rightBorder"></div>
+    <iframe
+        v-bind:id="id + '-iframe'"
+        allowfullscreen
+        frameborder="0"
+        v-bind:src="videoUrl + '?&autoplay=1&start=2'"></iframe>
+    <div class="name">
+      <Title v-bind:title="title" v-bind:z-index="60000" @title-clicked="currentPos = 2950;"></Title>
+    </div>
+    <CloseButton @close="$emit('close')"></CloseButton>
+    <TextBox
+        v-bind:id="id + '-Biografie'"
+        v-bind:close-at-vw="3000"
+        v-bind:container-style="{
+        position: 'absolute', top: 0, left: '-4vw'}"
+        v-bind:current-position-vw="currentPos"
+        v-bind:height="'20.625vw'"
+        v-bind:mark="false"
+        v-bind:open-at-vw="2900"
+        v-bind:title="'INFO'"
+        v-bind:width-open="'60vw'"
+        v-bind:z-base="5000"
+        @content-clicked="currentPos=3333; currentPos=3320"
+    >
+      <p v-html="biografie"></p>
+    </TextBox>
+  </div>
 </template>
 
 <script>
@@ -40,6 +40,7 @@ v-bind:style="{top: top + 'px'}"
 import CloseButton from "@/components/CloseButton";
 import TextBox from "@/components/TextBox";
 import Title from "@/components/Title";
+
 export default {
   name: "VideoModal",
   components: {Title, TextBox, CloseButton},
@@ -49,18 +50,18 @@ export default {
     videoUrl: String,
     biografie: String
   },
-  data: function (){
-    return{
+  data: function () {
+    return {
       top: 0,
       currentPos: 0
     }
   },
   methods: {
     setTop() {
-      let modalHeight = window.innerWidth* 0.9 * 0.5625
-      let freeHeight =window.innerHeight - modalHeight
-      console.log('mHeight: ' + modalHeight +', freeHeight:' +freeHeight + ', screenH: ' + window.innerHeight)
-      this.top= freeHeight < 0 ? 0 : freeHeight/2
+      let modalHeight = window.innerWidth * 0.9 * 0.5625
+      let freeHeight = window.innerHeight - modalHeight
+      console.log('mHeight: ' + modalHeight + ', freeHeight:' + freeHeight + ', screenH: ' + window.innerHeight)
+      this.top = freeHeight < 0 ? 0 : freeHeight / 2
     }
   },
   mounted() {
@@ -77,12 +78,14 @@ export default {
 .modal {
   z-index: 1035;
   position: fixed;
+  overflow: visible;
   width: 90vw;
-  left:5vw;
+  left: 5vw;
   right: 5vw;
   height: 50.625vw;
   background: #b2b2b2;
 }
+
 .leftBorder {
   z-index: 200;
   position: absolute;
@@ -112,6 +115,7 @@ iframe {
   z-index: 80;
   position: absolute;
 }
+
 .name {
   position: absolute;
   top: 2.9rem;

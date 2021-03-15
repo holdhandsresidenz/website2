@@ -79,7 +79,6 @@ name: "NavigationLine",
 #orange-arrow-left {
   position: fixed;
   right: 0;
-  transition: 0.3s;
   z-index: 101;
   transition: 0.8s;
 }
