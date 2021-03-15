@@ -4,10 +4,15 @@
 	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
-	.st1{display:inline;fill:#CC3636;}
-	.st2{display:inline;stroke:#FFFFFF;stroke-miterlimit:10;}
-	.st3{display:inline;fill:#828282;}
-	.st4{fill:#202020;}
+	.st1{display:inline;fill:#CC3636;display:none;}
+	.st2{display:inline;stroke:#FFFFFF;stroke-miterlimit:10;display:none;}
+	.st3{display:inline;fill:#828282;display:none;}
+	.st4{
+    fill:none;
+    stroke: blue;
+    stroke-miterlimit:10;
+    stroke-width: 0.65rem;
+    }
 </style>
 <g id="Ebene_1" class="st0">
 	<path class="st1" d="M1134.59,0c3.34,0,6.67,0,10.01,0c7.17,1,13.32,4.09,19.41,8.06c35.89,23.36,71.76,46.75,107.68,70.05
