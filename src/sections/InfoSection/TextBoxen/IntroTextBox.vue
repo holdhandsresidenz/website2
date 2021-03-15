@@ -3,7 +3,7 @@
       id="IntroText"
       title="HOLD HANDS"
       v-bind:close-at-vw="70"
-      v-bind:container-style="{position: 'absolute', bottom: '20vh', left: '64vw'}"
+      v-bind:container-style="{position: 'absolute', top: '2vh', left: '64vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="'29vh'"
       v-bind:mark="true"

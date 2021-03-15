@@ -14,7 +14,7 @@ v-bind:style="{top: top + 'px'}"
       allowfullscreen></iframe>
   <div class="info">
 
-  <Title z-index="6100" v-bind:title="title"></Title>
+  <Title z-index="6000" v-bind:title="title"></Title>
   </div>
 <CloseButton @close="$emit('close')"></CloseButton>
   <TextBox

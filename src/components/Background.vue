@@ -73,7 +73,8 @@ export default {
   top: 0;
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 #background::-webkit-scrollbar-track {
   background: #3c2832;

@@ -83,8 +83,8 @@ z-index: 90;
 }
 img {
   position: absolute;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .cutout{

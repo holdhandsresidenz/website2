@@ -132,6 +132,7 @@ export default {
 }
 
 .content {
+
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;

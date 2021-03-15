@@ -2,7 +2,7 @@
 <div id="NavigationLine">
   <img src="../assets/Navigation/Seite_Info_kursiv.png" id="infoNav" class="navPos">
   <div id="blueLine" class="navLine"></div>
-
+  <div id="orangeLine" class="navLine"></div>
   <a href="#residenzNav">
     <img
         id="blue-arrow-right" src="../assets/Navigation_bl_re.png"
@@ -27,7 +27,7 @@
   >
 </a>
 
-  <div id="orangeLine" class="navLine"></div>
+
   <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenzNav" class="navPos">
 </div>
 </template>
@@ -50,17 +50,18 @@ name: "NavigationLine",
 </script>
 
 <style scoped>
-
+.navLine {
+  top: 16.5px;
+  height: 0.15rem;
+}
 #blueLine {
   background: blue;
   position: absolute;
-
   left: 115px;
-  width: 200vw;
+  width: 276vw;
   z-index: 80;
 
-  top: 16.5px;
-  height: 0.15rem;
+
 
 }
 #blue-arrow-right {
@@ -78,7 +79,8 @@ name: "NavigationLine",
 }
 
 #orangeLine{
-  left: 200vw;
+  position: absolute;
+  left: 280vw;
   background: #aa3500;
   z-index: 100;
   width: 50vw;
@@ -86,7 +88,7 @@ name: "NavigationLine",
 
 #residenzNav {
   position: absolute;
-  left: 205vw;
+  left: 285vw;
   width:225px;
   padding-right: 10vw;
   z-index: 100;

@@ -3,7 +3,7 @@
       id="Einleitung"
       title="EINLEITUNG"
       v-bind:close-at-vw="80"
-      v-bind:container-style="{position: 'absolute', top: '10vh', left: '90vw'}"
+      v-bind:container-style="{position: 'absolute', bottom: '8vh', left: '90vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="'36vh'"
       v-bind:mark="true"

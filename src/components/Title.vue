@@ -32,7 +32,7 @@ name: "Title",
   position: absolute;
   left: 1vw;
   overflow: visible;
-
+  transition: z-index 0s;
   transform: scaleX(0.85);
   transform-origin: top left;
   font-family: Narr,sans-serif;
@@ -40,6 +40,7 @@ name: "Title",
 }
 
 .back {
+  transition: z-index 0s;
   display: block;
   width: 100%;
   stroke-width:1.2rem;
@@ -48,6 +49,7 @@ name: "Title",
   stroke-linejoin: round;
 }
 .front {
+  transition: z-index 0s;
   width: 100%;
   display: block;
   fill: #22515B;

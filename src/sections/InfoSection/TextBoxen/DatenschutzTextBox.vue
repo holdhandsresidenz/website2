@@ -4,7 +4,7 @@
       @continue-scroll="continueScroll"
       id="Datenschutz"
       title="DATENSCHUTZ"
-      v-bind:container-style="{position: 'absolute', bottom: '0vh', left: '8vw'}"
+      v-bind:container-style="{position: 'absolute', bottom: '0vh', left: '250vw'}"
       v-bind:height="'32vh'"
       v-bind:width-open="'65vw'"
       v-bind:maxWidthPx="600"

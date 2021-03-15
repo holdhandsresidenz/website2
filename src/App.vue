@@ -95,11 +95,11 @@ p{
   margin-bottom: 0;
 }
 #mickeyBIO {
-  padding-top: 7vh;
-  text-indent: 15vw;
+  padding-top: 3.6rem;
+  text-indent: 14.7vw;
 }
 #laraBIO {
-  padding-top: 6.8vh;
+  padding-top: 3.7rem;
   text-indent: 15vw;
 }
 @font-face {
