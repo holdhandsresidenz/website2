@@ -122,4 +122,8 @@ p{
   }
 
 }
+a{
+  color: black;
+ ;
+}
 </style>

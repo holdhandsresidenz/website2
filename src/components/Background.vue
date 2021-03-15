@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     scrolled() {
+
       let px = this.$refs.background.scrollLeft
       this.scrollPos = px
       this.$emit('scrollPositionChanged', this.pxToVw(this.scrollPos) )
@@ -40,7 +41,7 @@ export default {
       if ( !this.scrollSuspended ) {
         let counter
         if(this.$browserDetect.isFirefox) {
-          counter = e.deltaY * 10
+          counter = e.deltaY * 15
         } else {
           counter = e.deltaY * 1
         }

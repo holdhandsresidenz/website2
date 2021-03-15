@@ -1,7 +1,7 @@
 <template>
   <div v-bind:id="id">
     <VideoModal
-        @close="modalVisible = false"
+        @close="modalVisible = false; $emit('continue-scroll')"
         v-if="modalVisible"
         v-bind:id="id"
         v-bind:videoUrl="videoUrl"
@@ -67,6 +67,7 @@ name: "VideoCutOut",
     },
     openVideo() {
       this.modalVisible = true
+      this.$emit('suspend-scroll')
       console.log('triggered modal', this.modalVisible)
     }
   }

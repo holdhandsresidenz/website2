@@ -15,7 +15,7 @@ name: "ResidenzSection"
 <style scoped>
 #Residenz-Section{
   position: absolute;
-  left: 280vw;
+  left: 291vw;
   top: 0;
   box-sizing: border-box;
   height: 100%;

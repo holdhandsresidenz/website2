@@ -12,18 +12,18 @@ v-bind:style="{top: top + 'px'}"
       v-bind:src="videoUrl + '?&autoplay=1&start=2'"
       frameborder="0"
       allowfullscreen></iframe>
-  <div class="info">
-
-  <Title z-index="6000" v-bind:title="title"></Title>
+  <div class="name">
+  <Title @title-clicked="currentPos = 2950;" v-bind:z-index="60000" v-bind:title="title"></Title>
   </div>
 <CloseButton @close="$emit('close')"></CloseButton>
   <TextBox
+      @content-clicked="currentPos=3333; currentPos=3320"
       v-bind:id="id + '-Biografie'"
       v-bind:height="'20.625vw'"
       v-bind:title="'INFO'"
-      v-bind:open-at-vw="3000"
+      v-bind:open-at-vw="2900"
       v-bind:close-at-vw="3000"
-      v-bind:current-position-vw="0"
+      v-bind:current-position-vw="currentPos"
       v-bind:container-style="{
         position: 'absolute', top: 0, left: '-4vw'}
       "
@@ -52,7 +52,8 @@ export default {
   },
   data: function (){
     return{
-      top: 0
+      top: 0,
+      currentPos: 0
     }
   },
   methods: {
@@ -75,7 +76,7 @@ export default {
 
 <style scoped>
 .modal {
-  z-index: 135;
+  z-index: 1035;
   position: fixed;
   width: 90vw;
   left:5vw;
@@ -112,9 +113,9 @@ iframe {
   z-index: 80;
   position: absolute;
 }
-.info {
+.name {
   position: absolute;
-  top: 2.8vw;
+  top: 2.9rem;
   overflow: visible;
   left: -4vw;
 }

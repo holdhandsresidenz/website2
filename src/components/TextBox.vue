@@ -9,7 +9,9 @@
         @mouseover="mouseenter"
         @mouseleave="mouseleave"
     >
-
+      <Title v-bind:title="title"
+             v-bind:z-index="!this.open ? zBase + 1002 : zBase + 1002"
+      ></Title>
       <div
           v-bind:id="this.id + '-borderL'"
           class="leftBorder transitionTime minMaxValues"
@@ -19,11 +21,10 @@
           zIndex: !this.open ? zBase + 1 : zBase + 1001,
           }"></div>
 
-      <Title v-bind:title="title"
-             v-bind:z-index="!this.open ? zBase + 2 : zBase + 1002"
-      ></Title>
+
 
       <div
+          @click="$emit('content-clicked')"
           v-bind:id="this.id + '-content'"
           class="content transitionTime grey "
           v-bind:style="{
@@ -102,7 +103,7 @@ export default {
   },
   watch: {
     currentPositionVw: function () {
-      this.open = !(this.currentPositionVw <= this.openAtVw || this.currentPositionVw >= this.closeAtVw);
+      this.open = ((this.currentPositionVw >= this.openAtVw) && (this.currentPositionVw <= this.closeAtVw));
     }
   },
   methods: {
@@ -158,6 +159,7 @@ export default {
 
 }
 
+/*
 @media all and (max-width: 1000px) {
   .container {
     flex-direction: row;
@@ -171,6 +173,8 @@ export default {
     overflow-x: auto;
   }
 
+
 }
+ */
 
 </style>
