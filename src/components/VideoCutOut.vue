@@ -75,7 +75,7 @@ name: "VideoCutOut",
 
 <style scoped>
 .maskPath{
-
+z-index: 90;
 
 }
 .titleImage {

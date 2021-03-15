@@ -9,7 +9,7 @@
 	fill:none;
     stroke: blue;
     stroke-miterlimit:10;
-    stroke-width: 0.65rem;
+    stroke-width: 0.25rem;
 	}
 	.st3{display:inline;fill:#828282;display:none;}
 	.st4{

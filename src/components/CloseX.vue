@@ -26,7 +26,7 @@ white-space: nowrap;
 transform: scaleX(0.85);
 transform-origin: top left;
 font-family: Narr,sans-serif;
-font-size: 5rem
+font-size: 3rem
 
 }
 .back {  z-index: 10000;

@@ -73,13 +73,12 @@ export default {
   z-index: 135;
   position: fixed;
   width: 90vw;
-  left:4vw;
-  right: 6vw;
+  left:3vw;
+  right: 7vw;
   height: 50.625vw;
   background: #b2b2b2;
 }
 .leftBorder {
-
   z-index: 200;
   position: absolute;
   width: 4vw;
@@ -88,7 +87,6 @@ export default {
   background: url("../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
-
 }
 
 .rightBorder {

@@ -81,17 +81,18 @@ html,body {
   background: #b2b2b2;
 }
 *::-webkit-scrollbar-thumb {
-  background: #3c2832;
+  background: #22515B;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: #3c2832;
+  background: #22515B;
+}
+.alignRight{
+  text-align: right;
 }
 
-
-.navLine {
-  position: absolute;
-  top: 16.5px;
-  height: 0.25rem;
+p{
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @font-face {

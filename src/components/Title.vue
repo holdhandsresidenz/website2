@@ -1,11 +1,10 @@
 <template>
-<div>
+<div class="title-wrapper"  v-bind:style="{zIndex: zIndex}">
 
-  <svg
-      class="title-wrapper"
+  <svg v-bind:style="{zIndex: zIndex, padding: 0}"
      >
-    <text x = "0" y="50" class="back">{{title}}</text>
-    <text x = "0" y="50" class="front">{{title}}</text>
+    <text x = "5" y="50" class="back">{{title}}</text>
+    <text x = "5" y="50" class="front">{{title}}</text>
   </svg>
 
 </div>
@@ -29,24 +28,28 @@ name: "Title",
 
 <style scoped>
 .title-wrapper {
+  padding-top: 0;
   position: absolute;
-  left: 2vw;
-  top: -1.2vw;
-  z-index: 120;
-  white-space: nowrap;
+  left: 1vw;
+  overflow: visible;
+
   transform: scaleX(0.85);
   transform-origin: top left;
   font-family: Narr,sans-serif;
   font-size: 3rem
-
 }
-.back {  z-index: 10000;
+
+.back {
+  display: block;
+  width: 100%;
   stroke-width:1.2rem;
   fill:black;
   stroke: blue;
   stroke-linejoin: round;
 }
-.front {  z-index: 10000;
+.front {
+  width: 100%;
+  display: block;
   fill: #22515B;
 }
 </style>

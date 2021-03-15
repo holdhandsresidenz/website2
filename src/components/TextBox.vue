@@ -3,11 +3,9 @@
       v-bind:id="this.id">
     <Mark v-if="mark" v-bind:position="{position: 'absolute', top: 0, left: this.containerStyle.left}"></Mark>
     <div
-
         class="container transitionTime minMaxValues"
         v-bind:style="this.containerStyle"
         @click="open = !open"
-
         @mouseover="mouseenter"
         @mouseleave="mouseleave"
     >
@@ -18,11 +16,11 @@
           v-bind:style="{
           height: height,
           minHeight: minHeightPx+ 'px',
-          zIndex: this.open ? '111' : '101',
+          zIndex: !this.open ? zBase + 1 : zBase + 1001,
           }"></div>
 
       <Title v-bind:title="title"
-             v-bind:z-index="this.open ? 123 : 109"
+             v-bind:z-index="!this.open ? zBase + 2 : zBase + 1002"
       ></Title>
 
       <div
@@ -35,7 +33,7 @@
            width: !this.open ? '0' : widthOpen,
            overflowY: !this.open ? 'hidden' : 'auto',
            opacity: this.open ? '' : '0',
-           zIndex: this.open ? '110' : '100',
+           zIndex: !this.open ? zBase : zBase + 1000,
           left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
 
          }"
@@ -53,7 +51,7 @@
         opacity: this.open ? '' : '0',
         left: !this.open ? '-4.7vw' : '-4vw',
         minHeight: minHeightPx + 'px',
-        zIndex: this.open ? '111' : '101',
+        zIndex: !this.open ? zBase + 1 : zBase + 1001,
     }"
       ></div>
 
@@ -78,7 +76,8 @@ export default {
     currentPositionVw: Number,
     openAtVw: Number,
     closeAtVw: Number,
-    mark: Boolean
+    mark: Boolean,
+    zBase: Number
   },
   components: {
     Title,
@@ -96,6 +95,7 @@ export default {
     screenH() {
       return screen.height
     },
+
     offsetLeftAtMaxWidth() {
       return this.maxWidthPx * 0.61
     }
@@ -137,6 +137,7 @@ export default {
   overflow-x: hidden;
   position: relative;
   padding-left: 1.3vw;
+  padding-right: 0.5vw;
 }
 
 .leftBorder {

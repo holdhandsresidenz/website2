@@ -1,5 +1,5 @@
 <template>
-<button @click="$emit('close')"><TextStrokeWidth text="x"></TextStrokeWidth></button>
+<button @click="$emit('close')"><TextStrokeWidth text="X"></TextStrokeWidth></button>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ name: "CloseButton",
   button{
     position: absolute;
     background: rgba(52,35,48,0);
-    right: 0;
+    right: -5.5vw;
     top: 0vh;
     height: 5vw;
     width: 5vw;

@@ -59,6 +59,9 @@ name: "NavigationLine",
   width: 200vw;
   z-index: 80;
 
+  top: 16.5px;
+  height: 0.15rem;
+
 }
 #blue-arrow-right {
   position: fixed;

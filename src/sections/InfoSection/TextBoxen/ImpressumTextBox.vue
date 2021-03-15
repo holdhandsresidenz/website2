@@ -13,22 +13,25 @@
       v-bind:close-at-vw="0"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:mark="true"
+      v-bind:z-base="2"
   >
-    <p>
+
       <br><br>
-    Das Projekt  Hold Hands Residenz wird umgesetzt von:<br>
+   <p class="rechts">Das Projekt  Hold Hands Residenz wird umgesetzt von:</p>
+
+<p>
+  Hjördis Lyn Behncken (Social Media und Öffentlichkeitsarbeit)
+  Anne Dietzsch (gestalterisches Konzept und Typografie)<br>
+  Jonathan Schneider (Programmierung)<br>
+  Lissy Willberg (inhaltliches Konzept, Projektleitung und Videoproduktion)<br>
+</p>
+<p class="rechts">
+
+   Gefördert wird das Projekt durch das Kulturamt Leipzig und das Support-Büro der HGB Leipzig.
+</p>
 
 
-    Hjördis Lyn Behncken (Social Media und Öffentlichkeitsarbeit)<br>
-    Anne Dietzsch (gestalterisches Konzept und Typografie)<br>
-    Jonathan Schneider (Programmierung)<br>
-    Lissy Willberg (inhaltliches Konzept, Projektleitung und Videoproduktion)<br>
-
-    und gefördert durch das Kulturamt Leipzig und das Support-Büro der HGB Leipzig.
-
-  </p>
-
-    <address>
+    <address class="">
       Kontakt:
       <br>
       mail ( at ) hold-hands.net
@@ -70,7 +73,14 @@ export default {
 </script>
 
 <style scoped>
-p, address {
+
+.links{
+  text-align: left;
+}
+.rechts {
   text-align: right;
+}
+address {
+  font-style: normal;
 }
 </style>
