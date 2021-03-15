@@ -94,7 +94,14 @@ p{
   margin-top: 0;
   margin-bottom: 0;
 }
-
+#mickeyBIO {
+  padding-top: 7vh;
+  text-indent: 15vw;
+}
+#laraBIO {
+  padding-top: 6.8vh;
+  text-indent: 15vw;
+}
 @font-face {
   font-family: 'Akzi';
   src: url('assets/fonts/AkzidGroMed.woff') format("woff");

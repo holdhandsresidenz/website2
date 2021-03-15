@@ -1,7 +1,7 @@
 <template>
 <div class="title-wrapper"  v-bind:style="{zIndex: zIndex}">
 
-  <svg v-bind:style="{zIndex: zIndex, padding: 0}"
+  <svg v-bind:style="{zIndex: zIndex, padding: 0, overflow: 'visible'}"
      >
     <text x = "5" y="50" class="back">{{title}}</text>
     <text x = "5" y="50" class="front">{{title}}</text>

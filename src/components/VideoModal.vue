@@ -8,24 +8,28 @@ v-bind:style="{top: top + 'px'}"
   <div class="leftBorder"></div>
   <div class="rightBorder"></div>
   <iframe
-
-      id="iframe-lara"
+      v-bind:id="id + '-iframe'"
       v-bind:src="videoUrl + '?&autoplay=1&start=2'"
       frameborder="0"
       allowfullscreen></iframe>
+  <div class="info">
+
+  <Title z-index="6100" v-bind:title="title"></Title>
+  </div>
 <CloseButton @close="$emit('close')"></CloseButton>
   <TextBox
       v-bind:id="id + '-Biografie'"
-      v-bind:height="'100%'"
-      v-bind:title="title"
+      v-bind:height="'20.625vw'"
+      v-bind:title="'INFO'"
       v-bind:open-at-vw="3000"
       v-bind:close-at-vw="3000"
       v-bind:current-position-vw="0"
       v-bind:container-style="{
-        position: 'absolute', top: 0, left: 0}
+        position: 'absolute', top: 0, left: '-4vw'}
       "
-      v-bind:width-open="'30vw'"
+      v-bind:width-open="'60vw'"
       v-bind:mark="false"
+      v-bind:z-base="5000"
   >
     <p v-html="biografie"></p>
   </TextBox>
@@ -36,9 +40,10 @@ v-bind:style="{top: top + 'px'}"
 
 import CloseButton from "@/components/CloseButton";
 import TextBox from "@/components/TextBox";
+import Title from "@/components/Title";
 export default {
   name: "VideoModal",
-  components: {TextBox, CloseButton},
+  components: {Title, TextBox, CloseButton},
   props: {
     title: String,
     id: String,
@@ -73,8 +78,8 @@ export default {
   z-index: 135;
   position: fixed;
   width: 90vw;
-  left:3vw;
-  right: 7vw;
+  left:5vw;
+  right: 5vw;
   height: 50.625vw;
   background: #b2b2b2;
 }
@@ -106,5 +111,11 @@ iframe {
   height: 100%;
   z-index: 80;
   position: absolute;
+}
+.info {
+  position: absolute;
+  top: 2.8vw;
+  overflow: visible;
+  left: -4vw;
 }
 </style>

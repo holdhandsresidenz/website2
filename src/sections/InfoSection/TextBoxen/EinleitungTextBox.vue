@@ -19,9 +19,13 @@
       des künstlerischen Feldes arbeiten, das uns interessiert. In Form von Video-Interviews, die die Künstler:innen
       inhaltlich selbst gestalten durften, geben sie uns einen Einblick in ihre künstlerische Praxis und Gedanken, die
       sie in Hinblick auf das digitale Ausstellen oder die Begehung virtueller Räume haben. Ihre Herangehensweisen und
-      Erfahrungen in diesem Bereich fallen ganz unterschiedlich aus. Im Gespräch war Hold Hands mit den Künstler:innen
-      Paula Ábalos, Lara Dâmaso und Mickey Yang. Jede Woche werden wir auf unserer Website ein neues Interview
-      veröffentlichen, um uns den Fragen der Residenz—zeitlich sowie inhaltlich—immer mehr zu nähern.</p>
+      Erfahrungen in diesem Bereich fallen ganz unterschiedlich aus. </p>
+
+    <p class="alignRight">
+  Im Gespräch war Hold Hands mit den Künstler:innen
+  Paula Ábalos, Lara Dâmaso und Mickey Yang. Jede Woche werden wir auf unserer Website ein neues Interview
+  veröffentlichen, um uns den Fragen der Residenz—zeitlich sowie inhaltlich—immer mehr zu nähern.
+</p>
   </TextBox>
 </template>
 
