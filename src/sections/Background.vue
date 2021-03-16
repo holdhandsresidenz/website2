@@ -57,9 +57,7 @@ export default {
 
     },
     detectTrackPad(e) {
-      var isTouchPad = e.wheelDeltaY ? e.wheelDeltaY === -3 * e.deltaY : e.deltaMode === 0
-      // your code
-      document.body.textContent = isTouchPad ? "isTouchPad" : "isMouse"
+     console.log(e)
     },
 
     deactivateScroll() {
