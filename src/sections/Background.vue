@@ -56,6 +56,19 @@ export default {
       }
 
     },
+    detectTrackPad(e) {
+      var isTrackpad = false;
+      if (e.wheelDeltaY) {
+        if (e.wheelDeltaY === (e.deltaY * -3)) {
+          isTrackpad = true;
+        }
+      }
+      else if (e.deltaMode === 0) {
+        isTrackpad = true;
+      }
+      console.log(isTrackpad ? "Trackpad detected" : "Mousewheel detected");
+    },
+
     deactivateScroll() {
       this.scrollSuspended = true
     },
@@ -66,6 +79,8 @@ export default {
   mounted() {
     window.addEventListener('touchstart', console.log('touchstart'))
     window.addEventListener('resize', console.log('resize'))
+    document.addEventListener("mousewheel", this.detectTrackPad, false);
+    document.addEventListener("DOMMouseScroll", this.detectTrackPad, false);
   }
 
 }
