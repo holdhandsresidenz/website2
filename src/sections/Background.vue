@@ -25,10 +25,12 @@ export default {
   data: function () {
     return {
       scrollPos: 0,
+      scrollDirTwist: true
     }
   },
   props: {
-    scrollSuspended: Boolean
+    scrollSuspended: Boolean,
+
   },
   methods: {
     scrolled(e) {
@@ -38,34 +40,42 @@ export default {
       this.$emit('scrollPositionChanged', this.pxToVw(this.scrollPos) )
     },
     wheel(e) {
-      console.log('e.DeltaY = ' + e.deltaY)
-      if ( !this.scrollSuspended ) {
-        let counter
-        if(this.$browserDetect.isFirefox) {
-          counter = e.deltaY * 15
-        } else {
-          counter = e.deltaY * 1
-        }
-        while (counter >= 0) {
-          this.$refs.background.scrollLeft += 1
-          counter--
-        }
-        while (counter <= 0) {
-          this.$refs.background.scrollLeft -= 1
-          counter++
+      if (e.deltaY === 0) {
+        this.scrollDirTwist = false
+      }
+
+
+      if (this.scrollDirTwist) {
+        console.log('e.DeltaY = ' + e.deltaY)
+        if ( !this.scrollSuspended ) {
+          let counter
+          if(this.$browserDetect.isFirefox) {
+            counter = e.deltaY * 15
+          } else {
+            counter = e.deltaY * 1
+          }
+          while (counter >= 0) {
+            this.$refs.background.scrollLeft += 1
+            counter--
+          }
+          while (counter <= 0) {
+            this.$refs.background.scrollLeft -= 1
+            counter++
+          }
         }
       }
 
+
     },
 
-
-    deactivateScroll() {
-      this.scrollSuspended = true
-    },
-    activateScroll() {
-      this.scrollSuspended = false
+    deactivateTwist() {
+      this.scrollDirTwist = false
+      window.removeEventListener('touchstart', this.deactivateTwist)
     }
   },
+  mounted() {
+    window.addEventListener('touchstart', this.deactivateTwist)
+  }
 
 
 }
