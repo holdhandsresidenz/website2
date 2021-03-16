@@ -31,13 +31,14 @@ export default {
     scrollSuspended: Boolean
   },
   methods: {
-    scrolled() {
-
+    scrolled(e) {
+      console.log(e)
       let px = this.$refs.background.scrollLeft
       this.scrollPos = px
       this.$emit('scrollPositionChanged', this.pxToVw(this.scrollPos) )
     },
     wheel(e) {
+
       if ( !this.scrollSuspended ) {
         let counter
         if(this.$browserDetect.isFirefox) {
@@ -56,8 +57,30 @@ export default {
       }
 
     },
+    checkScrollDirection(event) {
+      if (this.checkScrollDirectionIsUp(event)) {
+        console.log('UP');
+      } else {
+        console.log('Down');
+      }
+    },
+    checkScrollDirectionIsUp(event) {
+      if (event.wheelDelta) {
+        return event.wheelDelta > 0;
+      }
+      return event.deltaY < 0;
+    },
     detectTrackPad(e) {
-     console.log(e)
+      var isTrackpad = false;
+      if (e.wheelDeltaY) {
+        if (Math.abs(e.wheelDeltaY) !== 120) {
+          isTrackpad = true;
+        }
+      }
+      else if (e.deltaMode === 0) {
+        isTrackpad = true;
+      }
+      console.log(isTrackpad ? "Trackpad detected" : "Mousewheel detected");
     },
 
     deactivateScroll() {
@@ -70,6 +93,7 @@ export default {
   mounted() {
     window.addEventListener('touchstart', console.log('touchstart'))
     window.addEventListener('resize', console.log('resize'))
+    window.addEventListener('wheel', this.checkScrollDirection)
     document.addEventListener("mousewheel", this.detectTrackPad, false);
     document.addEventListener("DOMMouseScroll", this.detectTrackPad, false);
   }
