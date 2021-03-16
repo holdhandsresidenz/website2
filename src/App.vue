@@ -110,11 +110,7 @@ p{
   font-family: 'Narr';
   src: url("assets/fonts/Arial-Narrow.woff") format("woff");
 }
-@media all and (min-width: 1920px) {
-  html,body {
-    font-size: 14px;
-  }
-}
+
 @media all and (max-width: 1000px) {
   html,body {
     font-size: 11px;

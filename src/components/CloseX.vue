@@ -21,6 +21,7 @@ name: "TextStrokeWidth",
 svg{
   padding: 0;
   height:2.5rem;
+  width: 4vw;
   position: absolute;
   top:0rem;
 }
@@ -28,9 +29,10 @@ svg{
   padding-top: 0rem;
   position: absolute;
   left: 0vw;
-  top: -0.5rem;
+  height: 2vh;
+  top: -1rem;
   cursor: pointer;
-  width: 0;
+  width: 4vw;
   overflow: visible;
   transition: z-index 0s;
   transform: scaleX(0.85);
@@ -38,13 +40,15 @@ svg{
   font-family: Narr,sans-serif;
   font-size: 3rem
 }
-.back {  z-index: 10000;
+.back {
+  z-index: 10000;
   stroke-width:1.2rem;
   fill:black;
   stroke: blue;
   stroke-linejoin: round;
 }
-.front {  z-index: 10000;
+.front {
+  z-index: 10000;
   fill: #22515B;
 }
 </style>

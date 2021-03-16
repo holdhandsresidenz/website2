@@ -63,6 +63,10 @@ export default {
       this.scrollSuspended = false
     }
   },
+  mounted() {
+    window.addEventListener('touchstart', console.log('touchstart'))
+    window.addEventListener('resize', console.log('resize'))
+  }
 
 }
 </script>

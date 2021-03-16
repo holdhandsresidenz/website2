@@ -27,14 +27,17 @@
   >
 </a>
   <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenz" class="navPos">
+<div class="soon">
   <div class="soon1">
     <TitleBW title="DIE RESIDENZ STARTET"></TitleBW>
-    <div class="soon2">
-      <TitleBW title="AM 1. APRIL 2021"></TitleBW>
-    </div>
+  </div>
+  <div class="soon2">
+    <TitleBW title="AM 1. APRIL 2021"></TitleBW>
   </div>
 
 </div>
+  </div>
+
 </template>
 
 <script>
@@ -99,16 +102,21 @@ name: "NavigationLine",
   z-index: 100;
 }
 .soon1{
-  top: 30vh;
+height: 4rem;
+}
+.soon2{
+  height: 4rem;
+  margin-left: 5rem;
+}
+.soon{
+  display: flex;
+  flex-direction: column;
+  bottom: 50vh;
   z-index: 100;
   position: absolute;
   left: 303.5vw;
 }
-.soon2{
-  top: 7vh;
-  z-index: 100;
-
-  position: absolute;
-  left: 3vw;
+.d2{
+  height: 100%;
 }
 </style>

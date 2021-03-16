@@ -16,10 +16,12 @@ name: "ResidenzSection"
 #Residenz-Section{
   position: absolute;
   left: 291vw;
+  right: 0;
   top: 0;
   box-sizing: border-box;
   height: 100%;
   width: 50vw;
+  min-width: 450px;
   background: #b2b2b2;
 }
 

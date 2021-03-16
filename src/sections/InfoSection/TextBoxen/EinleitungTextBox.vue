@@ -59,6 +59,6 @@ export default {
 <style scoped>
 .ersterAbsatz {
   padding-top: 1rem;
-  text-indent: 13vw
+  text-indent: 13rem
 }
 </style>

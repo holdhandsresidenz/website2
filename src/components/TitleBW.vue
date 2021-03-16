@@ -1,8 +1,6 @@
 <template>
 <div class="title-wrapper"  v-bind:style="{zIndex: zIndex}">
-
-  <svg v-bind:style="{zIndex: zIndex, padding: 0, overflow: 'visible'}"
-     >
+  <svg v-bind:style="{zIndex: zIndex, padding: 0, overflow: 'visible'}">
     <text x = "5" y="50" class="back">{{title}}</text>
     <text x = "5" y="50" class="front">{{title}}</text>
   </svg>
@@ -11,9 +9,6 @@
    <!-- <h1  v-bind:id="title + '-black'" class="title-black">{{title}}</h1>
    <h1  v-bind:id="title + '-white'" class="title-white">{{title}}</h1>
    -->
-
-
-
 </template>
 
 <script>
@@ -27,13 +22,15 @@ name: "Title",
 </script>
 
 <style scoped>
-
+svg{
+  height: 3rem
+}
 .title-wrapper {
   padding-top: 0;
   position: absolute;
-
+  height: 3rem;
   left: 1vw;
-  width: 0;
+  width: 3vw;
   overflow: visible;
   transition: z-index 0s;
   transform: scaleX(0.85);
