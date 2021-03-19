@@ -141,9 +141,8 @@ iframe {
     width: 6vh;
   }
   .name {
-
     left: -0.5vw;
-    top: 38vh;
+    top: 70vw;
   }
   .modal {
     width: 90vw;

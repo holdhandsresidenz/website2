@@ -117,8 +117,8 @@ a{
 
 @media all and (max-width: 1000px) {
   html,body {
-    line-height: 6.3vw;
-    font-size: 3vw;
+    line-height: 7vw;
+    font-size: 3.3vw;
   }
   #laraBIO {
     padding-top: 7.0rem;

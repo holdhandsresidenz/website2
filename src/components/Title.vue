@@ -48,7 +48,6 @@ height: 2.5rem;
 
 .back {
   cursor: pointer;
-
   transition: z-index 0s;
   display: block;
   width: 100%;
@@ -63,5 +62,13 @@ height: 2.5rem;
   width: 100%;
   display: block;
   fill: #22515B;
+}
+
+@media all and (max-width: 1000px) {
+  .title-wrapper {
+    font-size: 2.8rem;
+    left: 2.3vw;
+    top:-0.7vw;
+  }
 }
 </style>
