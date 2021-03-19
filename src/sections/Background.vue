@@ -33,8 +33,7 @@ export default {
 
   },
   methods: {
-    scrolled(e) {
-      console.log(e)
+    scrolled() {
       let px = this.$refs.background.scrollLeft
       this.scrollPos = px
       this.$emit('scrollPositionChanged', this.pxToVw(this.scrollPos) )
@@ -43,8 +42,6 @@ export default {
       if (e.deltaY === 0) {
         this.scrollDirTwist = false
       }
-
-
       if (this.scrollDirTwist) {
         console.log('e.DeltaY = ' + e.deltaY)
         if ( !this.scrollSuspended ) {

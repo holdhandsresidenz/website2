@@ -1,62 +1,49 @@
 <template>
-<div id="NavigationLine">
-  <img src="../assets/Navigation/Seite_Info_kursiv.png" id="information" class="navPos">
-  <div id="blueLine" class="navLine"></div>
-  <div id="orangeLine" class="navLine"></div>
-  <a href="#residenz">
-    <img
-        id="blue-arrow-right" src="../assets/Navigation_bl_re.png"
-        class="navPos"
-        v-bind:style="{
+  <div id="NavigationLine">
+    <img id="information" class="navPos" src="../assets/Navigation/Seite_Info_kursiv.png">
+    <div id="blueLine" class="navLine"></div>
+    <div id="orangeLine" class="navLine"></div>
+    <a href="#residenz">
+      <img
+          id="blue-arrow-right" class="navPos"
+          src="../assets/Navigation_bl_re.png"
+          v-bind:style="{
       display: scrollPositionVW > 190 ? 'none' : '',
       opacity: scrollPositionVW > 190 ? '0' : '100%'
     }"
-    >
-  </a>
+      >
+    </a>
 
 
-
-<a href="#information">
-  <img id="orange-arrow-left"
-       src="../assets/Navigation/Seite_Pfeil_orange_li.png"
-       class="navPos"
-       v-bind:style="{
+    <a href="#information">
+      <img id="orange-arrow-left"
+           class="navPos"
+           src="../assets/Navigation/Seite_Pfeil_orange_li.png"
+           v-bind:style="{
       display: scrollPositionVW < 120 ? 'none' : '',
       opacity: scrollPositionVW < 225 ? '0' : '100%'
       }"
-  >
-</a>
-  <img src="../assets/Navigation/Seite_Residenz_kursiv.png" id="residenz" class="navPos">
-<div class="soon">
-  <div class="soon1">
-    <TitleBW title="DIE RESIDENZ STARTET"></TitleBW>
-  </div>
-  <div class="soon2">
-    <TitleBW title="AM 1. APRIL 2021"></TitleBW>
-  </div>
+      >
+    </a>
 
-</div>
-  </div>
+    <img id="residenz" class="navPos" src="../assets/Navigation/Seite_Residenz_kursiv.png">
 
+  </div>
 </template>
 
 <script>
 import {PixelToViewport} from "@/mixins/PixelToViewport";
-import TitleBW from "@/components/TitleBW";
-
 export default {
-name: "NavigationLine",
-  components: {
-  TitleBW
-  },
+  name: "NavigationLine",
+
   mixins: [PixelToViewport],
   props: {
-   scrollPos: Number
+    scrollPos: Number
   },
   computed: {
-  scrollPositionVW() {
-    return this.pxToVw(this.scrollPos)
-  }
+    scrollPositionVW() {
+      return this.pxToVw(this.scrollPos)
+    }
   }
 }
 </script>
@@ -66,6 +53,7 @@ name: "NavigationLine",
   top: 16.5px;
   height: 0.15rem;
 }
+
 #blueLine {
   background: blue;
   position: absolute;
@@ -73,12 +61,14 @@ name: "NavigationLine",
   width: 291vw;
   z-index: 80;
 }
+
 #blue-arrow-right {
   position: fixed;
   right: 0;
   z-index: 99;
   transition: 0.8s;
 }
+
 #orange-arrow-left {
   position: fixed;
   right: 0;
@@ -86,7 +76,7 @@ name: "NavigationLine",
   transition: 0.8s;
 }
 
-#orangeLine{
+#orangeLine {
   position: absolute;
   left: 291vw;
   background: #aa3500;
@@ -97,26 +87,14 @@ name: "NavigationLine",
 #residenz {
   position: absolute;
   left: 295vw;
-  width:225px;
+  width: 225px;
   padding-right: 20vw;
   z-index: 100;
 }
-.soon1{
-height: 4rem;
-}
-.soon2{
-  height: 4rem;
-  margin-left: 5rem;
-}
-.soon{
-  display: flex;
-  flex-direction: column;
-  bottom: 50vh;
-  z-index: 100;
-  position: absolute;
-  left: 303.5vw;
-}
-.d2{
+
+
+
+.d2 {
   height: 100%;
 }
 </style>

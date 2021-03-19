@@ -1,16 +1,17 @@
 <template>
 
   <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
-
     <InfoSection
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
-
         v-bind:currentPositionVw="this.currentPositionVw"
     ></InfoSection>
-    <ResidenzSection></ResidenzSection>
+    <ResidenzSection
+        @suspend-scroll="suspendScroll"
+        @continue-scroll="continueScroll"
+        v-bind:currentPositionVw="this.currentPositionVw"
+    ></ResidenzSection>
   </Background>
-
 </template>
 
 <script>
@@ -21,7 +22,6 @@ import ResidenzSection from "@/sections/ResidenzSection/ResidenzSection";
 export default {
   name: 'App',
   components: {
-
     ResidenzSection,
     InfoSection,
     Background,
@@ -51,6 +51,15 @@ export default {
 </script>
 
 <style>
+
+html,body {
+  margin: 0;
+  font-family: Akzi;
+  line-height: 2.33vw;
+  font-size: 1vw;
+  background:  #b2b2b2
+}
+
 .navPos {
   position: absolute;
   top: 10px;
@@ -64,14 +73,6 @@ export default {
 }
 .red {
   background: #3c2832;
-}
-html,body {
-  margin: 0;
-  font-family: Akzi;
-  line-height: 2.33vw;
-  font-size: 1vw;
-  background:  #b2b2b2
-
 }
 *::-webkit-scrollbar {
   width: 2px;
@@ -102,6 +103,9 @@ p{
   padding-top: 3.7rem;
   text-indent: 15vw;
 }
+a{
+  color: black;
+}
 @font-face {
   font-family: 'Akzi';
   src: url('assets/fonts/AkzidGroMed.woff') format("woff");
@@ -113,13 +117,9 @@ p{
 
 @media all and (max-width: 1000px) {
   html,body {
-    font-size: 11px;
-
+    line-height: 3.6vh;
+    font-size: 1.8vh;
   }
+}
 
-}
-a{
-  color: black;
- ;
-}
 </style>

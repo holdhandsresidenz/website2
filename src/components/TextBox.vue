@@ -20,9 +20,6 @@
           minHeight: minHeightPx+ 'px',
           zIndex: !this.open ? zBase + 1 : zBase + 1001,
           }"></div>
-
-
-
       <div
           @click="$emit('content-clicked')"
           v-bind:id="this.id + '-content'"
@@ -35,14 +32,14 @@
            overflowY: !this.open ? 'hidden' : 'auto',
            opacity: this.open ? '' : '0',
            zIndex: !this.open ? zBase : zBase + 1000,
-          left: this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw'
+           left: this.screenW < 1000 ?
+           (this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-5vh') :
+           (this.screenW * (widthOpen / 100) > maxWidthPx ? this.offsetLeftAtMaxWidth + 'px' : '-3.3vw')
 
          }"
       >
-
         <slot></slot>
       </div>
-
 
       <div
           v-bind:id="this.id + '-borderR'"
@@ -50,14 +47,14 @@
           v-bind:style="{
         height: height,
         opacity: this.open ? '' : '0',
-        left: !this.open ? '-4.7vw' : '-4vw',
+        left: this.screenW < 1000 ?
+        (!this.open ? '-6vh' : '-6vh') :
+        (!this.open ? '-4.7vw' : '-4vw'),
         minHeight: minHeightPx + 'px',
         zIndex: !this.open ? zBase + 1 : zBase + 1001,
     }"
       ></div>
-
     </div>
-
   </div>
   </template>
 
@@ -96,7 +93,6 @@ export default {
     screenH() {
       return screen.height
     },
-
     offsetLeftAtMaxWidth() {
       return this.maxWidthPx * 0.61
     }
@@ -134,7 +130,6 @@ export default {
 }
 
 .content {
-
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
@@ -157,25 +152,21 @@ export default {
   background: url("../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
-
 }
 
-/*
+
 @media all and (max-width: 1000px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .content {
-    position: relative;
-    transform: rotate(-90deg) translate(-100%);
-    transform-origin: left top;
-    overflow-y: hidden;
-    overflow-x: auto;
-  }
-
-
+.rightBorder {
+  width: 6vh;
 }
- */
+  .leftBorder{
+    width: 6vh;
+  }
+  .content{
+    padding-left: 2vh;
+    padding-right: 1.5vh;
+  }
+}
+
 
 </style>

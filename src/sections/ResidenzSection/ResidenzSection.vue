@@ -3,12 +3,25 @@
 
   <div id="fade"></div>
 
+  <div class="soon">
+    <div class="soon1">
+      <TitleBW title="DIE RESIDENZ STARTET"></TitleBW>
+    </div>
+    <div class="soon2">
+      <TitleBW title="AM 1. APRIL 2021"></TitleBW>
+    </div>
+  </div>
+
 </div>
 </template>
 
 <script>
+import TitleBW from "@/components/TitleBW";
 export default {
-name: "ResidenzSection"
+name: "ResidenzSection",
+  components: {
+  TitleBW
+  }
 }
 </script>
 
@@ -16,7 +29,7 @@ name: "ResidenzSection"
 #Residenz-Section{
   position: absolute;
   left: 291vw;
-  right: 0;
+
   top: 0;
   box-sizing: border-box;
   height: 100%;
@@ -33,5 +46,35 @@ name: "ResidenzSection"
   background-size: 100%;
   height: 100%;
   z-index: 100;
+}
+
+.soon1 {
+  height: 4rem;
+}
+.soon2 {
+  height: 4rem;
+  margin-left: 5rem;
+}
+.soon {
+  display: flex;
+  flex-direction: column;
+  bottom: 50vh;
+  z-index: 100;
+  position: absolute;
+  left: 303.5vw;
+}
+
+@media all and (max-width: 1000px) {
+  #Residenz-Section{
+  left: 1000vw;
+    width: 40vw;
+  }
+  .soon {
+    left: 25vw;
+  }
+  #fade{
+    width: 6vh;
+    left: -1.5vw;
+  }
 }
 </style>

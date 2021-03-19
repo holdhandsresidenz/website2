@@ -60,20 +60,17 @@
 </template>
 
 <script>
-
 import IntroTextBox from "@/sections/InfoSection/TextBoxen/IntroTextBox";
 
 import EinleitungTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/sections/InfoSection/TextBoxen/DatenschutzTextBox";
 import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/ImpressumTextBox";
 import VideoCutOut from "@/components/VideoCutOut";
-
 export default {
   name: "InfoSection",
   components: {VideoCutOut, ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},
   props: {
     currentPositionVw: Number
-
   },
   methods: {
     suspendScroll() {
@@ -87,11 +84,18 @@ export default {
 </script>
 
 <style scoped>
-
 #logo {
   position: absolute;
   top: 12vh;
   left: 0vw;
   width: 60vw;
+}
+@media all and (max-width: 1000px) {
+  #logo {
+    position: absolute;
+    top: 12vh;
+    left: 0vw;
+    width: 160vw;
+  }
 }
 </style>
