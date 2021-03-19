@@ -3,7 +3,7 @@
       id="Einleitung"
       title="EINLEITUNG"
       v-bind:container-style="this.smallScreen ?
-        {position: 'absolute', bottom: '0vh', left: '220vw'} :
+        {position: 'absolute', bottom: '0vh', left: '230vw'} :
         {position: 'absolute', bottom: '8vh', left: '90vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="this.smallScreen ? '45vh' : '33vh'"

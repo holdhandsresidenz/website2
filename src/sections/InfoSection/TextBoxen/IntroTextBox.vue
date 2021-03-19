@@ -3,10 +3,10 @@
       id="IntroText"
       title="HOLD HANDS"
       v-bind:container-style=" this.smallScreen ?
-      {position: 'absolute', top: '5vh', left: '177vw'} :
+      {position: 'absolute', top: '16.5px', left: '177vw'} :
       {position: 'absolute', top: '16.5px', left: '64vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
-      v-bind:height="this.smallScreen ? '45vh' : '27vh'"
+      v-bind:height="this.smallScreen ? '50vh' : '27vh'"
       v-bind:mark="true"
       v-bind:maxWidthPx="800"
       v-bind:min-height-px="180"
