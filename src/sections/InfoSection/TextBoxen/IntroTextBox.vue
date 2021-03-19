@@ -3,14 +3,14 @@
       id="IntroText"
       title="HOLD HANDS"
       v-bind:container-style=" this.smallScreen ?
-      {position: 'absolute', top: '5vh', left: '170vw'} :
+      {position: 'absolute', top: '5vh', left: '177vw'} :
       {position: 'absolute', top: '16.5px', left: '64vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="this.smallScreen ? '45vh' : '27vh'"
       v-bind:mark="true"
       v-bind:maxWidthPx="800"
       v-bind:min-height-px="180"
-      v-bind:open-at-vw="this.smallScreen ? 160 : 5"
+      v-bind:open-at-vw="this.smallScreen ? 130 : 5"
       v-bind:close-at-vw="this.smallScreen ? 190:  70"
       v-bind:width-open="this.smallScreen ? '80vw' :'45vw'"
       v-bind:z-base="3"

@@ -2,17 +2,17 @@
   <TextBox
       id="Einleitung"
       title="EINLEITUNG"
-      v-bind:close-at-vw="80"
       v-bind:container-style="this.smallScreen ?
-        {position: 'absolute', bottom: '8vh', left: '1200vw'} :
+        {position: 'absolute', bottom: '0vh', left: '220vw'} :
         {position: 'absolute', bottom: '8vh', left: '90vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
-      v-bind:height="'33vh'"
+      v-bind:height="this.smallScreen ? '45vh' : '33vh'"
       v-bind:mark="true"
       v-bind:maxWidthPx="800"
       v-bind:min-height-px="180"
-      v-bind:open-at-vw="this.smallScreen ? 30 : 32"
-      v-bind:width-open="'45vw'"
+      v-bind:open-at-vw="this.smallScreen ? 186 : 32"
+      v-bind:close-at-vw="this.smallScreen ? 266 : 80"
+      v-bind:width-open="this.smallScreen ? '90vw' : '45vw'"
       v-bind:z-base="4"
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll"

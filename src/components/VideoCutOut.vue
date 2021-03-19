@@ -23,7 +23,7 @@
         class="cutout"
     >
 
-    <img v-bind:src="titleImage" class="titleImage" v-show="mouseOver">
+    <img v-bind:src="titleImage" class="titleImage" v-show="mouseOver || this.smallScreen">
       <img v-bind:src="maskPath" class="maskPath">
 
     </div>
@@ -59,16 +59,18 @@ name: "VideoCutOut",
   methods: {
     mouseEnter() {
       this.mouseOver = true
-      console.log('enter')
     },
     mouseLeave() {
       this.mouseOver = false
-      console.log('leave')
     },
     openVideo() {
       this.modalVisible = true
       this.$emit('suspend-scroll')
-      console.log('triggered modal', this.modalVisible)
+    }
+  },
+  computed: {
+    smallScreen() {
+      return screen.width <= 1000
     }
   }
 }

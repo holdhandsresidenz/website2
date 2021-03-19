@@ -26,7 +26,7 @@ svg{
   top:0rem;
 }
 .text-wrapper {
-  padding-top: 0rem;
+  padding-top: 0.5rem;
   position: absolute;
   left: 0vw;
   height: 2vh;

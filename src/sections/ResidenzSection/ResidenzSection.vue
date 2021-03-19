@@ -61,12 +61,12 @@ name: "ResidenzSection",
   bottom: 50vh;
   z-index: 100;
   position: absolute;
-  left: 303.5vw;
+  left: 12.5vw;
 }
 
 @media all and (max-width: 1000px) {
   #Residenz-Section{
-  left: 1000vw;
+  left: 730vw;
     width: 40vw;
   }
   .soon {
@@ -75,6 +75,9 @@ name: "ResidenzSection",
   #fade{
     width: 6vh;
     left: -1.5vw;
+  }
+  .soon {
+    left: 10.5vw;
   }
 }
 </style>

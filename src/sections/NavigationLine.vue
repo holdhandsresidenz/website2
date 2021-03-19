@@ -7,10 +7,11 @@
       <img
           id="blue-arrow-right" class="navPos"
           src="../assets/Navigation_bl_re.png"
-          v-bind:style="{
-      display: scrollPositionVW > 190 ? 'none' : '',
-      opacity: scrollPositionVW > 190 ? '0' : '100%'
-    }"
+          v-bind:style="this.smallScreen ?
+          {display: scrollPositionVW > 717 ? 'none' : '',
+          opacity: scrollPositionVW > 610 ? '0' : '100%'} :
+          {display: scrollPositionVW > 190 ? 'none' : '',
+          opacity: scrollPositionVW > 190 ? '0' : '100%'}"
       >
     </a>
 
@@ -19,10 +20,11 @@
       <img id="orange-arrow-left"
            class="navPos"
            src="../assets/Navigation/Seite_Pfeil_orange_li.png"
-           v-bind:style="{
-      display: scrollPositionVW < 120 ? 'none' : '',
-      opacity: scrollPositionVW < 225 ? '0' : '100%'
-      }"
+           v-bind:style="this.smallScreen ?
+          {display: scrollPositionVW < 717 ? 'none' : '',
+          opacity: scrollPositionVW < 190 ? '0' : '100%'} :
+          {display: scrollPositionVW < 120 ? 'none' : '',
+          opacity: scrollPositionVW < 225 ? '0' : '100%'}"
       >
     </a>
 
@@ -43,6 +45,9 @@ export default {
   computed: {
     scrollPositionVW() {
       return this.pxToVw(this.scrollPos)
+    },
+    smallScreen() {
+      return screen.width <= 1000
     }
   }
 }
@@ -92,9 +97,19 @@ export default {
   z-index: 100;
 }
 
-
-
 .d2 {
   height: 100%;
+}
+
+@media all and (max-width: 1000px) {
+  #residenz {
+    left: 740vw;
+    padding-right: 40vw;
+  }
+  #orangeLine {
+    left: 730vw;
+    width: 100vw;
+  }
+
 }
 </style>

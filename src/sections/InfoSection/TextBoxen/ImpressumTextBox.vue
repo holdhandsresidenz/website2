@@ -17,10 +17,8 @@
       @suspend-scroll="suspendScroll"
       @continue-scroll="continueScroll"
   >
-
     <br><br>
     <p class="rechts">Das Projekt Hold Hands Residenz wird umgesetzt von:</p>
-
     <p>
       Hjördis Lyn Behncken (Social Media und Öffentlichkeitsarbeit)
       Anne Dietzsch (gestalterisches Konzept und Typografie)<br>
@@ -28,11 +26,8 @@
       Lissy Willberg (inhaltliches Konzept, Projektleitung und Videoproduktion)<br>
     </p>
     <p class="rechts">
-
       Gefördert wird das Projekt durch das Kulturamt Leipzig und das Support-Büro der HGB Leipzig.
     </p>
-
-
     <address class="">
       Kontakt:
       <br>

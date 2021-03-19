@@ -117,8 +117,16 @@ a{
 
 @media all and (max-width: 1000px) {
   html,body {
-    line-height: 3.6vh;
-    font-size: 1.8vh;
+    line-height: 6.3vw;
+    font-size: 3vw;
+  }
+  #laraBIO {
+    padding-top: 7.0rem;
+    text-indent: 0;
+  }
+  #mickeyBIO {
+    padding-top: 7.0rem;
+    text-indent: 0;
   }
 }
 

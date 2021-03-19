@@ -163,8 +163,8 @@ export default {
     width: 6vh;
   }
   .content{
-    padding-left: 2vh;
-    padding-right: 1.5vh;
+    padding-left: 1.9vw;
+    padding-right: 1vw;
   }
 }
 

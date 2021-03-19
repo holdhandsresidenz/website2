@@ -19,14 +19,15 @@
     <TextBox
         v-bind:id="id + '-Biografie'"
         v-bind:close-at-vw="3000"
-        v-bind:container-style="{
-        position: 'absolute', top: 0, left: '-4vw'}"
+        v-bind:container-style=" this.smallScreen  ?
+        {position: 'absolute', top: '60vw', left: '-1vw'} :
+        {position: 'absolute', top: 0, left: '-4vw'}"
         v-bind:current-position-vw="currentPos"
-        v-bind:height="'20.625vw'"
+        v-bind:height=" this.smallScreen  ? '55vh' : '20.625vw'"
         v-bind:mark="false"
-        v-bind:open-at-vw="2900"
+        v-bind:open-at-vw="this.smallScreen  ? 0 : 2900"
         v-bind:title="'INFO'"
-        v-bind:width-open="'60vw'"
+        v-bind:width-open="this.smallScreen  ? '90vw' : '60vw'"
         v-bind:z-base="5000"
         @content-clicked="currentPos=3333; currentPos=3320"
     >
@@ -36,11 +37,9 @@
 </template>
 
 <script>
-
 import CloseButton from "@/components/CloseButton";
 import TextBox from "@/components/TextBox";
 import Title from "@/components/Title";
-
 export default {
   name: "VideoModal",
   components: {Title, TextBox, CloseButton},
@@ -60,8 +59,17 @@ export default {
     setTop() {
       let modalHeight = window.innerWidth * 0.9 * 0.5625
       let freeHeight = window.innerHeight - modalHeight
-      console.log('mHeight: ' + modalHeight + ', freeHeight:' + freeHeight + ', screenH: ' + window.innerHeight)
-      this.top = freeHeight < 0 ? 0 : freeHeight / 2
+      freeHeight = freeHeight < 0 ? 0 : freeHeight / 2
+      if( screen.height <= 1000) {
+        this.top = '42'
+      } else {
+        this.top = freeHeight < 0 ? 0 : freeHeight / 2
+      }
+    }
+  },
+  computed: {
+    smallScreen() {
+      return screen.width <= 1000
     }
   },
   mounted() {
@@ -121,5 +129,25 @@ iframe {
   top: 2.9rem;
   overflow: visible;
   left: -4vw;
+}
+
+@media all and (max-width: 1000px) {
+  .rightBorder {
+    width: 6vh;
+    left:88.5vw;
+  }
+  .leftBorder{
+    left: -1.5vw;
+    width: 6vh;
+  }
+  .name {
+
+    left: -0.5vw;
+    top: 38vh;
+  }
+  .modal {
+    width: 90vw;
+    left: 1vw;
+  }
 }
 </style>

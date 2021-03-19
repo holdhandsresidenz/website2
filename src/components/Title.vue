@@ -35,7 +35,7 @@ height: 2.5rem;
 .title-wrapper {
   padding-top: 0rem;
   position: absolute;
-  left: 1vw;
+  left: 1.2vw;
   cursor: pointer;
   width: 0;
   overflow: visible;
