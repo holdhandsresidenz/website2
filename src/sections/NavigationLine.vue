@@ -9,7 +9,7 @@
           src="../assets/Navigation_bl_re.png"
           v-bind:style="this.smallScreen ?
           {display: scrollPositionVW > 717 ? 'none' : '',
-          opacity: scrollPositionVW > 610 ? '0' : '100%'} :
+          opacity: scrollPositionVW > 689 ? '0' : '100%'} :
           {display: scrollPositionVW > 190 ? 'none' : '',
           opacity: scrollPositionVW > 190 ? '0' : '100%'}"
       >
@@ -21,10 +21,10 @@
            class="navPos"
            src="../assets/Navigation/Seite_Pfeil_orange_li.png"
            v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW < 717 ? 'none' : '',
+          {display: scrollPositionVW < 790 ? 'none' : '',
           opacity: scrollPositionVW < 190 ? '0' : '100%'} :
           {display: scrollPositionVW < 120 ? 'none' : '',
-          opacity: scrollPositionVW < 225 ? '0' : '100%'}"
+          opacity: scrollPositionVW < 220 ? '0' : '100%'}"
       >
     </a>
 
@@ -86,14 +86,14 @@ export default {
   left: 291vw;
   background: #aa3500;
   z-index: 100;
-  width: 50vw;
+  width: 30vw;
 }
 
 #residenz {
   position: absolute;
   left: 295vw;
   width: 225px;
-  padding-right: 20vw;
+  padding-right: 10vw;
   z-index: 100;
 }
 
@@ -103,12 +103,17 @@ export default {
 
 @media all and (max-width: 1000px) {
   #residenz {
-    left: 740vw;
-    padding-right: 40vw;
+    left: 830vw;
+    padding-right: 30vw;
   }
   #orangeLine {
-    left: 730vw;
-    width: 100vw;
+    left: 820vw;
+    width: 79vw;
+  }
+  #blueLine {
+
+    width: 821vw;
+    z-index: 80;
   }
 
 }

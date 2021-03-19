@@ -3,15 +3,15 @@
       id="Einleitung"
       title="EINLEITUNG"
       v-bind:container-style="this.smallScreen ?
-        {position: 'absolute', bottom: '0vh', left: '230vw'} :
+        {position: 'absolute', bottom: '0vh', left: '270vw'} :
         {position: 'absolute', bottom: '8vh', left: '90vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="this.smallScreen ? '45vh' : '33vh'"
       v-bind:mark="true"
       v-bind:maxWidthPx="800"
       v-bind:min-height-px="180"
-      v-bind:open-at-vw="this.smallScreen ? 186 : 32"
-      v-bind:close-at-vw="this.smallScreen ? 266 : 80"
+      v-bind:open-at-vw="this.smallScreen ? 192 : 32"
+      v-bind:close-at-vw="this.smallScreen ? 310 : 80"
       v-bind:width-open="this.smallScreen ? '90vw' : '45vw'"
       v-bind:z-base="4"
       @suspend-scroll="suspendScroll"

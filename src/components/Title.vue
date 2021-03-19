@@ -66,8 +66,8 @@ height: 2.5rem;
 
 @media all and (max-width: 1000px) {
   .title-wrapper {
-    font-size: 2.8rem;
-    left: 2.3vw;
+    font-size: 2.7rem;
+    left: 3vw;
     top:-0.7vw;
   }
 }

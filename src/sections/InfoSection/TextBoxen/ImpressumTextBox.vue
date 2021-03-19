@@ -4,7 +4,7 @@
       title="IMPRESSUM"
       v-bind:close-at-vw="0"
       v-bind:container-style="this.smallScreen ?
-        {position: 'absolute', bottom: 0, left: '10vw'} :
+        {position: 'absolute', bottom: 0, left: '26vw'} :
         {position: 'absolute', bottom: 0, left: '15vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="this.smallScreen ? '36vh' : '23vh'"

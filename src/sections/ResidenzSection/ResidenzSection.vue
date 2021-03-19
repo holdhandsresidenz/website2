@@ -5,10 +5,13 @@
 
   <div class="soon">
     <div class="soon1">
-      <TitleBW title="DIE RESIDENZ STARTET"></TitleBW>
+      <TitleBW title="DIE RESIDENZ"></TitleBW>
     </div>
     <div class="soon2">
-      <TitleBW title="AM 1. APRIL 2021"></TitleBW>
+      <TitleBW title="STARTET AM"></TitleBW>
+    </div>
+    <div class="soon3">
+      <TitleBW title="1. APRIL 2021"></TitleBW>
     </div>
   </div>
 
@@ -29,11 +32,10 @@ name: "ResidenzSection",
 #Residenz-Section{
   position: absolute;
   left: 291vw;
-
   top: 0;
   box-sizing: border-box;
   height: 100%;
-  width: 50vw;
+  width: 30vw;
   min-width: 450px;
   background: #b2b2b2;
 }
@@ -51,23 +53,26 @@ name: "ResidenzSection",
 .soon1 {
   height: 4rem;
 }
-.soon2 {
+.soon2{
+  height: 4rem;
+}
+.soon3 {
   height: 4rem;
   margin-left: 5rem;
 }
 .soon {
   display: flex;
   flex-direction: column;
-  bottom: 50vh;
+  bottom: 45vh;
   z-index: 100;
   position: absolute;
-  left: 12.5vw;
+  left: 8vw;
 }
 
 @media all and (max-width: 1000px) {
   #Residenz-Section{
-  left: 730vw;
-    width: 40vw;
+  left: 820vw;
+    width: 50vw;
   }
   .soon {
     left: 25vw;

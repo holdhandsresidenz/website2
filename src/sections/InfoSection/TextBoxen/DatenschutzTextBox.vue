@@ -4,7 +4,7 @@
       title="DATENSCHUTZ"
       v-bind:close-at-vw="this.smallScreen ? 717 : 80"
       v-bind:container-style="this.smallScreen ?
-      {position: 'absolute', bottom: '0', left: '670vw'} :
+      {position: 'absolute', bottom: '0', left: '750vw'} :
       {position: 'absolute', bottom: '0vh', left: '270vw'}"
       v-bind:currentPositionVw="this.currentPositionVw"
       v-bind:height="this.smallScreen ? '44vh' : '32vh'"

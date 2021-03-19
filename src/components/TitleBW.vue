@@ -36,7 +36,7 @@ svg{
   transform: scaleX(0.85);
   transform-origin: top left;
   font-family: Narr,sans-serif;
-  word-spacing: 90%;
+  word-spacing: 130%;
   font-size: 3rem
 }
 
@@ -54,5 +54,11 @@ svg{
   width: 100%;
   display: block;
   fill: #b2b2b2;
+}
+@media all and (max-width: 1000px) {
+  .title-wrapper {
+    font-size: 3rem
+  }
+
 }
 </style>
