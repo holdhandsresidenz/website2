@@ -23,7 +23,7 @@ name: "Title",
 
 <style scoped>
 svg{
-  height: 3rem
+  height: 3rem;
 }
 .title-wrapper {
   padding-top: 0;
@@ -36,7 +36,6 @@ svg{
   transform: scaleX(0.85);
   transform-origin: top left;
   font-family: Narr,sans-serif;
-  word-spacing: 130%;
   font-size: 3rem
 }
 
