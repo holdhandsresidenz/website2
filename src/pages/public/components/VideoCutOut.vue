@@ -33,7 +33,7 @@
 
 <script>
 
-import VideoModal from "@/components/VideoModal";
+import VideoModal from "@/pages/public/components/VideoModal";
 export default {
 name: "VideoCutOut",
   components: {VideoModal},

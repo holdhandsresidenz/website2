@@ -14,7 +14,7 @@ export default {
 <style scoped>
 .mark {
   width: 4vw;
-  background: url("../assets/Verlauf_blau.png") ;
+  background: url("../../../assets/Verlauf_blau.png") ;
   background-size: 100%;
   height: 16.5px;
   z-index: 100;

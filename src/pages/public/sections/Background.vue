@@ -14,7 +14,7 @@
 <script>
 
 import {PixelToViewport} from '@/mixins/PixelToViewport'
-import NavigationLine from "@/sections/NavigationLine";
+import NavigationLine from "@/pages/public/sections/NavigationLine";
 export default {
   name: "Background",
   mixins: [PixelToViewport],

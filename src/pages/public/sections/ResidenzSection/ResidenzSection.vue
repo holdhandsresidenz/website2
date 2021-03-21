@@ -14,21 +14,29 @@
       <TitleBW title="1. APRIL 2021"></TitleBW>
     </div>
   </div>
-
 </div>
 </template>
 
 <script>
-import TitleBW from "@/components/TitleBW";
+import TitleBW from "@/pages/public/components/TitleBW";
 export default {
 name: "ResidenzSection",
   components: {
   TitleBW
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style scoped>
+button {
+  position: absolute;
+  top: 40vh;
+  left: 60vw;
+}
+
 #Residenz-Section{
   position: absolute;
   left: 291vw;
@@ -44,7 +52,7 @@ name: "ResidenzSection",
   position: absolute;
   left: -0.9vw;
   width: 4vw;
-  background: url("../../assets/Verlauf2.png");
+  background: url("../../../../assets/Verlauf2.png");
   background-size: 100%;
   height: 100%;
   z-index: 100;

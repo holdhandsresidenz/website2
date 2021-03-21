@@ -37,9 +37,9 @@
 </template>
 
 <script>
-import CloseButton from "@/components/CloseButton";
-import TextBox from "@/components/TextBox";
-import Title from "@/components/Title";
+import CloseButton from "@/pages/public/components/CloseButton";
+import TextBox from "@/pages/public/components/TextBox";
+import Title from "@/pages/public/components/Title";
 export default {
   name: "VideoModal",
   components: {Title, TextBox, CloseButton},
@@ -100,7 +100,7 @@ export default {
   width: 4vw;
   left: -0.8vw;
   height: 100%;
-  background: url("../assets/Verlauf_blau.png");
+  background: url("../../../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 }
@@ -112,7 +112,7 @@ export default {
   top: 0;
   right: -3vw;
   width: 4vw;
-  background: url("../assets/Verlauf_blau.png");
+  background: url("../../../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 }

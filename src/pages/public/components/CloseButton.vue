@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import TextStrokeWidth from "@/components/CloseX";
+import TextStrokeWidth from "@/pages/public/components/CloseX";
 export default {
 name: "CloseButton",
   components: {TextStrokeWidth}

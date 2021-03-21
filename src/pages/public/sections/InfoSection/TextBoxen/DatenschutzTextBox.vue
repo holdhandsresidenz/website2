@@ -116,7 +116,7 @@
 </template>
 
 <script>
-import TextBox from "@/components/TextBox";
+import TextBox from "@/pages/public/components/TextBox";
 
 export default {
   name: "DatenschutzTextBox",

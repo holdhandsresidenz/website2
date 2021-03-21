@@ -2,7 +2,7 @@
   <div id="Info-Section">
 
 
-    <img id="logo" src="../../assets/Logo.png">
+    <img id="logo" src="../../../../assets/Logo.png">
 
 
     <IntroTextBox v-bind:current-position-vw="currentPositionVw"
@@ -60,12 +60,12 @@
 </template>
 
 <script>
-import IntroTextBox from "@/sections/InfoSection/TextBoxen/IntroTextBox";
+import IntroTextBox from "@/pages/public/sections/InfoSection/TextBoxen/IntroTextBox";
 
-import EinleitungTextBox from "@/sections/InfoSection/TextBoxen/EinleitungTextBox";
-import DatenschutzTextBox from "@/sections/InfoSection/TextBoxen/DatenschutzTextBox";
-import ImpressumTextBox from "@/sections/InfoSection/TextBoxen/ImpressumTextBox";
-import VideoCutOut from "@/components/VideoCutOut";
+import EinleitungTextBox from "@/pages/public/sections/InfoSection/TextBoxen/EinleitungTextBox";
+import DatenschutzTextBox from "@/pages/public/sections/InfoSection/TextBoxen/DatenschutzTextBox";
+import ImpressumTextBox from "@/pages/public/sections/InfoSection/TextBoxen/ImpressumTextBox";
+import VideoCutOut from "@/pages/public/components/VideoCutOut";
 export default {
   name: "InfoSection",
   components: {VideoCutOut, ImpressumTextBox, DatenschutzTextBox, EinleitungTextBox, IntroTextBox},

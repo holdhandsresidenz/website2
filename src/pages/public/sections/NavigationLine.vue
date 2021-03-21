@@ -1,12 +1,12 @@
 <template>
   <div id="NavigationLine">
-    <img id="information" class="navPos" src="../assets/Navigation/Seite_Info_kursiv.png">
+    <img id="information" class="navPos" src="../../../assets/Navigation/Seite_Info_kursiv.png">
     <div id="blueLine" class="navLine"></div>
     <div id="orangeLine" class="navLine"></div>
     <a href="#residenz">
       <img
           id="blue-arrow-right" class="navPos"
-          src="../assets/Navigation_bl_re.png"
+          src="../../../assets/Navigation_bl_re.png"
           v-bind:style="this.smallScreen ?
           {display: scrollPositionVW > 717 ? 'none' : '',
           opacity: scrollPositionVW > 689 ? '0' : '100%'} :
@@ -19,7 +19,7 @@
     <a href="#information">
       <img id="orange-arrow-left"
            class="navPos"
-           src="../assets/Navigation/Seite_Pfeil_orange_li.png"
+           src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
            v-bind:style="this.smallScreen ?
           {display: scrollPositionVW < 790 ? 'none' : '',
           opacity: scrollPositionVW < 190 ? '0' : '100%'} :
@@ -28,7 +28,7 @@
       >
     </a>
 
-    <img id="residenz" class="navPos" src="../assets/Navigation/Seite_Residenz_kursiv.png">
+    <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
 
   </div>
 </template>

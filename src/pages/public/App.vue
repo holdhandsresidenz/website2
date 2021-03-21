@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import Background from "@/sections/Background";
-import InfoSection from "@/sections/InfoSection/InfoSection";
-import ResidenzSection from "@/sections/ResidenzSection/ResidenzSection";
+import Background from "@/pages/public/sections/Background";
+import InfoSection from "@/pages/public/sections/InfoSection/InfoSection";
+import ResidenzSection from "@/pages/public/sections/ResidenzSection/ResidenzSection";
 
 export default {
   name: 'App',
@@ -108,11 +108,11 @@ a{
 }
 @font-face {
   font-family: 'Akzi';
-  src: url('assets/fonts/AkzidGroMed.woff') format("woff");
+  src: url('../../assets/fonts/AkzidGroMed.woff') format("woff");
 }
 @font-face {
   font-family: 'Narr';
-  src: url("assets/fonts/Arial-Narrow.woff") format("woff");
+  src: url("../../assets/fonts/Arial-Narrow.woff") format("woff");
 }
 
 @media all and (max-width: 1000px) {

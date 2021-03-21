@@ -59,8 +59,8 @@
   </template>
 
 <script>
-import Mark from "@/components/Mark";
-import Title from "@/components/Title";
+import Mark from "@/pages/public/components/Mark";
+import Title from "@/pages/public/components/Title";
 export default {
   name: "TextBox",
   props: {
@@ -140,7 +140,7 @@ export default {
 
 .leftBorder {
   width: 4vw;
-  background: url("../assets/Verlauf_blau.png");
+  background: url("../../../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 
@@ -149,7 +149,7 @@ export default {
 .rightBorder {
   position: relative;
   width: 4vw;
-  background: url("../assets/Verlauf_blau.png");
+  background: url("../../../assets/Verlauf_blau.png");
   background-size: 100%;
   transition: 1.4s;
 }
