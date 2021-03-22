@@ -2,7 +2,7 @@
 <div id="login">
   <div>
     <p></p>
-    <input v-model="username" placeholder=" username">
+    <input v-model="username" placeholder="username">
     <input v-model="password" placeholder=" password" type="password">
     <button @click="login">login</button>
   </div>
@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+import store from "@/pages/private/store";
 export default {
 name: "Login",
   components: {
@@ -29,7 +30,7 @@ name: "Login",
             username: resp.data[0].loginname,
             realname: resp.data[0].realname,
           }
-        this.$emit('user-logged-in', user)
+        store.setUser(user)
       })
     },
 

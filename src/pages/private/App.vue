@@ -1,27 +1,26 @@
 <template>
   <div id="private">
-    <Login v-if="currentUser === null" @user-logged-in="userLoggedIn"></Login>
-    <div v-if="currentUser != null" id="inside">
-      <h1>Hallo {{currentUser.username}}</h1>
+    <Login v-if="this.currentUser === null"></Login>
+    <div v-if="this.currentUser !== null" id="inside">
+    <NavBar></NavBar>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import store from "@/pages/private/store";
 import Login from "@/pages/private/components/Login";
+import NavBar from "@/pages/private/components/NavBar";
 export default {
   name: 'App',
-  components: {Login},
-  data: function () {
-    return {
-      currentUser: null
-    }
-  },
-  methods: {
-    userLoggedIn(e) {
-      this.currentUser = e
+  components: {NavBar, Login},
+  computed: {
+    currentUser() {
+      return store.state.currentUser
     }
   }
+
 }
 </script>
 
@@ -32,14 +31,12 @@ h1{
 
 #inside{
 position: absolute;
-  top:30vh;
-  bottom: 30vh;
-  left: 20vw;
-  right: 20vw;
-  background: #b2b2b2;
-  box-shadow:
-      4vw 0vw 5vw 5vw blue,
-      -4vw 0vw 5vw 5vw blue;
+  margin: 6vh;
+  top:0vh;
+  bottom: 0vh;
+  left: 0vw;
+  right: 0vw;
+
 }
 
 
@@ -47,7 +44,7 @@ position: absolute;
   width: 100vw;
   height: 100vh;
   background: url("../../assets/Logo.png") round;
-  background-size: 6%;
+  background-size: 44%;
 
 }
 html,body {
@@ -55,7 +52,7 @@ html,body {
   font-family: Akzi;
   line-height: 2.33vw;
   font-size: 1vw;
-  background:  #b2b2b2
+  background:  #3c2832;
 }
 
 .navPos {
