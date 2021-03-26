@@ -9,5 +9,12 @@ $dbname="d035913f";
 $mysqli = new mysqli($host, $user, $password, $dbname, $port, $socket)
 	or die ('Could not connect to the database server' . mysqli_connect_error());
 
+/* change character set to utf8mb4 */
+if (!$mysqli->set_charset("utf8mb4")) {
+    printf("Error loading character set utf8mb4: %s\n", $mysqli->error);
+    exit();
+}  
+
 //$mysqli->close();
+
 ?>

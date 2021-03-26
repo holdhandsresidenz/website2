@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 import {PixelToViewport} from '@/mixins/PixelToViewport'
 import NavigationLine from "@/pages/public/sections/NavigationLine";
 export default {
@@ -61,25 +60,28 @@ export default {
           }
         }
       }
-
-
     },
-
     deactivateTwist() {
       this.scrollDirTwist = false
       window.removeEventListener('touchstart', this.deactivateTwist)
+    },
+    autoscroll() {
+      let self = this;
+      setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+        self.$refs.background.scrollLeft +=1
+        console.log('moin')
+        self.autoscroll()
+      }, 50)
     }
   },
   mounted() {
-    window.addEventListener('touchstart', this.deactivateTwist)
+    window.addEventListener('touchstart', this.deactivateTwist);
+    this.autoscroll()
   }
-
-
 }
 </script>
 
 <style scoped>
-
 #background{
   position: absolute;
   top: 0;

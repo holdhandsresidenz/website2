@@ -1,5 +1,4 @@
 <template>
-
   <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
     <InfoSection
         @suspend-scroll="suspendScroll"
@@ -26,17 +25,17 @@ export default {
     InfoSection,
     Background,
   },
+	
   data: function () {
     return {
       currentPositionVw: 0,
       scrollSuspended: false
     }
   },
+
   methods: {
     setPositionVw(e) {
-
       this.currentPositionVw = e
-
     },
     continueScroll() {
       this.scrollSuspended = false
@@ -45,8 +44,6 @@ export default {
       this.scrollSuspended= true
     }
   },
-
-
 }
 </script>
 
