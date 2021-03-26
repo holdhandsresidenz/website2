@@ -14,12 +14,12 @@
 <script>
 import {PixelToViewport} from '@/mixins/PixelToViewport'
 import NavigationLine from "@/pages/public/sections/NavigationLine";
+import store from "@/pages/public/store";
 export default {
   name: "Background",
   mixins: [PixelToViewport],
   components: {
     NavigationLine
-
   },
   data: function () {
     return {
@@ -29,10 +29,11 @@ export default {
   },
   props: {
     scrollSuspended: Boolean,
-
   },
   methods: {
     scrolled() {
+      store.commit('updateScrollLeft',this.$refs.background.scrollLeft)
+
       let px = this.$refs.background.scrollLeft
       this.scrollPos = px
       this.$emit('scrollPositionChanged', this.pxToVw(this.scrollPos) )
@@ -42,7 +43,6 @@ export default {
         this.scrollDirTwist = false
       }
       if (this.scrollDirTwist) {
-        console.log('e.DeltaY = ' + e.deltaY)
         if ( !this.scrollSuspended ) {
           let counter
           if(this.$browserDetect.isFirefox) {
@@ -69,14 +69,12 @@ export default {
       let self = this;
       setTimeout(function() {   //  call a 3s setTimeout when the loop is called
         self.$refs.background.scrollLeft +=1
-        console.log('moin')
         self.autoscroll()
       }, 50)
     }
   },
   mounted() {
     window.addEventListener('touchstart', this.deactivateTwist);
-    this.autoscroll()
   }
 }
 </script>
@@ -111,7 +109,6 @@ export default {
     bottom: 0;
     width: 100vh;
     height: 100vw;
-
   }
 }
 

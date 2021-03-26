@@ -1,34 +1,36 @@
 <template>
   <div id="NavigationLine">
-    <img id="information" class="navPos" src="../../../assets/Navigation/Seite_Info_kursiv.png">
-    <div id="blueLine" class="navLine"></div>
-    <div id="orangeLine" class="navLine"></div>
-    <a href="#residenz">
-      <img
-          id="blue-arrow-right" class="navPos"
-          src="../../../assets/Navigation_bl_re.png"
-          v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW > 717 ? 'none' : '',
-          opacity: scrollPositionVW > 689 ? '0' : '100%'} :
-          {display: scrollPositionVW > 190 ? 'none' : '',
-          opacity: scrollPositionVW > 190 ? '0' : '100%'}"
-      >
-    </a>
+    <portal to="navInfoSection">
+      <img id="info" class="navPos" src="../../../assets/Navigation/Seite_Info_kursiv.png">
+      <div id="blueLine" class="navLine"></div>
+      <a id="arrowToResidenz" href="#residenz">
+        <img
+            id="blueArrowRight" class="navPos arrowPos"
+            src="../../../assets/Navigation_bl_re.png"
+            v-bind:style="this.smallScreen ?
+          {display: scrollPositionVW > 865 ? 'none' : '',
+          opacity: scrollPositionVW > 865 ? '0' : '100%'} :
+          {display: scrollPositionVW > 263 ? 'none' : '',
+          opacity: scrollPositionVW > 263 ? '0' : '100%'}"
+        >
+      </a>
+    </portal>
 
-
-    <a href="#information">
-      <img id="orange-arrow-left"
-           class="navPos"
-           src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
-           v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW < 790 ? 'none' : '',
+<portal to="navResidenzSection">
+  <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
+  <div id="orangeLine" class="navLine"></div>
+  <a id="arrowToInfo" href="#info">
+    <img id="orangeArrowLeft"
+         class="navPos arrowPos"
+         src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
+         v-bind:style="this.smallScreen ?
+          {display: scrollPositionVW < 926 ? 'none' : '',
           opacity: scrollPositionVW < 190 ? '0' : '100%'} :
-          {display: scrollPositionVW < 120 ? 'none' : '',
-          opacity: scrollPositionVW < 220 ? '0' : '100%'}"
-      >
-    </a>
-
-    <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
+          {display: scrollPositionVW < 220 ? 'none' : '',
+          opacity: scrollPositionVW < 285 ? '0' : '100%'}"
+    >
+  </a>
+</portal>
 
   </div>
 </template>
@@ -54,47 +56,46 @@ export default {
 </script>
 
 <style scoped>
+.navPos {
+  position: relative;
+  padding-top: 10px;
+  height: 20px;
+}
 .navLine {
   top: 16.5px;
   height: 0.15rem;
+  position: absolute;
+  width: 100%;
 }
 
 #blueLine {
   background: blue;
-  position: absolute;
   left: 115px;
-  width: 291vw;
   z-index: 80;
 }
-
-#blue-arrow-right {
+.arrowPos {
   position: fixed;
   right: 0;
+}
+#blueArrowRight {
   z-index: 99;
   transition: 0.8s;
 }
-
-#orange-arrow-left {
-  position: fixed;
-  right: 0;
-  z-index: 101;
+#orangeArrowLeft {
+  z-index: 107;
   transition: 0.8s;
 }
 
 #orangeLine {
-  position: absolute;
-  left: 291vw;
   background: #aa3500;
   z-index: 100;
-  width: 30vw;
 }
 
 #residenz {
   position: absolute;
-  left: 295vw;
-  width: 225px;
-  padding-right: 10vw;
-  z-index: 100;
+  padding-left: 4vw;
+  padding-right: 12vw;
+  z-index: 103;
 }
 
 .d2 {
@@ -102,19 +103,10 @@ export default {
 }
 
 @media all and (max-width: 1000px) {
-  #residenz {
-    left: 830vw;
-    padding-right: 30vw;
-  }
-  #orangeLine {
-    left: 820vw;
-    width: 79vw;
-  }
-  #blueLine {
-
-    width: 821vw;
-    z-index: 80;
-  }
+#residenz {
+  padding-left:8vw;
+  padding-right: 33vw;
+}
 
 }
 </style>
