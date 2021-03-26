@@ -1,16 +1,13 @@
 <template>
-  <div id="Info-Section">
+  <div id="InfoSection">
 
+    <PortalTarget name="navInfoSection"></PortalTarget>
 
     <img id="logo" src="../../../../assets/Logo.png">
-
-
     <IntroTextBox v-bind:current-position-vw="currentPositionVw"
                   @suspend-scroll="suspendScroll"
                   @continue-scroll="continueScroll"
     ></IntroTextBox>
-
-
     <EinleitungTextBox
         v-bind:current-position-vw="currentPositionVw"
         @suspend-scroll="suspendScroll"
@@ -42,7 +39,6 @@
         v-bind:title-image="require('@/assets/Mickey_Form.jpg')"
         v-bind:video-url="'https://www.youtube.com/embed/WwSfxtrDlJg'"
     ></VideoCutOut>
-
     <VideoCutOut
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
@@ -56,12 +52,24 @@
         v-bind:title-image="require('@/assets/Lara_Form.jpg')"
         v-bind:video-url="'https://www.youtube.com/embed/lYUhY50DeR4'"
     ></VideoCutOut>
+    <VideoCutOut
+        @suspend-scroll="suspendScroll"
+        @continue-scroll="continueScroll"
+        id="VideoPaula"
+        v-bind:biografie="'<p id=paulaBIO> (*1989, Santiago de Chile, CL) ist Bildende Künstlerin und Filmemacherin. Sie studierte visuelle Künste an der Finis Terrae Universität, um im Jahr 2016 mit einem DAAD-Stipendium nach Leipzig zu kommen. Hier wurde sie Meisterschülerin an der Hochschule für Grafik und Buchkunst. Ihr Werk befasst sich mit der Beziehung zwischen dem menschlichen Körper und Arbeit sowie Räumen des täglichen Lebens und des Arbeitsplatzes. Im Zentrum ihrer künstlerischen Praxis steht die Frage, wie anhand audiovisueller Mittel das Aufeinandertreffen der menschlichen Innenwelt und dem Außenraum verhandelt werden kann. Ábalos hat bereits zwei Stipendien von der chilenischen Regierung (FONDART) erhalten. 2020 wurde sie beim 37. Kasseler DOK Fest für ihre Videoinstallation cDiarios de Trabajos“ ausgezeichnet. Für ihr Abschlussprojekt erhielt Ábalos den Förderpreis des Rundgang50Hertz. Dieser Preis steht in Verbindung mit einer Ausstellung im Hamburger Bahnhof Museum, Staatliche Museen zu Berlin, im Mai 2021. Aktuell absolviert sie eine Residenz am LOFFT, Leipzig und nutzt das Stipendium „Innovatives Kunstprojekt“ von NEUSTART, BBK Bundesverband Berlin, um 2021 ein neues Projekt zu entwickeln.</p>'"
+        v-bind:container-height="this.smallScreen ? '70vh' : '80vh'"
+        v-bind:container-left="this.smallScreen ? '700vw' : '255vw'"
+        v-bind:container-top="this.smallScreen ? '0vh' : '0vh'"
+        v-bind:mask-path="require('@/assets/Form_Paula.svg')"
+        v-bind:title="'PAULA ÁBALOS'"
+        v-bind:title-image="require('@/assets/Deckblatt_Paula.png')"
+        v-bind:video-url="'https://www.youtube.com/embed/lYUhY50DeR4'"
+    ></VideoCutOut>
   </div>
 </template>
 
 <script>
 import IntroTextBox from "@/pages/public/sections/InfoSection/TextBoxen/IntroTextBox";
-
 import EinleitungTextBox from "@/pages/public/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/pages/public/sections/InfoSection/TextBoxen/DatenschutzTextBox";
 import ImpressumTextBox from "@/pages/public/sections/InfoSection/TextBoxen/ImpressumTextBox";
@@ -89,6 +97,11 @@ export default {
 </script>
 
 <style scoped>
+#InfoSection {
+position: relative;
+  height: 100vh;
+  width: 365vw;
+}
 #logo {
   position: absolute;
   top: 12vh;
@@ -96,6 +109,9 @@ export default {
   width: 60vw;
 }
 @media all and (max-width: 1000px) {
+  #InfoSection {
+    width: 966vw;
+  }
   #logo {
     position: absolute;
     top: 12vh;

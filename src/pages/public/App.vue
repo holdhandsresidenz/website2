@@ -1,15 +1,17 @@
 <template>
   <Background @scrollPositionChanged="setPositionVw" v-bind:scroll-suspended="scrollSuspended">
-    <InfoSection
-        @suspend-scroll="suspendScroll"
-        @continue-scroll="continueScroll"
-        v-bind:currentPositionVw="this.currentPositionVw"
-    ></InfoSection>
-    <ResidenzSection
-        @suspend-scroll="suspendScroll"
-        @continue-scroll="continueScroll"
-        v-bind:currentPositionVw="this.currentPositionVw"
-    ></ResidenzSection>
+    <div class="flexx">
+      <InfoSection
+          @suspend-scroll="suspendScroll"
+          @continue-scroll="continueScroll"
+          v-bind:currentPositionVw="this.currentPositionVw"
+      ></InfoSection>
+      <ResidenzSection
+          @suspend-scroll="suspendScroll"
+          @continue-scroll="continueScroll"
+          v-bind:currentPositionVw="this.currentPositionVw"
+      ></ResidenzSection>
+    </div>
   </Background>
 </template>
 
@@ -48,7 +50,15 @@ export default {
 </script>
 
 <style>
-
+.flexx{
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 html,body {
   margin: 0;
   font-family: Akzi;
@@ -57,11 +67,6 @@ html,body {
   background:  #b2b2b2
 }
 
-.navPos {
-  position: absolute;
-  top: 10px;
-  height: 20px;
-}
 .inline{
   display: inline;
 }
@@ -100,6 +105,10 @@ p{
   padding-top: 3.7rem;
   text-indent: 15vw;
 }
+#paulaBIO {
+  padding-top: 3.7rem;
+  text-indent: 16vw;
+}
 a{
   color: black;
 }
@@ -122,6 +131,10 @@ a{
     text-indent: 0;
   }
   #mickeyBIO {
+    padding-top: 7.0rem;
+    text-indent: 0;
+  }
+  #paulaBIO {
     padding-top: 7.0rem;
     text-indent: 0;
   }

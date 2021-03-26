@@ -1,8 +1,7 @@
 <template>
-<div id="Residenz-Section">
-
+<div id="Residenz-Section" >
+  <PortalTarget name="navResidenzSection"></PortalTarget>
   <div id="fade"></div>
-
   <div class="soon">
     <div class="soon1">
       <TitleBW title="DIE RESIDENZ"></TitleBW>
@@ -25,7 +24,6 @@ name: "ResidenzSection",
   TitleBW
   },
   methods: {
-
   }
 }
 </script>
@@ -38,9 +36,7 @@ button {
 }
 
 #Residenz-Section{
-  position: absolute;
-  left: 291vw;
-  top: 0;
+position: relative;
   box-sizing: border-box;
   height: 100%;
   width: 30vw;
@@ -78,10 +74,6 @@ button {
 }
 
 @media all and (max-width: 1000px) {
-  #Residenz-Section{
-  left: 820vw;
-    width: 50vw;
-  }
   .soon {
     left: 25vw;
   }
