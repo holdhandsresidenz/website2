@@ -43,7 +43,7 @@ export default {
         this.scrollDirTwist = false
       }
       if (this.scrollDirTwist) {
-        if ( !this.scrollSuspended ) {
+        if ( !this.scrollSuspended && !this.$store.getters.scrollState ) {
           let counter
           if(this.$browserDetect.isFirefox) {
             counter = e.deltaY * 15

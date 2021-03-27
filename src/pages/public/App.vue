@@ -46,6 +46,9 @@ export default {
       this.scrollSuspended= true
     }
   },
+  mounted() {
+    this.$store.dispatch('fetchQuestions')
+  }
 }
 </script>
 

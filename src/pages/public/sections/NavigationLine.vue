@@ -15,9 +15,11 @@
         >
       </a>
     </portal>
-
-<portal to="navResidenzSection">
+<portal to="residenzLogo">
   <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
+</portal>
+<portal to="navResidenzSection">
+
   <div id="orangeLine" class="navLine"></div>
   <a id="arrowToInfo" href="#info">
     <img id="orangeArrowLeft"
@@ -63,7 +65,7 @@ export default {
 }
 .navLine {
   top: 16.5px;
-  height: 0.15rem;
+  height: 0.17rem;
   position: absolute;
   width: 100%;
 }
