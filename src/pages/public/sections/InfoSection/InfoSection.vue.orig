@@ -4,14 +4,10 @@
     <PortalTarget name="navInfoSection"></PortalTarget>
 
     <img id="logo" src="../../../../assets/Logo.png">
-
-
     <IntroTextBox v-bind:current-position-vw="currentPositionVw"
                   @suspend-scroll="suspendScroll"
                   @continue-scroll="continueScroll"
     ></IntroTextBox>
-
-
     <EinleitungTextBox
         v-bind:current-position-vw="currentPositionVw"
         @suspend-scroll="suspendScroll"
@@ -43,7 +39,6 @@
         v-bind:title-image="require('@/assets/Mickey_Form.jpg')"
         v-bind:video-url="'https://www.youtube.com/embed/WwSfxtrDlJg'"
     ></VideoCutOut>
-
     <VideoCutOut
         @suspend-scroll="suspendScroll"
         @continue-scroll="continueScroll"
@@ -68,14 +63,17 @@
         v-bind:mask-path="require('@/assets/Form_Paula.svg')"
         v-bind:title="'PAULA ÁBALOS'"
         v-bind:title-image="require('@/assets/Deckblatt_Paula.png')"
+<<<<<<< HEAD
         v-bind:video-url="'https://www.youtube.com/embed/EMiSwMwzgYM'"
+=======
+        v-bind:video-url="'https://www.youtube.com/embed/lYUhY50DeR4'"
+>>>>>>> f05573a99437a4d93d9a3e8f469086ef899889ca
     ></VideoCutOut>
   </div>
 </template>
 
 <script>
 import IntroTextBox from "@/pages/public/sections/InfoSection/TextBoxen/IntroTextBox";
-
 import EinleitungTextBox from "@/pages/public/sections/InfoSection/TextBoxen/EinleitungTextBox";
 import DatenschutzTextBox from "@/pages/public/sections/InfoSection/TextBoxen/DatenschutzTextBox";
 import ImpressumTextBox from "@/pages/public/sections/InfoSection/TextBoxen/ImpressumTextBox";

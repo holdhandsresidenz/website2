@@ -1,0 +1,54 @@
+{
+  "name": "holdhands",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@saeris/vue-spinners": "^1.0.8",
+    "core-js": "^3.6.5",
+    "portal-vue": "^2.1.7",
+    "vue": "^2.6.11",
+<<<<<<< HEAD
+    "vue-browser-detect-plugin": "^0.1.13",
+    "vuex": "^3.6.2"
+=======
+    "portal-vue": "^2.1.7",
+    "vuex": "^3.6.2",
+    "vue-browser-detect-plugin": "^0.1.13"
+>>>>>>> f05573a99437a4d93d9a3e8f469086ef899889ca
+  },
+  "devDependencies": {
+    "vue-router": "^3.5.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
