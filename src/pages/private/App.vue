@@ -1,7 +1,7 @@
 <template>
   <div id="private">
-    <Login v-if="this.currentUser === null"></Login>
-    <div v-if="this.currentUser !== null" id="inside">
+    <Login v-if="currentUser.idusers === '' " ></Login>
+    <div v-else id="inside">
     <NavBar></NavBar>
       <router-view></router-view>
     </div>
@@ -9,15 +9,20 @@
 </template>
 
 <script>
-import store from "@/pages/private/store";
+
 import Login from "@/pages/private/components/Login";
 import NavBar from "@/pages/private/components/NavBar";
 export default {
   name: 'App',
   components: {NavBar, Login},
+  data: function () {
+    return {
+      locked: true
+    }
+  },
   computed: {
-    currentUser() {
-      return store.state.currentUser
+    currentUser () {
+      return this.$store.getters.getCurrentUser
     }
   }
 
@@ -50,9 +55,9 @@ position: absolute;
 html,body {
   margin: 0;
   font-family: Akzi;
-  line-height: 2.33vw;
+
   font-size: 1vw;
-  background:  #3c2832;
+  background:  #b2b2b2;
 }
 
 .navPos {

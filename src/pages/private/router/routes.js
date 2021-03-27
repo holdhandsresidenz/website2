@@ -9,12 +9,12 @@ const routes = [
         component: Questions,
     },
     {
-        path: "/private/posts",
+        path: "/posts",
         name: "Posts",
         component: Posts,
     },
     {
-        path: "/private/questions/acceptQuestion",
+        path: "/questions/acceptQuestion",
         name: "acceptQuestion",
         component: QuestionValidate,
         props: true

@@ -16,6 +16,7 @@ name: "NavBar"
   display: flex;
 }
 button {
+  cursor: pointer;
   box-shadow: 0vh 0vh 1vh 0vh black;
   font-family: Akzi;
   font-size: 1.6vw;

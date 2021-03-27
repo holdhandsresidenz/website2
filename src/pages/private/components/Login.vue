@@ -5,6 +5,7 @@
     <input v-model="username" placeholder="username">
     <input v-model="password" placeholder=" password" type="password">
     <button @click="login">login</button>
+
   </div>
 
 </div>
@@ -19,23 +20,27 @@ name: "Login",
   },
   data: function () {
   return {
+    fetchingData: false,
     username: '',
     password: ''
   }
   },
   methods: {
     login() {
-      axios.get('php/check_credentials.php', {params: {password: this.password, username: this.username}}).then(resp =>{
+      let baseURL = store.state.baseURL
+      axios.get(baseURL + 'check_credentials.php', {params: {password: this.password, username: this.username}}).then(resp =>{
           let user = {
             username: resp.data[0].loginname,
             realname: resp.data[0].realname,
+            idusers: resp.data[0].idusers
           }
-        store.setUser(user)
+          store.dispatch('fetchQuestions')
+        store.dispatch('fetchPosts')
+        store.commit('setUser', user)
+
       })
     },
-
-  }
-}
+}}
 </script>
 
 <style scoped>
