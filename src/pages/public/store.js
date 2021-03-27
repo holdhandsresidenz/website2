@@ -3,6 +3,7 @@ import Vue from 'vue'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
+
         scrollLeftPos: 0,
         scrollLeftSuspendended: false,
         smallScreen: false,
