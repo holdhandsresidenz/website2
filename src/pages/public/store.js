@@ -13,12 +13,16 @@ const store = new Vuex.Store({
         selectedQuestions: [],
         selectedResidents: [],
         filteredPosts: [],
+        assets: [],
         sortPostsBy: "date"
 
     },
     getters: {
         getQuestions: state => {
             return state.questions
+        },
+        getPosts: state => {
+            return state.filteredPosts
         },
         scrollState: state =>  {
             return state.scrollLeftSuspendended
@@ -28,11 +32,20 @@ const store = new Vuex.Store({
         },
         getBaseURL: state => {
             return state.baseURL
+        },
+        getScrollPosition: state => {
+            return state.scrollLeftPos
+        },
+        getAssetsByPostId: state => postId => {
+            return Array.from(state.assets).filter(asset => asset.post === postId)
         }
     },
     mutations: {
         updateScrollLeft (state, pos) {
             state.scrollLeftPos = pos
+        },
+        setAssets (state, payload) {
+            state.assets = payload
         },
         setQuestions (state, payload) {
             state.questions = payload
@@ -101,7 +114,14 @@ const store = new Vuex.Store({
                     author_ids_exp: author_ids_exp
                 }
                 }).then(resp =>{
+
                 context.commit('setPosts', resp.data)
+            })
+        },
+        fetchAssets (context) {
+            let baseURL = context.state.baseURL
+            axios.get(baseURL + 'getAssets.php').then(resp =>{
+                context.commit('setAssets', resp.data)
             })
         }
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="OrangeFade" v-bind:class="{mirrored:mirrored}">
-    <img src="../../../assets/Verlauf2.png">
+    <img src="../../../assets/Verlauf.png">
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   props: {
     mirrored: Boolean
   },
-  name: "OrangeFade"
+  name: "BlueFade"
 }
 </script>
 

@@ -25,7 +25,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   height: 100%;
-  min-width: 450px;
+
   background: #b2b2b2;
   display: flex;
   flex-direction: row;
