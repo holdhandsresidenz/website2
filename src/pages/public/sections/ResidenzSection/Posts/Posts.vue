@@ -7,7 +7,10 @@
 <script>
 
 export default {
-name: "Posts"
+name: "Posts",
+  mounted() {
+
+  }
 }
 </script>
 

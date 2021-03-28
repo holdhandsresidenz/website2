@@ -20,7 +20,6 @@ name: "Questions",
   height: 100%;
   width: 30vw;
   display: flex;
-  margin-bottom: 5rem;
   flex-direction: column;
 }
 </style>

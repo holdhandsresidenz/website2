@@ -26,6 +26,7 @@ export default {
   methods: {
     questionClicked(i) {
       this.$store.commit('toggleSelectionOfQuestion', i)
+      this.$store.dispatch('updatePostList')
     }
   }
 }
@@ -51,10 +52,9 @@ export default {
   overflow: auto;
   box-sizing: border-box;
   position: relative;
-   width: 99%;
+  width: 99%;
   flex: 5;
-  padding: 0.5rem;
-
+  padding: 0.7rem;
 }
 #QuestionList::-webkit-scrollbar-track {
   z-index: 300;
