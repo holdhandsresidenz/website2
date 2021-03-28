@@ -49,13 +49,13 @@ position: absolute;
   width: 100vw;
   height: 100vh;
   background: url("../../assets/Logo.png") round;
-  background-size: 44%;
+  background-size: 9%;
 
 }
 html,body {
   margin: 0;
   font-family: Akzi;
-
+  overflow: hidden;
   font-size: 1vw;
   background:  #b2b2b2;
 }

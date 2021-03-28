@@ -1,7 +1,7 @@
 <template>
   <div id="Residenz-Section">
     <PortalTarget name="navResidenzSection"></PortalTarget>
-      <OrangeFade mirrored="true"></OrangeFade>
+      <OrangeFade v-bind:mirrored="true"></OrangeFade>
     <Questions></Questions>
     <OrangeFade></OrangeFade>
     <Posts></Posts>

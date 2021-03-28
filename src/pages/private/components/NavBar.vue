@@ -17,11 +17,9 @@ name: "NavBar"
 }
 button {
   cursor: pointer;
-  box-shadow: 0vh 0vh 1vh 0vh black;
   font-family: Akzi;
   font-size: 1.6vw;
-  border: 2px solid black;
-  border-radius: 2vh;
+  border: 1px double black;
   background: blue;
   color: #b2b2b2;
   height: 5vh;

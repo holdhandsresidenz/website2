@@ -18,7 +18,7 @@
       </th>
 
       <th class="notAccepted" >{{datum_c}}</th>
-      <th class="notAccepted" >{{autorin_c}}</th>
+      <th class="notAccepted" >{{autorin_c.realname}}</th>
       <th class="notAccepted" ><input type="checkbox" v-bind:value="currentUser" v-model="accepted" id="0"></th>
       <th class="notAccepted" @click="confirmQuestion"><router-link :to="{name: 'Questions'}" >BESTÄTIGEN</router-link></th>
       <th class="notAccepted" @click="deleteQuestion"><router-link :to="{name: 'Questions'}" >FRAGE LÖSCHEN</router-link></th>

@@ -1,6 +1,17 @@
 <template>
 <div id="QuestionList" @mouseenter="$store.commit('suspendScroll')" @mouseleave="$store.commit('activateScroll')">
-<div  class="Question" v-for="(question, i) in questions" v-bind:key="i" v-bind:class="{odd: (i % 2) == 0, even: (i % 2) != 0}">{{question.question}}</div>
+<div
+    class="Question"
+    v-for="(question, i) in questions"
+    v-bind:key="i"
+    v-bind:class="{
+      odd: (i % 2) == 0,
+      even: (i % 2) != 0,
+      selected: $store.getters.isQuestionByIdSelected(question)
+    }"
+    @click="questionClicked(question)"
+>{{question.question}}</div>
+  <br>
 </div>
 </template>
 
@@ -10,6 +21,11 @@ export default {
   computed: {
     questions() {
       return this.$store.getters.getQuestions
+    }
+  },
+  methods: {
+    questionClicked(i) {
+      this.$store.commit('toggleSelectionOfQuestion', i)
     }
   }
 }
@@ -24,13 +40,18 @@ export default {
   text-align: right;
 }
 .Question {
- padding: 0.3rem 0;
+  cursor: pointer;
+ padding: 0.5rem 0;
+}
+.selected {
+  text-decoration: underline;
+  text-underline-offset: 1rem;
 }
 #QuestionList {
   overflow: auto;
   box-sizing: border-box;
   position: relative;
- width: 99%;
+   width: 99%;
   flex: 5;
   padding: 0.5rem;
 

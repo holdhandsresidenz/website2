@@ -21,6 +21,12 @@ const store = new Vuex.Store({
         },
         scrollState: state =>  {
             return state.scrollLeftSuspendended
+        },
+        isQuestionByIdSelected: state => question =>{
+            return state.selectedQuestions.includes(question)
+        },
+        getBaseURL: state => {
+            return state.baseURL
         }
     },
     mutations: {
@@ -35,18 +41,33 @@ const store = new Vuex.Store({
          },
         activateScroll (state) {
             state.scrollLeftSuspendended = false
+        },
+        toggleSelectionOfQuestion ( state, question ) {
+            let currentlySelectedQuestions = state.selectedQuestions.length
+            let filtered = Array.from(state.selectedQuestions).filter(q => q !== question)
+            if ( currentlySelectedQuestions === filtered.length) {
+                filtered.push(question)
+            }
+            state.selectedQuestions = filtered
         }
+
     },
     actions: {
         fetchQuestions (context) {
             let baseURL = context.state.baseURL
             axios.get(baseURL + 'getQuestions.php').then(resp =>{
                 let acceptedQuestions = Array.from(resp.data).filter(question => question.acceptedBy !== null)
-                context.commit('setQuestions', acceptedQuestions)
+                context.commit('setQuestions', acceptedQuestions.sort(() => Math.random() - 0.5))
+            })
+        },
+        updatePostList (context) {
+            let baseURL = context.state.baseURL
+            axios.get(baseURL + 'getQuestions.php').then(resp =>{
+                let acceptedQuestions = Array.from(resp.data).filter(question => question.acceptedBy !== null)
+                context.commit('setQuestions', acceptedQuestions.sort(() => Math.random() - 0.5))
             })
         }
     }
-
 })
 
 export default store

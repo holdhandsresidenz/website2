@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper" >
     <table>
       <thead>
       <tr>
@@ -11,6 +11,7 @@
         <th></th>
       </tr>
       </thead>
+
       <tbody>
       <th colspan="6" >
         <router-link
@@ -75,18 +76,21 @@ export default {
 </script>
 
 <style>
-
+.wrapper{
+  height: 100%;
+  overflow: auto;}
 thead th {
   background: #3c2832;
   color: #b2b2b2;
 }
 
 table, th {
-
+  background: rgba(21,255,0,0.31);
 }
 
 th {
-  background: #22515B;
+  background: #b2b2b2;
+  border: double 1px #3c2832;
   font-size: 1.7vh;
   font-style: normal;
   line-height: 125%;
