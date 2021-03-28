@@ -128,6 +128,6 @@ display: block;
   font-family: Akzi;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 2rem;
 }
 </style>
