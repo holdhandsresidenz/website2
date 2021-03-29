@@ -1,10 +1,10 @@
 <template>
-  <div id="NavigationLine">
+  <div id="NavigationLine" ref="navLine">
     <portal to="navInfoSection">
       <img id="info" class="navPos" src="../../../assets/Navigation/Seite_Info_kursiv.png">
       <div id="blueLine" class="navLine"></div>
-      <a id="arrowToResidenz" href="#residenz">
         <img
+            @click="scrollToPostSection"
             id="blueArrowRight" class="navPos arrowPos"
             src="../../../assets/Navigation_bl_re.png"
             v-bind:style="this.smallScreen ?
@@ -13,17 +13,17 @@
           {display: scrollPositionVW > 263 ? 'none' : '',
           opacity: scrollPositionVW > 263 ? '0' : '100%'}"
         >
-      </a>
     </portal>
 <portal to="residenzLogo">
   <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
 </portal>
 <portal to="navResidenzSection">
-
+  <div id="posts" ref="posts"></div>
   <div id="orangeLine" class="navLine"></div>
-  <a id="arrowToInfo" href="#info">
-    <img id="orangeArrowLeft"
-         class="navPos arrowPos"
+    <img
+        v-if="this.$store.getters.getScrollPosition !== 5223"
+        @click="scrollToPostSection"
+         class="orangeArrowLeft navPos arrowPos"
          src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
          v-bind:style="this.smallScreen ?
           {display: scrollPositionVW < 926 ? 'none' : '',
@@ -31,7 +31,16 @@
           {display: scrollPositionVW < 220 ? 'none' : '',
           opacity: scrollPositionVW < 285 ? '0' : '100%'}"
     >
-  </a>
+    <img v-else
+         @click="scrollToInfoSection"
+         class="orangeArrowLeft navPos arrowPos"
+         src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
+         v-bind:style="this.smallScreen ?
+          {display: scrollPositionVW < 926 ? 'none' : '',
+          opacity: scrollPositionVW < 190 ? '0' : '100%'} :
+          {display: scrollPositionVW < 220 ? 'none' : '',
+          opacity: scrollPositionVW < 285 ? '0' : '100%'}"
+    >
 </portal>
 
   </div>
@@ -53,6 +62,17 @@ export default {
     smallScreen() {
       return screen.width <= 1000
     }
+  },
+  methods: {
+    scrollSmooth() {
+      window.scroll({left: 0, behavior: 'smooth'})
+    },
+     scrollToInfoSection() {
+      this.$refs.navLine.scrollIntoView({behavior: "smooth"})
+     },
+    scrollToPostSection() {
+      this.$refs.posts.scrollIntoView({behavior: "smooth"})
+    }
   }
 }
 </script>
@@ -69,13 +89,18 @@ export default {
   position: absolute;
   width: 100%;
 }
-
+#posts{
+  left: -4vh;
+  width: 100vw;
+  position: absolute;
+}
 #blueLine {
   background: blue;
   left: 115px;
   z-index: 80;
 }
 .arrowPos {
+  cursor: pointer;
   position: fixed;
   right: 0;
 }
@@ -83,7 +108,7 @@ export default {
   z-index: 99;
   transition: 0.8s;
 }
-#orangeArrowLeft {
+.orangeArrowLeft {
   z-index: 107;
   transition: 0.8s;
 }
@@ -95,7 +120,7 @@ export default {
 
 #residenz {
   position: absolute;
-  padding-left: 4vw;
+  padding-left: 2vw;
   padding-right: 12vw;
   z-index: 103;
 }

@@ -1,7 +1,6 @@
 <template>
-<div id="PostsArea">
-  <portalTarget name="residenzLogo"></portalTarget>
-  <div id="Posts">
+<div id="Posts">
+    <portalTarget name="residenzLogo"></portalTarget>
     <PostContainer
         v-for="post in $store.getters.getPosts"
         v-bind:key="post.idposts"
@@ -9,7 +8,6 @@
     ></PostContainer>
 
   </div>
-</div>
 </template>
 <script>
 
@@ -31,12 +29,17 @@ name: "Posts",
   height: 100%;
   display: flex;
   flex-direction: row;
+  margin-right: 30vw;
+  position: relative;
+
+  min-width: 67vw;
+  background: #b2b2b2;
 }
 #PostsArea {
   margin-left: 4vw;
   margin-right: 4vw;
   position: relative;
-  height: 100%;
+
   min-width: 67vw;
   background: #b2b2b2;
 }

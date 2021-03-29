@@ -24,7 +24,7 @@ img {
 .OrangeFade {
   position: relative;
   width: 0;
-  z-index: 100;
+  z-index: 107;
 }
 .mirrored { transform: scaleX(-1);}
 @media all and (max-width: 1000px) {

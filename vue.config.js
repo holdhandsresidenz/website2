@@ -4,13 +4,14 @@ module.exports = {
             entry: './src/pages/public/main.js',
             template: 'public/index.html',
             title: 'Home',
-            chunks: [ 'chunk-vendors', 'chunk-common', 'index' ]
+            chunks: ['chunk-vendors', 'chunk-common', 'index']
         },
         'private': {
             entry: './src/pages/private/main.js',
             template: 'public/index.html',
             title: 'Private',
-            chunks: [ 'chunk-vendors', 'chunk-common', 'private' ]
+            chunks: ['chunk-vendors', 'chunk-common', 'private']
+
         }
     }
 }

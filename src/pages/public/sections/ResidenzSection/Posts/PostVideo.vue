@@ -1,18 +1,21 @@
 <template>
   <div id="video"
-       class="trns"
-       @click="toggleExpand"
+       ref="post"
        v-bind:style="{
-               width: width + 'vw'
+          marginTop: marginTop  + 'vh',
+          width: width +'vw',
+          marginRight: '-8vw'
        }"
   >
     <div
-        class="cutOut trns"
+        class="trns cutOut"
         v-bind:style="{
-          width: isExpanded ? '100%' : widthClosed +'%',
+          marginRight: isExpanded ? '-12vw' : '3vw',
+
+          width: isExpanded ? width + 'vw' : widthClosed +'vw',
           height: isExpanded ? '100vh' : heightClosed + 'vh',
-        }"
-    >
+       }"
+        @click="toggleExpand">
       <img
           class="trns"
           v-bind:src="shapes.lara"
@@ -21,6 +24,7 @@
         }"
       >
     </div>
+
   </div>
 </template>
 
@@ -30,31 +34,28 @@ import {ShapesMixin} from "@/mixins/ShapesMixin";
 
 export default {
   mixins: [postMixin, ShapesMixin],
-name: "PostVideo",
+  name: "PostVideo",
   data: function () {
     return {
-      width: 40,
+      width: 0,
       widthClosed: 40,
       heightClosed: 57
     }
   },
   mounted() {
-    this.heightClosed = this.randomNumberBetween(10, 50)
-    this.width =this.randomNumberBetween(30,50)
-    this.widthClosed = this.randomNumberBetween(30, 60)
+    this.heightClosed = this.randomNumberBetween(40, 60)
+    this.width = 80
+    this.widthClosed = this.randomNumberBetween(25, 35)
   }
 }
 </script>
 
 <style scoped>
 .cutOut {
-
   overflow: hidden;
 }
 #video {
-  border: 1px solid coral;
 }
 img {
-
 }
 </style>

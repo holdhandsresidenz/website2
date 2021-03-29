@@ -1,5 +1,5 @@
 <template>
-<div id="PostContainer" v-bind:style="{marginTop: marginTop + 'vh', marginRight: marginRight + 'vw'}">
+<div id="PostContainer" >
   <PostTextLong v-if="post.category === 'textLong'" v-bind:post="post"></PostTextLong>
   <PostTextShort v-if="post.category === 'textShort'" v-bind:post="post"></PostTextShort>
   <PostImage v-if="post.category === 'picture'" v-bind:post="post"></PostImage>

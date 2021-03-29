@@ -1,9 +1,13 @@
 <template>
   <div
       id="longText"
+      class="trns"
+      ref="post"
       v-bind:style="{
+          marginTop: marginTop + 'vh',
           height: height + 'vh',
-          width: width + 'vw'
+          width: widthOpen +'vw',
+          marginRight: '-3vw'
         }"
       @click="toggleExpand"
   >
@@ -11,8 +15,8 @@
     <div
         class="textBox trns"
         v-bind:style="{
-          width: isExpanded ? widthOpen + '%': '0%',
-          opacity: isExpanded ? '100' : '0'
+          opacity: isExpanded ? '100' : '0',
+          width: isExpanded ? '100%' : '0%'
         }"
         @mouseenter="deactivateScroll"
         @mouseleave="activateScroll"
@@ -39,24 +43,22 @@ export default {
     return {
       height: 0,
       widthOpen: 0,
-      width: 25
     }
   },
   mounted() {
     this.height = this.randomNumberBetween( 30, 50)
-    this.widthOpen = this.randomNumberBetween(100 , 130)
-    this.width = this.randomNumberBetween(25,33)
+    this.widthOpen = this.randomNumberBetween(20 , 30)
   }
 }
 </script>
 
 <style scoped>
 #longText {
-  border: 1px solid navajowhite;
   display: flex;
   flex-direction: row;
 }
 .textBox {
+  width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   margin-left: 1.5rem;

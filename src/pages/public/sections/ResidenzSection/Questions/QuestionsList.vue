@@ -46,7 +46,7 @@ export default {
 }
 .selected {
   text-decoration: underline;
-  text-underline-offset: 1rem;
+  text-underline-offset: 0.7rem;
 }
 #QuestionList {
   overflow: auto;

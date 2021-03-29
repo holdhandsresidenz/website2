@@ -1,25 +1,33 @@
 <template>
-  <div id="image">
-    <div class="imageContainer"
+    <div id="image"
+         class="trns"
+         ref="post"
          @click="toggleExpand"
          v-bind:style="{
-            width: isExpanded ? '100vw' : ( singleImageWidth * numberOfColumns) + 'vw',
-            position: isExpanded ? 'fixed' : 'relative'
+           width: 30 * numberOfColumns + 'vw',
+           marginRight: '-3vw'
          }"
     >
-      <img
-          v-for="asset in assets"
-          v-bind:src="asset.filepath"
-          v-bind:key="asset.idpost_assets"
+      <div
+          class="wrapper trns"
           v-bind:style="{
-            width: singleImageWidth + 'vw',
+            marginTop: isExpanded ? '2vh' : marginTop + 'vh',
+            height: isExpanded ? 80 + (5 * numberOfColumns) + 'vh' : smallImageHeight * numberOfPictures + 'vh'
+          }"
+      >
+        <img
+            class="trns"
+            v-for="asset in assets"
+            v-bind:src="asset.filepath"
+            v-bind:key="asset.idpost_assets"
+            v-bind:style="{
+            height: (100 / numberOfColumns) + '%',
             top: ((Math.random() * randomnessPosition) - randomnessPosition/2) + 'vw',
             left: ((Math.random() * randomnessPosition) - randomnessPosition/2) + 'vw',
           }"
-      >
+        >
+      </div>
     </div>
-
-  </div>
 </template>
 
 <script>
@@ -29,8 +37,9 @@ export default {
 name: "PostImage",
   data: function () {
     return {
-      singleImageWidth: 6,
-      randomnessPosition: 4
+     smallImageHeight: 10,
+      randomnessPosition: 4,
+      numberOfPictures: 0,
     }
   },
   methods: {
@@ -38,30 +47,30 @@ name: "PostImage",
   },
   computed: {
     numberOfColumns() {
-      return Math.ceil(Math.sqrt( this.assets.length ))
-    }
+      return Math.ceil(Math.sqrt( this.numberOfPictures ))
+    },
   },
   mounted() {
     this.setAssets()
+    this.numberOfPictures = this.assets.length
   }
 }
 </script>
 
 <style scoped>
-.imageContainer {
-  position: relative;
-  left: 0;
-  width: 100%;
+.wrapper {
   display: flex;
+  flex-direction: column;
+  align-content: center;
   flex-wrap: wrap;
-  border: 1px double firebrick;
+  align-items: center;
 }
 #image {
-
-  border: 1px solid rebeccapurple;
+  position: relative;
 }
 img{
   display: block;
-position: relative;
+  position: relative;
+  align-self: center;
 }
 </style>

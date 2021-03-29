@@ -48,6 +48,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('fetchQuestions')
+    this.$store.commit('setScreenWidth')
   }
 }
 </script>
@@ -67,6 +68,7 @@ html,body {
   font-family: Akzi;
   line-height: 2.33vw;
   font-size: 1vw;
+  scroll-behavior: smooth;
   background:  #b2b2b2
 }
 

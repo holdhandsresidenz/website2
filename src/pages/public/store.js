@@ -9,6 +9,7 @@ const store = new Vuex.Store({
         scrollLeftPos: 0,
         scrollLeftSuspendended: false,
         smallScreen: false,
+        screenWidth: 0,
         questions: [],
         selectedQuestions: [],
         selectedResidents: [],
@@ -38,6 +39,15 @@ const store = new Vuex.Store({
         },
         getAssetsByPostId: state => postId => {
             return Array.from(state.assets).filter(asset => asset.post === postId)
+        },
+        getScreenMiddle: state => {
+            return state.screenWidth/2
+        },
+        getPostTriggerWidth: state => {
+            return state.screenWidth * (3/6)
+        },
+        getPostTriggerWidthBack: state => {
+            return state.screenWidth * (2/5)
         }
     },
     mutations: {
@@ -66,6 +76,9 @@ const store = new Vuex.Store({
                 filtered.push(question)
             }
             state.selectedQuestions = filtered
+        },
+        setScreenWidth (state) {
+            state.screenWidth = window.innerWidth
         }
 
     },

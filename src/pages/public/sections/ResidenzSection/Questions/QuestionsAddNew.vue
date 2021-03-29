@@ -43,6 +43,11 @@ textarea {
   background: unset;
   padding: 0.4rem;
 }
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
 button {
   display: block;
   float: right;
@@ -58,6 +63,6 @@ button {
   flex: 1;
   border-radius: 2rem;
   border: #3c2832 solid 1rem;
-
 }
+
 </style>
