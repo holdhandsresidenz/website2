@@ -1,55 +1,56 @@
 <template>
   <div
-      id="longText"
-      class="trns"
-      ref="post"
-      v-bind:style="{
-          marginTop: marginTop + 'vh',
-          height: height + 'vh',
-          width: widthOpen +'vw',
-          marginRight: '-3vw'
-        }"
-      @click="toggleExpand"
+    id="longText"
+    class="trns"
+    ref="post"
+    v-bind:style="{
+      marginTop: marginTop + 'vh',
+      height: height + 'vh',
+      width: widthOpen + 'vw',
+      marginRight: '-3vw',
+      marginLeft: '6vw',
+    }"
+    @click="toggleExpand"
   >
-    <OrangeFade ></OrangeFade>
+    <OrangeFade></OrangeFade>
     <div
-        class="textBox trns"
-        v-bind:style="{
-          opacity: isExpanded ? '100' : '0',
-          width: isExpanded ? '100%' : '0%'
-        }"
-        @mouseenter="deactivateScroll"
-        @mouseleave="activateScroll"
+      class="textBox trns"
+      v-bind:style="{
+        opacity: isExpanded ? '100' : '0',
+        width: isExpanded ? '100%' : '0%',
+      }"
+      @mouseenter="deactivateScroll"
+      @mouseleave="activateScroll"
     >
-      {{post.contentHTML}}
+      {{ post.contentHTML }}
     </div>
     <OrangeFade
-        v-bind:style="{
-      transition: '2.4s',
-      opacity: isExpanded ? 100 : 0
-    }"
+      v-bind:style="{
+        transition: '2.4s',
+        opacity: isExpanded ? 100 : 0,
+      }"
     ></OrangeFade>
   </div>
 </template>
 
 <script>
 import OrangeFade from "@/pages/public/components/OrangeFade";
-import {postMixin} from "@/pages/public/sections/ResidenzSection/Posts/PostMixin";
+import { postMixin } from "@/pages/public/sections/ResidenzSection/Posts/PostMixin";
 export default {
   mixins: [postMixin],
   name: "PostTextLong",
-  components: {OrangeFade},
+  components: { OrangeFade },
   data: function () {
     return {
       height: 0,
       widthOpen: 0,
-    }
+    };
   },
   mounted() {
-    this.height = this.randomNumberBetween( 30, 50)
-    this.widthOpen = this.randomNumberBetween(20 , 30)
-  }
-}
+    this.height = this.randomNumberBetween(30, 50);
+    this.widthOpen = this.randomNumberBetween(20, 30);
+  },
+};
 </script>
 
 <style scoped>
