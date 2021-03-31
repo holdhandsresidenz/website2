@@ -21,17 +21,9 @@ export default {
   mixins: [editPostMixin],
   data: function () {
     return {
-      author: null,
-      idposts: null,
-      contentHTML: null,
-      category: null,
-      timestamp: null,
       selectedImages: [],
       success: null,
     };
-  },
-  props: {
-    post: Object,
   },
   methods: {
     imageSelected(event) {
@@ -40,14 +32,6 @@ export default {
     createPicturePost() {
       this.createPostWithAssets(this.selectedImages, "picture");
     },
-  },
-
-  mounted() {
-    this.author = this.post.author;
-    this.idposts = this.post.idposts;
-    this.contentHTML = this.post.contentHTML;
-    this.category = this.post.category;
-    this.timestamp = this.post.timestamp;
   },
 };
 </script>

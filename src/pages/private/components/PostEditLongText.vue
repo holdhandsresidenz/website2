@@ -1,31 +1,40 @@
 <template>
-  <div>{{ post }}</div>
+  <div class="container">
+    <textarea
+      v-model="message"
+      placeholder="Bitte Text eingeben. Für die Textformatierung können HTML-tags verwedent werden. (zb. <br> für einen Zeilenumbruch)"
+    ></textarea>
+    <button @click="createTextPost">Post veröffentlichen</button>
+    <span v-if="success"
+      >Upload Erfolgreich! Ein neuer Post wurde erstellt.</span
+    >
+  </div>
 </template>
 
 <script>
+import { editPostMixin } from "../mixins/editPostMixin";
 export default {
-  name: "PostEdit",
+  name: "PostEditText",
+  mixins: [editPostMixin],
   data: function () {
     return {
-      author: null,
-      idposts: null,
-      contentHTML: null,
-      category: null,
-      timestamp: null,
+      message: "",
+      success: null,
     };
   },
-  props: {
-    post: Object,
-  },
-  mounted() {
-    this.author = this.post.author;
-    this.idposts = this.post.idposts;
-    this.contentHTML = this.post.contentHTML;
-    this.category = this.post.category;
-    this.timestamp = this.post.timestamp;
+  methods: {
+    createTextPost() {
+      let authorID = this.$store.getters.getCurrentUser.idusers;
+      this.createPostInDB("textLong", authorID, this.message);
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  background: gray;
+}
 </style>

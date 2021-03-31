@@ -1,31 +1,38 @@
 <template>
-  <div>{{ post }}</div>
+  <div class="container">
+    <textarea
+      v-model="link"
+      placeholder="Bitte Youtube-Embed-Link eingeben. (z.B: https://www.youtube.com/embed/2JyW4yAyTl0)"
+    ></textarea>
+    <button @click="createVideoPost">Post veröffentlichen</button>
+    <span v-if="success">Erfolgreich! Ein neuer Post wurde erstellt.</span>
+  </div>
 </template>
 
 <script>
+import { editPostMixin } from "../mixins/editPostMixin";
 export default {
-  name: "PostEdit",
+  name: "PostEditText",
+  mixins: [editPostMixin],
   data: function () {
     return {
-      author: null,
-      idposts: null,
-      contentHTML: null,
-      category: null,
-      timestamp: null,
+      link: "",
+      success: null,
     };
   },
-  props: {
-    post: Object,
-  },
-  mounted() {
-    this.author = this.post.author;
-    this.idposts = this.post.idposts;
-    this.contentHTML = this.post.contentHTML;
-    this.category = this.post.category;
-    this.timestamp = this.post.timestamp;
+  methods: {
+    createVideoPost() {
+      let authorID = this.$store.getters.getCurrentUser.idusers;
+      this.createPostInDB("video", authorID, this.link);
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  background: gray;
+}
 </style>

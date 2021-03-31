@@ -10,7 +10,7 @@ export const editPostMixin = {
 
 	methods: {
 
-		async createPostInDB(category, author, contentHTML,) {
+		createPostInDB(category, author, contentHTML,) {
 			let url = this.$store.getters.getBaseURL + 'insertPost.php'
 			let data = new FormData()
 			data.append('category', category)
@@ -18,7 +18,10 @@ export const editPostMixin = {
 			data.append('author', author)
 			axios.post(url, data).then(
 				resp => {
+					console.log(resp.data)
+					this.success = true
 					return resp.data
+
 				}
 			)
 		},
@@ -58,17 +61,20 @@ export const editPostMixin = {
 						data.append("file", asset);
 						data.append("name", this.randomString());
 						data.append("path", this.userPath());
-						let header = {
-							'Content-Type': 'multipart/form-data'
-						}
-						axios.post(URL, data, header).then((response) => {
+						axios.post(URL, data,).then((response) => {
+							if (response.data === 'failed') {
+								this.success = false
+								return
+							}
 							let filepath = response.data.substring(3)
 							console.log('datei hochgeladen:', filepath)
-
 							this.createAssetsInDB(filepath, postID)
+							this.success = true
+							return
 						})
 					})
 				})
+			this.success = false
 
 		}
 	}

@@ -22,7 +22,7 @@
 import PostEditTextLong from "./PostEditLongText";
 import PostEditVideo from "./PostEditVideo";
 import PostEditImage from "./PostEditImage";
-import PostEditSound from "./PostEditImage";
+import PostEditSound from "./PostEditSound";
 export default {
   name: "PostEdit",
   components: {
