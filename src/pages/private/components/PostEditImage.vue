@@ -1,19 +1,24 @@
 <template>
-  <div>
-    Bilder
-    <input
-      type="file"
-      accept="image/*"
-      @change="uploadImage($event)"
-      id="file-input"
-    />
+  <div class="container">
+    <span>Bitte Bilder zum hochladen auswählen</span>
+    <input type="file" accept="image/*" @change="imageSelected" id="1" />
+    <input type="file" accept="image/*" @change="imageSelected" id="2" />
+    <input type="file" accept="image/*" @change="imageSelected" id="3" />
+    <input type="file" accept="image/*" @change="imageSelected" id="4" />
+    <input type="file" accept="image/*" @change="imageSelected" id="5" />
+    <input type="file" accept="image/*" @change="imageSelected" id="6" />
+    <button @click="createPicturePost">Bilder hochladen</button>
+    <span v-if="success"
+      >Upload Erfolgreich! Ein neuer Post wurde erstellt.</span
+    >
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import { editPostMixin } from "../mixins/editPostMixin";
 export default {
   name: "PostEdit",
+  mixins: [editPostMixin],
   data: function () {
     return {
       author: null,
@@ -21,28 +26,19 @@ export default {
       contentHTML: null,
       category: null,
       timestamp: null,
+      selectedImages: [],
+      success: null,
     };
   },
   props: {
     post: Object,
   },
   methods: {
-    uploadImage(event) {
-      const URL = "resident1/";
-
-      let data = new FormData();
-      data.append("name", "my-picture");
-      data.append("file", event.target.files[0]);
-
-      let config = {
-        header: {
-          "Content-Type": "image/png",
-        },
-      };
-
-      axios.put(URL, data, config).then((response) => {
-        console.log("image upload response > ", response);
-      });
+    imageSelected(event) {
+      this.selectedImages.push(event.target.files[0]);
+    },
+    createPicturePost() {
+      this.createPostWithAssets(this.selectedImages, "picture");
     },
   },
 
@@ -57,4 +53,9 @@ export default {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  background: gray;
+}
 </style>

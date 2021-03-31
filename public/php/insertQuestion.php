@@ -8,7 +8,6 @@ $acceptedBy =  $mysqli->real_escape_string($_GET['acceptedBy']);
 $result = $mysqli->query("
     INSERT INTO questions (author, acceptedBy, question)
     VALUES ('$author', $acceptedBy, '$question')
-
 ");
-echo $result;
+echo mysqli_insert_id($mysqli);
 ?>
