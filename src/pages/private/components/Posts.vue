@@ -34,9 +34,7 @@
           <th>{{ post.timestamp }}</th>
           <th>{{ $store.getters.getUserNameById(post.author).realname }}</th>
           <th>
-            <router-link :to="{ name: 'editPost', params: { post: post } }"
-              >Bearbeiten</router-link
-            >
+            <button @click="deletePost(post.idposts)">Post löschen</button>
           </th>
         </tr>
       </tbody>
@@ -45,6 +43,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Posts",
   data: function () {
@@ -53,6 +52,24 @@ export default {
   computed: {
     posts() {
       return this.$store.getters.getPosts;
+    },
+  },
+  methods: {
+    deletePost(id) {
+      let dataAssets = new FormData();
+      dataAssets.append("id", id);
+      let urlAssets =
+        this.$store.getters.getBaseURL + "deleteAssetsByPostId.php";
+      axios.post(urlAssets, dataAssets).then((respAssets) => {
+        console.log("assetsdeleted: ", respAssets.data);
+        let url = this.$store.getters.getBaseURL + "deletePost.php";
+        let data = new FormData();
+        data.append("id", id);
+        axios.post(url, data).then((resp) => {
+          console.log("resp delete: ", resp.data);
+        });
+      });
+      this.$store.dispatch("fetchPosts");
     },
   },
 };
