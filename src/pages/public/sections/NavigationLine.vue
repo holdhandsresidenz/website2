@@ -1,80 +1,119 @@
 <template>
   <div id="NavigationLine" ref="navLine">
     <portal to="navInfoSection">
-      <img id="info" class="navPos" src="../../../assets/Navigation/Seite_Info_kursiv.png">
+      <img
+        id="info"
+        class="navPos"
+        src="../../../assets/Navigation/Seite_Info_kursiv.png"
+      />
       <div id="blueLine" class="navLine"></div>
-        <img
-            @click="scrollToPostSection"
-            id="blueArrowRight" class="navPos arrowPos"
-            src="../../../assets/Navigation_bl_re.png"
-            v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW > 865 ? 'none' : '',
-          opacity: scrollPositionVW > 865 ? '0' : '100%'} :
-          {display: scrollPositionVW > 263 ? 'none' : '',
-          opacity: scrollPositionVW > 263 ? '0' : '100%'}"
-        >
-    </portal>
-<portal to="residenzLogo">
-  <img id="residenz" class="navPos" src="../../../assets/Navigation/Seite_Residenz_kursiv.png">
-</portal>
-<portal to="navResidenzSection">
-  <div id="posts" ref="posts"></div>
-  <div id="orangeLine" class="navLine"></div>
-    <img
-        v-if="this.$store.getters.getScrollPosition !== 5223"
+      <img
         @click="scrollToPostSection"
-         class="orangeArrowLeft navPos arrowPos"
-         src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
-         v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW < 926 ? 'none' : '',
-          opacity: scrollPositionVW < 190 ? '0' : '100%'} :
-          {display: scrollPositionVW < 220 ? 'none' : '',
-          opacity: scrollPositionVW < 285 ? '0' : '100%'}"
-    >
-    <img v-else
-         @click="scrollToInfoSection"
-         class="orangeArrowLeft navPos arrowPos"
-         src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
-         v-bind:style="this.smallScreen ?
-          {display: scrollPositionVW < 926 ? 'none' : '',
-          opacity: scrollPositionVW < 190 ? '0' : '100%'} :
-          {display: scrollPositionVW < 220 ? 'none' : '',
-          opacity: scrollPositionVW < 285 ? '0' : '100%'}"
-    >
-</portal>
-
+        id="blueArrowRight"
+        class="navPos arrowPos"
+        src="../../../assets/Navigation_bl_re.png"
+        v-bind:style="
+          this.smallScreen
+            ? {
+                display: scrollPositionVW > 865 ? 'none' : '',
+                opacity: scrollPositionVW > 865 ? '0' : '100%',
+              }
+            : {
+                display: scrollPositionVW > 263 ? 'none' : '',
+                opacity: scrollPositionVW > 263 ? '0' : '100%',
+              }
+        "
+      />
+    </portal>
+    <portal to="residenzLogo">
+      <img
+        id="residenz"
+        class="navPos"
+        src="../../../assets/Navigation/Seite_Residenz_kursiv.png"
+      />
+      <ResidentsFilter></ResidentsFilter>
+    </portal>
+    <portal to="navResidenzSection">
+      <div id="posts" ref="posts"></div>
+      <div id="orangeLine" class="navLine"></div>
+      <img
+        v-if="!atPostSectionStart"
+        @click="scrollToPostSection"
+        class="orangeArrowLeft navPos arrowPos"
+        src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
+        v-bind:style="
+          this.smallScreen
+            ? {
+                display: scrollPositionVW < 926 ? 'none' : '',
+                opacity: scrollPositionVW < 190 ? '0' : '100%',
+              }
+            : {
+                display: scrollPositionVW < 220 ? 'none' : '',
+                opacity: scrollPositionVW < 285 ? '0' : '100%',
+              }
+        "
+      />
+      <img
+        v-else
+        @click="scrollToInfoSection"
+        class="orangeArrowLeft navPos arrowPos"
+        src="../../../assets/Navigation/Seite_Pfeil_orange_li.png"
+        v-bind:style="
+          this.smallScreen
+            ? {
+                display: scrollPositionVW < 926 ? 'none' : '',
+                opacity: scrollPositionVW < 190 ? '0' : '100%',
+              }
+            : {
+                display: scrollPositionVW < 220 ? 'none' : '',
+                opacity: scrollPositionVW < 285 ? '0' : '100%',
+              }
+        "
+      />
+    </portal>
   </div>
 </template>
 
 <script>
-import {PixelToViewport} from "@/mixins/PixelToViewport";
+import { PixelToViewport } from "@/mixins/PixelToViewport";
+import ResidentsFilter from "../sections/ResidentsFilter";
 export default {
   name: "NavigationLine",
-
+  components: {
+    ResidentsFilter,
+  },
   mixins: [PixelToViewport],
   props: {
-    scrollPos: Number
+    scrollPos: Number,
   },
   computed: {
     scrollPositionVW() {
-      return this.pxToVw(this.scrollPos)
+      return this.pxToVw(this.scrollPos);
+    },
+    atPostSectionStart() {
+      return this.scrollPositionVW < 380 && this.scrollPositionVW > 350;
     },
     smallScreen() {
-      return screen.width <= 1000
-    }
+      return screen.width <= 1000;
+    },
   },
   methods: {
     scrollSmooth() {
-      window.scroll({left: 0, behavior: 'smooth'})
+      window.scroll({ left: 0, behavior: "smooth" });
     },
-     scrollToInfoSection() {
-      this.$refs.navLine.scrollIntoView({behavior: "smooth"})
-     },
+    scrollToInfoSection() {
+      this.$refs.navLine.scrollIntoView({ behavior: "smooth" });
+    },
     scrollToPostSection() {
-      this.$refs.posts.scrollIntoView({behavior: "smooth"})
-    }
-  }
-}
+      this.$refs.posts.scrollIntoView({ behavior: "smooth" });
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.scrollToPostSection();
+    }, 2000);
+  },
+};
 </script>
 
 <style scoped>
@@ -89,7 +128,7 @@ export default {
   position: absolute;
   width: 100%;
 }
-#posts{
+#posts {
   left: -4vh;
   width: 100vw;
   position: absolute;
@@ -130,10 +169,9 @@ export default {
 }
 
 @media all and (max-width: 1000px) {
-#residenz {
-  padding-left:8vw;
-  padding-right: 33vw;
-}
-
+  #residenz {
+    padding-left: 8vw;
+    padding-right: 33vw;
+  }
 }
 </style>

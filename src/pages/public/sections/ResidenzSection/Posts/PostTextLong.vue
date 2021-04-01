@@ -12,6 +12,9 @@
     }"
     @click="toggleExpand"
   >
+    <div class="mark">
+      <OrangeFade v-bind:style="{ height: '16.5px' }"></OrangeFade>
+    </div>
     <OrangeFade></OrangeFade>
     <div
       class="textBox trns"
@@ -64,5 +67,10 @@ export default {
   overflow-x: hidden;
   margin-left: 1.5rem;
   background: #b2b2b2;
+}
+.mark {
+  position: absolute;
+  top: 0;
+  height: 27.5px;
 }
 </style>

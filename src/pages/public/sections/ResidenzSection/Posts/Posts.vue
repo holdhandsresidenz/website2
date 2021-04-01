@@ -29,7 +29,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: row;
-  margin-right: 30vw;
+  margin-right: 23vw;
   position: relative;
   min-width: 67vw;
   background: #b2b2b2;
@@ -38,8 +38,7 @@ export default {
   margin-left: 4vw;
   margin-right: 4vw;
   position: relative;
-
-  min-width: 67vw;
+  min-width: 70vw;
   background: #b2b2b2;
 }
 .placeholder {

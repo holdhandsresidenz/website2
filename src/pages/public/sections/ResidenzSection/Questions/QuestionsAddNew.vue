@@ -1,35 +1,42 @@
 <template>
-<div id="SubmitQuestion">
-  <textarea v-model="newQuestion" placeholder="Stelle eine Frage ..."></textarea>
-  <BUTTON @click="submitNewQuestion">Enter</BUTTON>
-</div>
+  <div id="SubmitQuestion">
+    <textarea
+      v-model="newQuestion"
+      placeholder="Stelle eine Frage ..."
+    ></textarea>
+    <BUTTON @click="submitNewQuestion">Enter</BUTTON>
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "QuestionsAddNew",
   data: function () {
     return {
-      newQuestion: ""
-    }
+      newQuestion: "",
+    };
   },
   methods: {
     submitNewQuestion() {
-      let self = this
-      let baseURL = this.$store.getters.getBaseURL
-      axios.get(baseURL + 'insertQuestion.php',{params: {
-          question: self.newQuestion,
-          author: 8,
-          acceptedBy: "null"
-        }})
-    }
-  }
-}
+      let self = this;
+      let baseURL = this.$store.getters.getBaseURL;
+      axios
+        .get(baseURL + "insertQuestion.php", {
+          params: {
+            question: self.newQuestion,
+            author: 8,
+            acceptedBy: "null",
+          },
+        })
+        .then((this.newQuestion = "Vielen Dank! Deine Frage wird bearbeitet!"));
+    },
+  },
+};
 </script>
 
 <style scoped>
-*{
+* {
   font-family: Akzi;
   line-height: 2.33vw;
   font-size: 1vw;
@@ -44,7 +51,8 @@ textarea {
   padding: 0.4rem;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
@@ -64,5 +72,4 @@ button {
   border-radius: 2rem;
   border: #3c2832 solid 1rem;
 }
-
 </style>
