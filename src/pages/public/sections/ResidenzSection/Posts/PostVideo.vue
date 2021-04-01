@@ -69,6 +69,7 @@ export default {
 <style scoped>
 .cutOut {
   cursor: pointer;
+  position: relative;
   overflow: hidden;
 }
 

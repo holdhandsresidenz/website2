@@ -4,7 +4,8 @@ export const editPostMixin = {
 
 	data: function () {
 		return {
-			success: null
+			success: null,
+			postID: 0
 		}
 	},
 
@@ -54,6 +55,7 @@ export const editPostMixin = {
 				resp => {
 					let postID = resp.data
 					console.log('postID:', postID)
+					this.postID = postID
 
 					const URL = this.$store.getters.getBaseURL + "saveFile.php";
 					Array.from(assets).forEach(asset => {

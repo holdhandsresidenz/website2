@@ -5,13 +5,17 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
 		baseURL: "http://localhost:8081/",
-		//baseURL: "php/",
+		//	baseURL: "php/",
 		currentUser: {username: "", idusers: "", realname: ""},
 		questions: [],
 		posts: [],
-		users: []
+		users: [],
+		connectedQuestions: []
 	},
 	mutations: {
+		setConnectionsQuestions(state, payload) {
+			this.state.connectedQuestions = payload
+		},
 		setUser(state, payload) {
 			this.state.currentUser = payload
 		},
@@ -29,6 +33,12 @@ const store = new Vuex.Store({
 		}
 	},
 	getters: {
+		getConnectedQuestions: state => {
+			return state.connectedQuestions
+		},
+		getQuestionByID: state => id => {
+			return state.questions.find(q => q.id === id)
+		},
 		getCurrentUser: state => {
 			return state.currentUser
 		},
@@ -76,6 +86,17 @@ const store = new Vuex.Store({
 			axios.get(baseURL + 'getPosts.php').then(resp => {
 				context.commit('setPosts', resp.data)
 			})
+		},
+		fetchConnectedQuestions(context, postid) {
+			let baseURL = context.state.baseURL
+			let data = new FormData()
+			console.log(postid)
+			data.append('id', postid.postid)
+			axios.post(baseURL + 'getConnectedQuestions.php', data).then(
+				resp => {
+					context.commit('setConnectionsQuestions', resp.data)
+				}
+			)
 		}
 
 	}

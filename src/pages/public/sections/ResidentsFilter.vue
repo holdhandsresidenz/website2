@@ -83,7 +83,7 @@ export default {
 #filter {
   position: absolute;
   top: 16.5px;
-  left: 14vw;
+  left: 18rem;
   height: 2rem;
   display: flex;
   flex-direction: row;

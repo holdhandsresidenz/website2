@@ -36,6 +36,18 @@
           <th>
             <button @click="deletePost(post.idposts)">Post löschen</button>
           </th>
+          <th>
+            <button>
+              <router-link
+                :to="{
+                  name: 'connectQuestions',
+                  params: { postID: post.idposts },
+                }"
+              >
+                Fragen verknüpfen</router-link
+              >
+            </button>
+          </th>
         </tr>
       </tbody>
     </table>
