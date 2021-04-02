@@ -79,9 +79,9 @@ export default {
         data.append("id", id);
         axios.post(url, data).then((resp) => {
           console.log("resp delete: ", resp.data);
+          this.$store.dispatch("fetchPosts");
         });
       });
-      this.$store.dispatch("fetchPosts");
     },
   },
 };

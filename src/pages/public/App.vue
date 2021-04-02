@@ -70,8 +70,8 @@ html,
 body {
   margin: 0;
   font-family: Akzi;
-  line-height: 2.33vw;
-  font-size: 0.85vw;
+  line-height: 2.333333333333333333333333333333333vw;
+  font-size: 0.95vw;
   scroll-behavior: smooth;
   background: #b2b2b2;
 }

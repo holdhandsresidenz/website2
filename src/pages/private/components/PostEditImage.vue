@@ -7,10 +7,10 @@
     <input type="file" accept="image/*" @change="imageSelected" id="4" />
     <input type="file" accept="image/*" @change="imageSelected" id="5" />
     <input type="file" accept="image/*" @change="imageSelected" id="6" />
-    <button @click="createPicturePost">Bilder hochladen</button>
-    <span v-if="success"
-      >Upload Erfolgreich! Ein neuer Post wurde erstellt.</span
-    >
+    <button v-bind:disabled="isFetching" @click="createPicturePost">
+      Bilder hochladen
+    </button>
+    <span>{{ message }}</span>
   </div>
 </template>
 
@@ -22,7 +22,8 @@ export default {
   data: function () {
     return {
       selectedImages: [],
-      success: null,
+      message: "",
+      isFetching: false,
     };
   },
   methods: {
@@ -40,6 +41,5 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  background: gray;
 }
 </style>

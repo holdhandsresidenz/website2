@@ -7,6 +7,7 @@
       v-bind:key="post.idposts"
       v-bind:post="post"
     ></PostContainer>
+    <div class="placeholder"></div>
   </div>
 </template>
 <script>
@@ -29,7 +30,6 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: row;
-  margin-right: 23vw;
   position: relative;
   min-width: 67vw;
   background: #b2b2b2;
@@ -43,6 +43,6 @@ export default {
 }
 .placeholder {
   height: 100%;
-  width: 20vw;
+  width: 24vw;
 }
 </style>

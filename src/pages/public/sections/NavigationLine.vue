@@ -111,7 +111,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.scrollToPostSection();
-    }, 2000);
+    }, 700);
   },
 };
 </script>

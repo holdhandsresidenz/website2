@@ -29,7 +29,11 @@
         </th>
       </tr>
     </tbody>
-    <button @click="createConnections">Bestätigen</button>
+    <button @click="createConnections" v-bind:disabled="isFetching">
+      Bestätigen
+    </button>
+    <br>
+    <span>{{ message }}</span>
   </div>
 </template>
 
@@ -43,10 +47,19 @@ export default {
   data: function () {
     return {
       selectedQuestions: [],
+      isFetching: false,
+      message: "",
     };
   },
   methods: {
     createConnections() {
+      this.isFetching = true;
+      this.message = "Bitte warten...";
+      let queryDropAll =
+        "DELETE FROM questions_posts WHERE post= " + this.postID;
+      axios.get(this.$store.getters.getBaseURL + "query.php", {
+        params: { query: queryDropAll },
+      });
       let query;
       this.selectedQuestions.forEach((questionID) => {
         query =
@@ -57,8 +70,24 @@ export default {
           " )";
         let data = new FormData();
         data.append("query", query);
-        axios.get(this.$store.getters.getBaseURL + "query.php", data).then();
+        axios
+          .get(this.$store.getters.getBaseURL + "query.php", {
+            params: { query: query },
+          })
+          .then();
       });
+      this.isFetching = false;
+      this.message = "Erfolgreich";
+      this.fetchConnectedQuestions;
+    },
+    fetchConnectedQuestions() {
+      this.$store
+        .dispatch("fetchConnectedQuestions", { postid: this.postID })
+        .then(() => {
+          this.$store.getters.getConnectedQuestions.forEach((conn) =>
+            this.selectedQuestions.push(conn.question)
+          );
+        });
     },
   },
   computed: {
@@ -68,7 +97,7 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch("fetchConnectedQuestions", { postid: this.postID });
+    this.fetchConnectedQuestions;
   },
 };
 </script>

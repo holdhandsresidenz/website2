@@ -70,7 +70,6 @@ const store = new Vuex.Store({
 					let author = question.author
 					let acceptedBy = question.acceptedBy
 					if (acceptedBy) {
-						console.log((Array.from(context.state.users).filter(user => user.idusers === acceptedBy)))
 						question.acceptedBy = (Array.from(context.state.users).filter(user => user.idusers === acceptedBy))[0]
 					}
 					if (author) {
@@ -90,7 +89,6 @@ const store = new Vuex.Store({
 		fetchConnectedQuestions(context, postid) {
 			let baseURL = context.state.baseURL
 			let data = new FormData()
-			console.log(postid)
 			data.append('id', postid.postid)
 			axios.post(baseURL + 'getConnectedQuestions.php', data).then(
 				resp => {

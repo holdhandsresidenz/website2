@@ -1,18 +1,24 @@
 <template>
-<div id="QuestionList" @mouseenter="$store.commit('suspendScroll')" @mouseleave="$store.commit('activateScroll')">
-<div
-    class="Question"
-    v-for="(question, i) in questions"
-    v-bind:key="i"
-    v-bind:class="{
-      odd: (i % 2) == 0,
-      even: (i % 2) != 0,
-      selected: $store.getters.isQuestionByIdSelected(question)
-    }"
-    @click="questionClicked(question)"
->{{question.question}}</div>
-  <br>
-</div>
+  <div
+    id="QuestionList"
+    @mouseenter="$store.commit('suspendScroll')"
+    @mouseleave="$store.commit('activateScroll')"
+  >
+    <div
+      class="Question"
+      v-for="(question, i) in questions"
+      v-bind:key="i"
+      v-bind:class="{
+        odd: i % 2 == 0,
+        even: i % 2 != 0,
+        selected: $store.getters.isQuestionByIdSelected(question),
+      }"
+      @click="questionClicked(question)"
+    >
+      {{ question.question }}
+    </div>
+    <br />
+  </div>
 </template>
 
 <script>
@@ -20,16 +26,16 @@ export default {
   name: "QuestionsList",
   computed: {
     questions() {
-      return this.$store.getters.getQuestions
-    }
+      return this.$store.getters.getQuestions;
+    },
   },
   methods: {
     questionClicked(i) {
-      this.$store.commit('toggleSelectionOfQuestion', i)
-      this.$store.dispatch('updatePostList')
-    }
-  }
-}
+      this.$store.commit("toggleSelectionOfQuestion", i);
+      this.$store.dispatch("updatePostList");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -42,7 +48,7 @@ export default {
 }
 .Question {
   cursor: pointer;
- padding: 0.5rem 0;
+  padding: 0.5rem 0;
 }
 .selected {
   text-decoration: underline;
@@ -56,19 +62,20 @@ export default {
   flex: 5;
   padding: 0.7rem;
 }
-#QuestionList::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
+  z-index: 300;
+  background: #000000;
+
+  width: 3rem;
+}
+*::-webkit-scrollbar-thumb {
   z-index: 300;
   background: #3c2832;
   width: 3rem;
 }
-#QuestionList::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb:hover {
   z-index: 300;
-  background: #0014ff;
-  width: 3rem;
-}
-#QuestionList::-webkit-scrollbar-thumb:hover {
-  z-index: 300;
-  background: #0014ff;
+  background: #3c2832;
   width: 3rem;
 }
 </style>

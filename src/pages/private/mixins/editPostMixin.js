@@ -4,6 +4,8 @@ export const editPostMixin = {
 
 	data: function () {
 		return {
+			isFetching: false,
+			message: "",
 			success: null,
 			postID: 0
 		}
@@ -45,6 +47,8 @@ export const editPostMixin = {
 			return Math.random().toString(36).substring(4, 8)
 		},
 		createPostWithAssets(assets, category) {
+			this.isFetching = true
+			this.message = "Bitte warten Post wird erstellt"
 			let authorID = this.$store.getters.getCurrentUser.idusers
 			let url = this.$store.getters.getBaseURL + 'insertPost.php'
 			let data = new FormData()
@@ -75,6 +79,8 @@ export const editPostMixin = {
 							return
 						})
 					})
+					this.isFetching = false
+					this.message = "Erfolgreich!"
 				})
 			this.success = false
 

@@ -43,4 +43,8 @@ export default {
 </script>
 
 <style scoped>
+.newPost {
+  background: #b2b2b2;
+}
 </style>
+

@@ -39,7 +39,7 @@ export default {
 * {
   font-family: Akzi;
   line-height: 2.33vw;
-  font-size: 1vw;
+  font-size: 0.95vw;
 }
 textarea {
   border: unset;

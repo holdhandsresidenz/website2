@@ -33,6 +33,5 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  background: gray;
 }
 </style>

@@ -12,9 +12,7 @@
     }"
     @click="toggleExpand"
   >
-    <div class="mark">
-      <OrangeFade v-bind:style="{ height: '16.5px' }"></OrangeFade>
-    </div>
+    <div class="mark"></div>
     <OrangeFade></OrangeFade>
     <div
       class="textBox trns"
@@ -69,8 +67,12 @@ export default {
   background: #b2b2b2;
 }
 .mark {
+  background: url("../../../../../assets/Verlauf2.png");
+  background-size: contain;
   position: absolute;
   top: 0;
-  height: 27.5px;
+  margin-left: -1rem;
+  width: 4vw;
+  height: 16.5px;
 }
 </style>

@@ -44,6 +44,7 @@ export default {
       return Math.random() * (b - a) + a;
     },
     show() {
+      console.log("show modal");
       this.isVisible = true;
       this.opacity = 100;
     },
@@ -63,9 +64,10 @@ export default {
 .modalVideo {
   display: flex;
   flex-direction: row;
-  height: 100%;
   position: absolute;
+  height: 100%;
   width: 100%;
+  z-index: 33333;
 }
 iframe {
   width: 100%;

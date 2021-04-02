@@ -9,28 +9,29 @@
     }"
   >
     <div class="orange mark"></div>
-    <div
-      class="trns cutOut"
-      v-bind:style="{
-        marginRight: isExpanded ? '-12vw' : '3vw',
-
-        width: isExpanded ? width + 'vw' : widthClosed + 'vw',
-        height: isExpanded ? '100vh' : heightClosed + 'vh',
-      }"
-      @click="expand"
-    >
-      <img
-        class="trns"
-        v-bind:src="shapes.lara"
-        v-bind:style="{
-          width: width + 'vw',
-        }"
-      />
-
+    <div class="relative">
       <PostVideoModal
         v-if="isExpanded"
         v-bind:link="post.contentHTML"
       ></PostVideoModal>
+
+      <div
+        class="trns cutOut"
+        v-bind:style="{
+          marginRight: isExpanded ? '-12vw' : '3vw',
+          width: isExpanded ? width + 'vw' : widthClosed + 'vw',
+          height: isExpanded ? '100vh' : heightClosed + 'vh',
+        }"
+        @click="expandShape"
+      >
+        <img
+          class="trns"
+          v-bind:src="shapes.lara"
+          v-bind:style="{
+            width: width + 'vw',
+          }"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -54,8 +55,9 @@ export default {
     };
   },
   methods: {
-    expand() {
-      this.toggleExpand;
+    expandShape() {
+      console.log("expand");
+      if (!this.isExpanded) this.isExpanded = !this.isExpanded;
     },
   },
   mounted() {
@@ -77,12 +79,14 @@ export default {
 }
 img {
   cursor: pointer;
-  z-index: 44444;
 }
 .mark {
   position: absolute;
   top: 0;
   height: 16.5px;
   width: 4px;
+}
+.relative {
+  position: relative;
 }
 </style>

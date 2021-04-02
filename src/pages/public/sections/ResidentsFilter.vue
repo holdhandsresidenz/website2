@@ -107,6 +107,6 @@ img {
 }
 .selected {
   text-decoration: underline;
-  text-underline-offset: 0.4rem;
+  text-underline-offset: 0.7vw;
 }
 </style>

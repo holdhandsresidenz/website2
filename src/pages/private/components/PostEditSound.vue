@@ -2,11 +2,16 @@
   <div class="container">
     <span>Bitte Soundfile hochladen auswählen</span>
     <p>(.mp3, maximale Größe: 8mb)</p>
-    <input type="file" accept=".mp3,audio/*" @change="soundfileSelected" />
-    <button @click="createSoundPost">Soundfile hochladen</button>
-    <span v-if="success"
-      >Upload Erfolgreich! Ein neuer Post wurde erstellt.</span
-    >
+    <input
+      v-bind:disabled="isFetching"
+      type="file"
+      accept=".mp3,audio/*"
+      @change="soundfileSelected"
+    />
+    <button v-bind:disabled="isFetching" @click="createSoundPost">
+      Soundfile hochladen
+    </button>
+    <span>{{ message }}</span>
   </div>
 </template>
 
@@ -37,6 +42,5 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  background: gray;
 }
 </style>
