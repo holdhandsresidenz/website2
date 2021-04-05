@@ -57,6 +57,9 @@ export default {
 </script>
 
 <style>
+textarea:focus, input:focus, audio:focus{
+  outline: none;
+}
 .flexx {
   height: 100vh;
   top: 0;

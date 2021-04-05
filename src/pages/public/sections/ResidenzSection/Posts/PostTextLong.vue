@@ -67,11 +67,11 @@ export default {
   background: #b2b2b2;
 }
 .mark {
-  background: url("../../../../../assets/Verlauf2.png");
+  background: url("../../../../../assets/Verlauf2.png") no-repeat;
   background-size: contain;
   position: absolute;
   top: 0;
-  margin-left: -1rem;
+  margin-left: -0.7rem;
   width: 4vw;
   height: 16.5px;
 }

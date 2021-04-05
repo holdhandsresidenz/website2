@@ -4,7 +4,7 @@ import Vue from 'vue';
 Vue.use(Vuex);
 const store = new Vuex.Store({
 	state: {
-		//	baseURL: "http://localhost:8081/",
+		//baseURL: "http://localhost:8081/",
 		baseURL: "php/",
 		currentUser: {username: "", idusers: "", realname: ""},
 		questions: [],

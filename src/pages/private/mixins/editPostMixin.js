@@ -51,8 +51,12 @@ export const editPostMixin = {
 		},
 
 		createPostWithAssets(assets, category) {
+			if (assets.length < 1) {
+				this.message = "Bitte zuerst Dateien auswählen."
+				return
+			}
 			this.isFetching = true
-			this.message = "Bitte warten Post wird erstellt"
+			this.message = "Bitte warten, Post wird erstellt.. (kann je nach Dateigröße und Internetverbindung bis ca. 5 Minuten dauern.)"
 			let authorID = this.$store.getters.getCurrentUser.idusers
 			let url = this.$store.getters.getBaseURL + 'insertPost.php'
 			let data = new FormData()
@@ -64,7 +68,6 @@ export const editPostMixin = {
 					let postID = resp.data
 					console.log('postID:', postID)
 					this.postID = postID
-
 					const URL = this.$store.getters.getBaseURL + "saveFile.php";
 					Array.from(assets).forEach(asset => {
 						let data = new FormData();
@@ -73,11 +76,11 @@ export const editPostMixin = {
 						data.append("path", this.userPath());
 						axios.post(URL, data,).then((response) => {
 							this.isFetching = true
-							this.message = "Asset " + asset + " wird hochgeladen.."
+							this.message = "Asset " + " wird hochgeladen.."
 							if (response.data === 'failed') {
 								this.success = false
 								this.isFetching = false
-								this.message = "Fehler.. Bitte erneut versuchen."
+								this.message = "Fehler... Bitte erneut versuchen."
 								return
 							}
 							let filepath = response.data.substring(3)
@@ -91,7 +94,6 @@ export const editPostMixin = {
 				})
 			this.success = false
 			this.isFetching = false
-			this.message = "Fehler.. Bitte erneut versuchen."
 		}
 	}
 }

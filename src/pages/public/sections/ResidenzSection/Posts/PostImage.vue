@@ -7,14 +7,15 @@
     v-bind:style="{
       width: 30 * numberOfColumns + 'vw',
       marginRight: '-3vw',
+
     }"
   >
     <div
       class="wrapper trns"
       v-bind:style="{
-        marginTop: isExpanded ? '2vh' : marginTop + 'vh',
+        marginTop: isExpanded ? '2.7vh' : marginTop + 'vh',
         height: isExpanded
-          ? 80 + 5 * numberOfColumns + 'vh'
+          ? 90.3 + 'vh'
           : smallImageHeight * numberOfPictures + 'vh',
       }"
     >
@@ -51,7 +52,7 @@ export default {
   methods: {},
   computed: {
     numberOfColumns() {
-      return Math.ceil(Math.sqrt(this.numberOfPictures));
+      return this.numberOfPictures > 2 ? 2 : 3;
     },
   },
   mounted() {

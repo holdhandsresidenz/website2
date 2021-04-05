@@ -78,7 +78,7 @@ export default {
       });
       this.isFetching = false;
       this.message = "Erfolgreich";
-      this.fetchConnectedQuestions;
+      this.fetchConnectedQuestions();
     },
     fetchConnectedQuestions() {
       this.$store
@@ -97,7 +97,7 @@ export default {
   },
 
   mounted() {
-    this.fetchConnectedQuestions;
+    this.fetchConnectedQuestions();
   },
 };
 </script>

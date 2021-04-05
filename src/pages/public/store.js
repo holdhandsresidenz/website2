@@ -48,6 +48,9 @@ const store = new Vuex.Store({
 		},
 		getPostTriggerWidthBack: state => {
 			return state.screenWidth * (2 / 5)
+		},
+		getSelectedResidents: state => {
+			return state.selectedResidents
 		}
 	},
 	mutations: {

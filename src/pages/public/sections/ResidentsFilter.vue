@@ -9,7 +9,7 @@
       >
     </div>
     <img src="../../../assets/Filter_links.png" alt="" class="mirrored" />
-    <div>Beiträge von</div>
+    <span>Beiträge von</span>
     <img src="../../../assets/Filter_links.png" alt="" />
     <div id="residents">
       <span @click="selectMonika" v-bind:class="{ selected: monika }"
@@ -33,7 +33,7 @@ export default {
   data: function () {
     return {
       old: false,
-      neww: false,
+      neww: true,
       random: false,
       monika: false,
       sarafina: false,
@@ -66,7 +66,6 @@ export default {
     },
     selectSarafina() {
       this.sarafina = !this.sarafina;
-
       this.$store.commit("toggleSelectionOfResident", 10);
       this.$store.dispatch("updatePostList");
     },
@@ -89,6 +88,7 @@ export default {
   flex-direction: row;
 }
 span {
+  white-space: nowrap;
   color: #aa3500;
   margin: 0 0.3333rem;
   cursor: pointer;

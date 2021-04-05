@@ -7,7 +7,7 @@
           <th>Typ</th>
           <th>Datum</th>
           <th>Autor:in</th>
-          <th></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>

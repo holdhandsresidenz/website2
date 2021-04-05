@@ -3,8 +3,9 @@
     id="video"
     ref="post"
     v-bind:style="{
-      marginTop: marginTop + 'vh',
+      marginTop: marginTop * 0.8 + 'vh',
       marginRight: '-8vw',
+      width: width + 'vw'
     }"
   >
     <div class="orange mark"></div>
@@ -25,7 +26,7 @@
       >
         <img
           class="trns"
-          v-bind:src="getShapeById($store.getters.getCurrenUser.idusers)"
+          v-bind:src="getShapeById(post.author)"
           v-bind:style="{
             width: width + 'vw',
           }"

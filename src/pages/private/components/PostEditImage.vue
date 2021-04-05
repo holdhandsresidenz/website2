@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <span>Bitte Bilder zum hochladen auswählen</span>
+    <span>Bitte Bilder zum hochladen auswählen.</span>
+    <span>Die Bilder werden nicht nochmal verkleinert, sollten deshalb schon fürs Web optimiert sein.</span>
     <input type="file" accept="image/*" @change="imageSelected" id="1" />
     <input type="file" accept="image/*" @change="imageSelected" id="2" />
     <input type="file" accept="image/*" @change="imageSelected" id="3" />

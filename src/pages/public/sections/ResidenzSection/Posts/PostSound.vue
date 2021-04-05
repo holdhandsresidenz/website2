@@ -3,7 +3,7 @@
     id="sound"
     ref="post"
     v-bind:style="{
-      marginTop: marginTop + 'vh',
+      marginTop: marginTop * 1.7 + 'vh',
       marginLeft: '13vw',
       marginRight: '13vw',
     }"
@@ -40,6 +40,9 @@ export default {
 </script>
 
 <style scoped>
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+  background-color: #aa3500;
+}
 .mark {
   position: absolute;
   top: 0;

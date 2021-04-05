@@ -13,7 +13,7 @@
     <template v-if="isVisible">
       <OrangeFade v-bind:style="{ opacity: opacity }"></OrangeFade>
       <iframe
-        v-bind:src="testLink"
+        v-bind:src="link"
         v-bind:style="{ opacity: opacity }"
       ></iframe>
       <OrangeFade v-bind:style="{ opacity: opacity }"></OrangeFade>
@@ -37,7 +37,7 @@ export default {
     OrangeFade,
   },
   props: {
-    videoLink: String,
+    link: String,
   },
   methods: {
     randomNumberBetween(a, b) {
@@ -46,6 +46,7 @@ export default {
     show() {
       console.log("show modal");
       this.isVisible = true;
+
       this.opacity = 100;
     },
   },
