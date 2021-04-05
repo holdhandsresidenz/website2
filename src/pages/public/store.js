@@ -4,8 +4,8 @@ import axios from "axios";
 Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
-		baseURL: "http://localhost:8081/",
-		//baseURL: "php/",
+		//baseURL: "http://localhost:8081/",
+		baseURL: "php/",
 		scrollLeftPos: 0,
 		scrollLeftSuspendended: false,
 		smallScreen: false,

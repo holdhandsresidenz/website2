@@ -4,7 +4,6 @@
     ref="post"
     v-bind:style="{
       marginTop: marginTop + 'vh',
-      width: width + 'vw',
       marginRight: '-8vw',
     }"
   >
@@ -26,7 +25,7 @@
       >
         <img
           class="trns"
-          v-bind:src="shapes.lara"
+          v-bind:src="getShapeById($store.getters.getCurrenUser.idusers)"
           v-bind:style="{
             width: width + 'vw',
           }"

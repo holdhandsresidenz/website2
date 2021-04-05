@@ -12,7 +12,6 @@ export const editPostMixin = {
 	},
 
 	methods: {
-
 		createPostInDB(category, author, contentHTML,) {
 			let url = this.$store.getters.getBaseURL + 'insertPost.php'
 			let data = new FormData()
@@ -28,24 +27,29 @@ export const editPostMixin = {
 				}
 			)
 		},
+
 		createAssetsInDB(filepathToAsset, idposts) {
+			this.isFetching = true
 			let url = this.$store.getters.getBaseURL + 'insertAsset.php'
 			let data = new FormData()
 			data.append('filepath', filepathToAsset)
 			data.append('post', idposts)
 			axios.post(url, data).then(
 				resp => {
-					console.log('asset in db eingetragen: ' + resp.data)
+					this.isFetching = false
 					return resp.data
 				}
 			)
 		},
+
 		userPath() {
 			return "../posts/" + this.$store.getters.getCurrentUser.username + "/"
 		},
+
 		randomString() {
 			return Math.random().toString(36).substring(4, 8)
 		},
+
 		createPostWithAssets(assets, category) {
 			this.isFetching = true
 			this.message = "Bitte warten Post wird erstellt"
@@ -68,22 +72,26 @@ export const editPostMixin = {
 						data.append("name", this.randomString());
 						data.append("path", this.userPath());
 						axios.post(URL, data,).then((response) => {
+							this.isFetching = true
+							this.message = "Asset " + asset + " wird hochgeladen.."
 							if (response.data === 'failed') {
 								this.success = false
+								this.isFetching = false
+								this.message = "Fehler.. Bitte erneut versuchen."
 								return
 							}
 							let filepath = response.data.substring(3)
 							console.log('datei hochgeladen:', filepath)
 							this.createAssetsInDB(filepath, postID)
 							this.success = true
-							return
+							this.isFetching = false
+							this.message = "Erfolgreich!"
 						})
 					})
-					this.isFetching = false
-					this.message = "Erfolgreich!"
 				})
 			this.success = false
-
+			this.isFetching = false
+			this.message = "Fehler.. Bitte erneut versuchen."
 		}
 	}
 }
