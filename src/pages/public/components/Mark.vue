@@ -16,7 +16,7 @@ export default {
   width: 4vw;
   background: url("../../../assets/Verlauf_blau.png") ;
   background-size: 100%;
-  height: 16.5px;
+  height: 1.5rem;
   z-index: 100;
 }
 @media all and (max-width: 1000px) {

@@ -19,14 +19,14 @@ img {
   left: -0.63vw;
   width: 4vw;
   height: 100%;
-  z-index: 100;
+  z-index: 1003;
 }
 .OrangeFade {
   position: relative;
   width: 0;
-  z-index: 107;
+  left: -0.25vw;
 }
-.mirrored { transform: scaleX(-1);}
+.mirrored { transform: scaleX(-1); left:0}
 @media all and (max-width: 1000px) {
   .OrangeFade {
     width: 6vh;

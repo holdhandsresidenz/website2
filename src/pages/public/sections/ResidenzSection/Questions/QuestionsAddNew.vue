@@ -37,11 +37,13 @@ export default {
 
 <style scoped>
 * {
+  color: #3c2832;
   font-family: Akzi;
   line-height: 2.33vw;
   font-size: 0.95vw;
 }
 textarea {
+  color: #3c2832;
   border: unset;
   resize: none;
   box-sizing: border-box;

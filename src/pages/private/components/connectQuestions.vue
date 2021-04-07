@@ -1,35 +1,35 @@
 <template>
-  <div id="connnect">
+  <div id="connnect" v-if="postID">
     <span
-      >Bitte alle Frage auswählen, bei denen der Beitrag auf der Website
+    >Bitte alle Frage auswählen, bei denen der Beitrag auf der Website
       erscheinen soll</span
     >
     <thead>
-      <tr>
-        <th>Frage</th>
-        <th>Ausgewählt</th>
-      </tr>
+    <tr>
+      <th>Frage</th>
+      <th>Ausgewählt</th>
+    </tr>
     </thead>
 
     <tbody>
-      <tr
+    <tr
         v-for="(question, i) in $store.getters.getAcceptedQuestions"
         v-bind:key="i"
-      >
-        <th>
-          {{ question.question }}
-        </th>
-        <th>
-          <input
-            type="checkbox"
+    >
+      <th>
+        {{ question.question }}
+      </th>
+      <th>
+        <input
             v-bind:id="i"
-            v-bind:value="question.id"
             v-model="selectedQuestions"
-          />
-        </th>
-      </tr>
+            v-bind:disabled="isFetching"
+            type="checkbox"
+            v-bind:value="question.id"/>
+      </th>
+    </tr>
     </tbody>
-    <button @click="createConnections" v-bind:disabled="isFetching">
+    <button v-bind:disabled="isFetching" @click="createConnections">
       Bestätigen
     </button>
     <br>
@@ -39,6 +39,7 @@
 
 <script>
 import axios from "axios";
+
 export default {
   name: "connectQuestions",
   props: {
@@ -53,53 +54,48 @@ export default {
   },
   methods: {
     createConnections() {
-      this.isFetching = true;
-      this.message = "Bitte warten...";
-      let queryDropAll =
-        "DELETE FROM questions_posts WHERE post= " + this.postID;
-      axios.get(this.$store.getters.getBaseURL + "query.php", {
-        params: { query: queryDropAll },
-      });
-      let query;
-      this.selectedQuestions.forEach((questionID) => {
-        query =
-          "INSERT INTO questions_posts (post, question) VALUES ( " +
-          this.postID +
-          ", " +
-          questionID +
-          " )";
-        let data = new FormData();
-        data.append("query", query);
-        axios
-          .get(this.$store.getters.getBaseURL + "query.php", {
-            params: { query: query },
-          })
-          .then();
-      });
-      this.isFetching = false;
-      this.message = "Erfolgreich";
-      this.fetchConnectedQuestions();
+      this.isFetching = true
+      this.message = "Erstelle Verbindungen..."
+      const formData = new FormData()
+      formData.append('postID', this.postID)
+      Array.from(this.selectedQuestions).forEach(qID => {
+        formData.append('questionIDs[]', qID)
+      })
+      let url = this.$store.getters.getBaseURL + 'insertConnection.php'
+      axios.post(url, formData).then(resp => {
+        let data = resp.data
+        if (data === "failed") {
+          this.message ="Es gab einen Fehler... Bitte erneut versuchen!"
+          this.updateSelectedQuestions()
+        } else {
+          this.message = "Vorgang Erfolgreich!"
+        }
+      })
     },
-    fetchConnectedQuestions() {
-      this.$store
-        .dispatch("fetchConnectedQuestions", { postid: this.postID })
-        .then(() => {
-          this.$store.getters.getConnectedQuestions.forEach((conn) =>
-            this.selectedQuestions.push(conn.question)
-          );
-        });
-    },
-  },
-  computed: {
-    getConnections() {
-      return this.$store.getters.getConnectedQuestions;
-    },
-  },
+    updateSelectedQuestions() {
+      let self = this
+      this.selectedQuestions = []
+      this.isFetching = true
+      this.message = "Hole bestehende Verbindungen..."
+      let formData = new FormData()
+      formData.append('id', this.postID)
+      let url = this.$store.getters.getBaseURL + 'getConnectedQuestions.php'
+      axios.post(url, formData).then(resp => {
+        let data = resp.data
+        console.log('Bestehende Verbindungen: ',data)
+        data.forEach(conn => {
+          self.selectedQuestions.push(conn.question)
+        })
+        this.message=""
+        this.isFetching = false
+      })
+    }
 
-  mounted() {
-    this.fetchConnectedQuestions();
   },
-};
+  mounted() {
+    this.updateSelectedQuestions()
+  }
+}
 </script>
 
 <style scoped>

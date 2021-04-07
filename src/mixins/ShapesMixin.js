@@ -6,9 +6,9 @@ export const ShapesMixin = {
 				mickey: require('../assets/Form_Mickey.svg'),
 				lara: require('../assets/Form_Lara.svg'),
 				paula: require('../assets/Form_Paula.svg'),
-				monika: require('../assets/Form_Monika.svg'),
-				sarafina: require('../assets/Form_Serafin.svg'),
-				sunny: require('../assets/Form_Sunny.svg'),
+				monika: require('../assets/Form_Residenz_1.svg'),
+				sarafina: require('../assets/Form_Residenz_2.svg'),
+				sunny: require('../assets/Form_Residenz_3.svg'),
 			}
 		}
 	},

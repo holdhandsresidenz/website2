@@ -16,7 +16,6 @@ const store = new Vuex.Store({
 		filteredPosts: [],
 		assets: [],
 		sortPostsBy: "date"
-
 	},
 	getters: {
 		getQuestions: state => {
@@ -51,6 +50,13 @@ const store = new Vuex.Store({
 		},
 		getSelectedResidents: state => {
 			return state.selectedResidents
+		},
+		isResidentSelected: state => id => {
+			let index =  state.selectedResidents.find(resident => resident === id)
+			return index > -1;
+		},
+		getAssets: state => {
+			return state.assets
 		}
 	},
 	mutations: {
@@ -58,10 +64,10 @@ const store = new Vuex.Store({
 			state.scrollLeftPos = pos
 		},
 		sortPostOld(state) {
-			state.filteredPosts.sort(function (a, b) {return a.timestamp < b.timestamp})
+			state.filteredPosts.sort(function (a, b) {return a.timestamp > b.timestamp})
 		},
 		sortPostNew(state) {
-			state.filteredPosts.sort(function (a, b) {return a.timestamp > b.timestamp})
+			state.filteredPosts.sort(function (a, b) {return a.timestamp < b.timestamp})
 		},
 		sortPostRandom(state) {
 			state.filteredPosts.sort(function () {return Math.random() - 0.5})

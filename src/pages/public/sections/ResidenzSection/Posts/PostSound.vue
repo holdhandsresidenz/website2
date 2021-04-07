@@ -3,7 +3,7 @@
     id="sound"
     ref="post"
     v-bind:style="{
-      marginTop: marginTop * 1.7 + 'vh',
+      marginTop: (marginTop * 1.5) + 3 + 'vh',
       marginLeft: '13vw',
       marginRight: '13vw',
     }"

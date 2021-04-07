@@ -3,7 +3,7 @@
     id="video"
     ref="post"
     v-bind:style="{
-      marginTop: marginTop * 0.8 + 'vh',
+      marginTop: marginTop * 0.4 + 'vh',
       marginRight: '-8vw',
       width: width + 'vw'
     }"

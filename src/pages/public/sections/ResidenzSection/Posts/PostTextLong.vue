@@ -7,7 +7,7 @@
       marginTop: marginTop + 'vh',
       height: height + 'vh',
       width: widthOpen + 'vw',
-      marginRight: '-3vw',
+      marginRight: '3vw',
       marginLeft: '6vw',
     }"
     @click="toggleExpand"
@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     this.height = this.randomNumberBetween(30, 50);
-    this.widthOpen = this.randomNumberBetween(20, 30);
+    this.widthOpen = this.randomNumberBetween(20, 34);
   },
 };
 </script>
@@ -63,7 +63,9 @@ export default {
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-left: 1.5rem;
+  margin-left: 1.2rem;
+  margin-right: 0.2rem;
+  padding-right: 0.3rem;
   background: #b2b2b2;
 }
 .mark {
@@ -73,6 +75,24 @@ export default {
   top: 0;
   margin-left: -0.7rem;
   width: 4vw;
-  height: 16.5px;
+  height: 2rem;
+}
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+*::-webkit-scrollbar-track {
+  z-index: 300;
+  background: rgba(21,255,0,0);
+  width: 3rem;
+}
+*::-webkit-scrollbar-thumb {
+  z-index: 300;
+  background: #3c2832;
+  width: 3rem;
+}
+*::-webkit-scrollbar-thumb:hover {
+  z-index: 300;
+  background: #3c2832;
+  width: 3rem;
 }
 </style>

@@ -15,6 +15,7 @@ export const postMixin = {
 		},
 		setAssets() {
 			this.assets = this.$store.getters.getAssetsByPostId(this.post.idposts)
+			console.log('setting assets of', this.post.idposts, this.assets.length)
 		},
 		setRandomMarginTop() {
 			let min = 0
@@ -50,7 +51,7 @@ export const postMixin = {
 			let rtl = (oldVal >= this.$store.getters.getPostTriggerWidthBack && newVal <= this.$store.getters.getPostTriggerWidthBack)
 			if (ltr || rtl) {
 				this.isExpanded = true
-			} else if (newVal < this.$store.getters.getScreenMiddle / 6 || newVal > this.$store.getters.getScreenMiddle * 1.7) {
+			} else if (newVal < this.$store.getters.getScreenMiddle * 0.5 || newVal > this.$store.getters.getScreenMiddle * 1.7) {
 				this.isExpanded = false
 			}
 		}

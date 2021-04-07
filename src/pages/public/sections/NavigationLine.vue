@@ -26,12 +26,16 @@
       />
     </portal>
     <portal to="residenzLogo">
-      <img
-        id="residenz"
-        class="navPos"
-        src="../../../assets/Navigation/Seite_Residenz_kursiv.png"
-      />
-      <ResidentsFilter></ResidentsFilter>
+      <div
+      class="filterWrapper">
+        <img
+            id="residenz"
+            class="navPos"
+            src="../../../assets/Navigation/Seite_Residenz_kursiv.png"
+        />
+        <ResidentsFilter></ResidentsFilter>
+      </div>
+
     </portal>
     <portal to="navResidenzSection">
       <div id="posts" ref="posts"></div>
@@ -49,7 +53,7 @@
               }
             : {
                 display: scrollPositionVW < 220 ? 'none' : '',
-                opacity: scrollPositionVW < 285 ? '0' : '100%',
+                opacity: scrollPositionVW < 365 ? '0' : '100%',
               }
         "
       />
@@ -66,7 +70,7 @@
               }
             : {
                 display: scrollPositionVW < 220 ? 'none' : '',
-                opacity: scrollPositionVW < 285 ? '0' : '100%',
+                opacity: scrollPositionVW < 365 ? '0' : '100%',
               }
         "
       />
@@ -111,24 +115,33 @@ export default {
   mounted() {
     setTimeout(() => {
       this.scrollToPostSection();
-    }, 700);
+    }, 1400);
   },
 };
 </script>
 
 <style scoped>
+.filterWrapper {
+  display: flex;
+  position: absolute;
+  padding-left: 2vw;
+  flex-direction: row;
+}
+
 .navPos {
   position: relative;
-  padding-top: 10px;
-  height: 20px;
+  padding-top: 0.95rem;
+  height: 1.4rem;
 }
+
 .navLine {
-  top: 16.5px;
+  top: 1.4rem;
   height: 0.17rem;
   position: absolute;
   width: 100%;
 }
 #posts {
+  margin-left: -3vw;
   left: -4vh;
   width: 100vw;
   position: absolute;
@@ -158,9 +171,8 @@ export default {
 }
 
 #residenz {
-  position: absolute;
-  padding-left: 2vw;
-  padding-right: 12vw;
+  display: block;
+  padding-right: 1vw;
   z-index: 103;
 }
 

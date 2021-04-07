@@ -1,6 +1,6 @@
 <template>
   <div id="filter">
-    <img src="../../../assets/Filter_links.png" alt="" />
+    <img src="../../../assets/Filter_links.png" alt=""/>
     <div id="sortierung">
       <span @click="sortByNew" v-bind:class="{ selected: neww }">neueste</span>
       <span @click="sortByOld" v-bind:class="{ selected: old }">älteste</span>
@@ -29,7 +29,6 @@
 <script>
 export default {
   name: "ResidentsFilter",
-
   data: function () {
     return {
       old: false,
@@ -75,14 +74,20 @@ export default {
       this.$store.dispatch("updatePostList");
     },
   },
+  mounted() {
+    let self = this
+    setTimeout(function (){self.$store.dispatch("updatePostList");},500)
+    this.selectMonika()
+    this.selectSarafina()
+    this.selectSunny()
+  }
 };
 </script>
 
 <style scoped>
 #filter {
-  position: absolute;
-  top: 16.5px;
-  left: 18rem;
+  position: relative;
+  top: 1.4rem;
   height: 2rem;
   display: flex;
   flex-direction: row;
@@ -90,6 +95,8 @@ export default {
 span {
   white-space: nowrap;
   color: #aa3500;
+  position: relative;
+  top: -0.3rem;
   margin: 0 0.3333rem;
   cursor: pointer;
 }
@@ -98,7 +105,9 @@ div {
   z-index: 333;
 }
 img {
-  height: 100%;
+  position: relative;
+  top: 0.051rem;
+  height: 80%;
   width: auto;
   margin: 0 0.5vw;
 }

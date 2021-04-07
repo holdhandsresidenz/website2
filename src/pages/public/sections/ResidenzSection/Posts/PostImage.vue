@@ -5,31 +5,30 @@
     ref="post"
     @click="toggleExpand"
     v-bind:style="{
-      width: 30 * numberOfColumns + 'vw',
-      marginRight: '-3vw',
-
+      width: 44  + 'vw',
     }"
   >
+    <div class="orange mark"></div>
     <div
       class="wrapper trns"
+      v-if="assets.length > 0"
       v-bind:style="{
-        marginTop: isExpanded ? '2.7vh' : marginTop + 'vh',
-        height: isExpanded
-          ? 90.3 + 'vh'
-          : smallImageHeight * numberOfPictures + 'vh',
+        marginTop: isExpanded ? (marginTop/3)+3 +'vh' : (marginTop + 3 ) * 1.6 + 'vh',
+        height: isExpanded ? 78.3 + 'vh'
+          : smallImageHeight * numberOfRows + 'vh',
       }"
     >
-      <div class="orange mark"></div>
       <img
+
         class="trns"
         v-for="asset in assets"
         v-bind:src="asset.filepath"
         v-bind:key="asset.idpost_assets"
         v-bind:style="{
-          height: 100 / numberOfColumns + '%',
-          top:
+          height: 100 / numberOfRows + '%',
+          top: isExpanded ? 0 + 'vw' :
             Math.random() * randomnessPosition - randomnessPosition / 2 + 'vw',
-          left:
+          left: isExpanded ? 0 + 'vw' :
             Math.random() * randomnessPosition - randomnessPosition / 2 + 'vw',
         }"
       />
@@ -51,8 +50,8 @@ export default {
   },
   methods: {},
   computed: {
-    numberOfColumns() {
-      return this.numberOfPictures > 2 ? 2 : 3;
+    numberOfRows() {
+      return this.numberOfPictures > 2 ? 2 : 1;
     },
   },
   mounted() {
@@ -64,23 +63,26 @@ export default {
 
 <style scoped>
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  align-items: center;
 }
 #image {
+
 }
 img {
+  z-index: 10001;
   display: block;
   position: relative;
-  align-self: center;
+ align-self: flex-start;
 }
 .mark {
   position: absolute;
   top: 0;
-  height: 16.5px;
-  width: 16.5px;
+  z-index: 222;
+  height: 1.4rem;
+  width: 1.4rem;
 }
 </style>

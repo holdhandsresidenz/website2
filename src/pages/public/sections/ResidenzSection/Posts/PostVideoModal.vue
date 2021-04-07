@@ -13,7 +13,7 @@
     <template v-if="isVisible">
       <OrangeFade v-bind:style="{ opacity: opacity }"></OrangeFade>
       <iframe
-        v-bind:src="link"
+        v-bind:src="link + '?&autoplay=1'"
         v-bind:style="{ opacity: opacity }"
       ></iframe>
       <OrangeFade v-bind:style="{ opacity: opacity }"></OrangeFade>

@@ -1,23 +1,22 @@
 <template>
-  <div id="Posts">
+  <div id="Posts" >
     <portalTarget name="residenzLogo"></portalTarget>
-    <div class="placeholder"></div>
-    <PostContainer
-      v-for="post in $store.getters.getPosts"
-      v-bind:key="post.idposts"
-      v-bind:post="post"
-    ></PostContainer>
+    <PostBio></PostBio>
+      <PostContainer
+          v-for="post in $store.getters.getPosts"
+          v-bind:key="post.idposts"
+          v-bind:post="post"
+      ></PostContainer>
+
     <div class="placeholder"></div>
   </div>
 </template>
 <script>
 import PostContainer from "@/pages/public/sections/ResidenzSection/Posts/PostContainer";
+import PostBio from "@/pages/public/sections/ResidenzSection/Posts/PostBio";
 export default {
   name: "Posts",
-  components: { PostContainer },
-  mounted() {
-    this.$store.dispatch("fetchAssets");
-  },
+  components: {PostBio, PostContainer },
 };
 </script>
 

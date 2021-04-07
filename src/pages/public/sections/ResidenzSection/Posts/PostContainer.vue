@@ -1,5 +1,5 @@
 <template>
-<div id="PostContainer" >
+<div id="PostContainer" v-if="$store.getters.getAssets.length > 0">
   <PostTextLong v-if="post.category === 'textLong'" v-bind:post="post"></PostTextLong>
   <PostTextShort v-if="post.category === 'textShort'" v-bind:post="post"></PostTextShort>
   <PostImage v-if="post.category === 'picture'" v-bind:post="post"></PostImage>
@@ -47,6 +47,8 @@ export default {
 
 <style scoped>
 #PostContainer{
+  position: relative;
+
 }
 
 </style>

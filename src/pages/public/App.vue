@@ -51,6 +51,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("fetchQuestions");
+    this.$store.dispatch("fetchAssets");
     this.$store.commit("setScreenWidth");
   },
 };
