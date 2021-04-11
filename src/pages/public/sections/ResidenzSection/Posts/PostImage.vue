@@ -19,16 +19,15 @@
       }"
     >
       <img
-
         class="trns"
         v-for="asset in assets"
         v-bind:src="asset.filepath"
         v-bind:key="asset.idpost_assets"
         v-bind:style="{
           height: 100 / numberOfRows + '%',
-          top: isExpanded ? 0 + 'vw' :
+          top: isExpanded ? Math.random() * 2+ 'vw' :
             Math.random() * randomnessPosition - randomnessPosition / 2 + 'vw',
-          left: isExpanded ? 0 + 'vw' :
+          left: isExpanded ? Math.random() * 2 + 'vw' :
             Math.random() * randomnessPosition - randomnessPosition / 2 + 'vw',
         }"
       />
@@ -68,6 +67,7 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 #image {
 
@@ -76,7 +76,6 @@ img {
   z-index: 10001;
   display: block;
   position: relative;
- align-self: flex-start;
 }
 .mark {
   position: absolute;

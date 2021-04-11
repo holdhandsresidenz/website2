@@ -111,6 +111,5 @@ export default {
     height: 100vw;
   }
 }
-
- */
+*/
 </style>
